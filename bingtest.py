@@ -17,7 +17,7 @@ content = response.read()
 #content contains the xml/json response from Bing. 
 results = json.loads(content)
 
-relevant = []
+
 
 print "Bing Search Results"
 print "==================="
@@ -32,6 +32,13 @@ for i in xrange(10):
 		print "\nIs this relevant? (Y/N)"
 		answer = raw_input()
 	if answer is "Y":
+		results['d']['results'][i]['relevant'] = 'Y'
 		relevant.append(results['d']['results'][i])
+	else:
+		results['d']['results'][i]['relevant'] = 'N'
 	print "\n==================================================\n"
 print relevant[3]['Url']
+
+
+	
+	
