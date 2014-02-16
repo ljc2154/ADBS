@@ -4,8 +4,13 @@ import json
 from collections import defaultdict		# to initialize dictionary values to 0
 from math import log # for log for idf
 
+# Take query from user
 query = raw_input()
-query = query.replace(" ", "+")
+queryTerms = query.split()
+query = queryTerms[0]
+# Convert query to HTTP string
+for term in xrange(len(queryTerms)-1):
+	query += ("+"+queryTerms[term+1])
 
 bingUrl = 'https://api.datamarket.azure.com/Bing/Search/Web?Query=%27' + query + '%27&$top=10&$format=json'
 #Provide your account key here
@@ -26,6 +31,10 @@ print "==================="
 # Intialize idf dictionary to 0 for all documents
 idf = defaultdict(list)
 
+# Keep track of the number of relevant and irrelevant docs
+relevantCount = 0
+irrelevantCount = 0
+
 # traverse results
 for i in xrange(10):
 	# Print the search result for the user
@@ -39,8 +48,10 @@ for i in xrange(10):
 		print "\nIs this relevant? (Y/N)"
 		answer = raw_input()
 	if answer is "Y":
+		relevantCount = relevantCount + 1
 		docs[i]['relevant'] = 'Y'
 	else:
+		irrelevantCount = irrelevantCount + 1
 		docs[i]['relevant'] = 'N'
 	print "\n==================================================\n"
 
@@ -79,13 +90,50 @@ for key in idf:
 for i in xrange(10):
 	for key in docs[i]['scores']:
 		docs[i]['scores'][key] = docs[i]['scores'][key] * log(10./idf[key][10])
-		print docs[i]['scores'][key]
+
 
 # 2 dictionaries for relevant and nonrelevant
-# taken as sums
-# multiply by coefficients
+relevant = defaultdict(int)
+irrelevant = defaultdict(int)
+for i in xrange(10):
+	if docs[i]['relevant'] == 'Y':
+		for key in docs[i]['scores']:
+			relevant[key] = relevant[key] + docs[i]['scores'][key]
+	else:
+		for key in docs[i]['scores']:
+			relevant[key] = relevant[key] + docs[i]['scores'][key]
+
+
 # merge into master dictionary: subtract relvant from nonrelevant
-# take 2 highest non original query scores from master
+master = defaultdict(int)
+max1Score = -100
+max2Score = -100
+max1Term = ""
+max2Term = ""
+for key in relevant:
+	master[key] = (.75 * relevant[key])/relevantCount - (.15 * irrelevant[key])/irrelevantCount
+	notYetATerm = True
+	for term in queryTerms:
+		if key == term:
+			notYetATerm = False
+	if (notYetATerm):
+		if (master[key] > max1Score):
+			newMax2 = max1Score
+			newMax2Term = max1Term
+			max1Score = master[key]
+			max1Term = key
+			max2Score = newMax2
+			max2Term = newMax2Term
+		elif (master[key] > max2Score):
+			max2Score = master[key]
+			max2Term = key
+
+# Add 2 highest scoring terms to query
+queryTerms.append(max1Term)
+queryTerms.append(max2Term)
+
+for term in queryTerms:
+	print term
 # sort terms by master score
 # set that as new query
 	
