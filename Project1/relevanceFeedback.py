@@ -198,17 +198,3 @@ while (currentPrecision < precision):
 	# Sort query terms by master score
 	def getScore(k): return master[k.lower()]
 	queryTerms.sort(key=getScore, reverse=True)
-t "."
-	print "Augmenting by " + max1Term + " " + max2Term
-	if (max1Term != ""):
-		queryTerms.append(max1Term)
-		if (max2Term != ""):
-			queryTerms.append(max2Term)
-	else:
-		# Halts on same conditions that cause sample program to halt
-		print "Below desired precision, but can no longer augment the query"
-		break
-
-	# Sort query terms by master score
-	def getScore(k): return master[k.lower()]
-	queryTerms.sort(key=getScore, reverse=True)
