@@ -14,7 +14,7 @@ query = sys.argv[2]
 queryTerms = query.split()
 
 # stopWords list obtained from http://norm.al/2009/04/14/list-of-english-stop-words/
-stopWords = ['a', 'able', 'about', 'across', 'after', 'all', 'almost', 'also', 'am', 'among', 'an', 'and', 'any', 'are', 'as', 'at', 'be', 'because', 'been', 'but', 'by', 'can', 'cannot', 'could', 'dear', 'did', 'do', 'does', 'either', 'else', 'ever', 'every', 'for', 'from', 'get', 'got', 'had', 'has', 'have', 'he', 'her', 'hers', 'him', 'his', 'how', 'however', 'i', 'if', 'in', 'into', 'is', 'it', 'its', 'just', 'least', 'let', 'like', 'likely', 'may', 'me', 'might', 'most', 'must', 'my', 'neither', 'no', 'nor', 'not', 'of', 'off', 'often', 'on', 'only', 'or', 'other', 'our', 'own', 'rather', 'said', 'say', 'says', 'she', 'should', 'since', 'so', 'some', 'than', 'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'tis', 'to', 'too', 'twas', 'us', 'wants', 'was', 'we', 'were', 'what', 'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'will', 'with', 'would', 'yet', 'you', 'your']
+stopWords = ['a', 'able', 'about', 'across', 'after', 'all', 'almost', 'also', 'am', 'among', 'an', 'and', 'any', 'are', 'as', 'at', 'be', 'because', 'been', 'but', 'by', 'can', 'cannot', 'could', 'dear', 'did', 'do', 'does', 'either', 'else', 'ever', 'every', 'for', 'from', 'get', 'got', 'had', 'has', 'have', 'he', 'her', 'hers', 'him', 'his', 'how', 'however', 'i', 'if', 'in', 'into', 'is', 'it', 'its', 'just', 'least', 'let', 'like', 'likely', 'may', 'me', 'might', 'most', 'must', 'my', 'neither', 'no', 'nor', 'not', 'of', 'off', 'often', 'on', 'only', 'or', 'other', 'our', 'own', 'rather', 'said', 'say', 'says', 'she', 'should', 'since', 'so', 'some', 'than', 'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'tis', 'to', 'too', 'twas', 'us', 'wants', 'was', 'we', 'were', 'what', 'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'will', 'with', 'would', 'yet', 'you', 'you\'ll', 'your']
 
 # Loop until we have achieved desired precision
 # or we can no longer generate query terms
@@ -26,11 +26,12 @@ while (currentPrecision < precision):
 	accountKey = 'NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ'
 	print "Client key\t= " + accountKey
 
-	# Convert query to HTTP string
+	# Generate query and convert characters to html format
 	query = queryTerms[0]
 	for term in xrange(len(queryTerms)-1):
-		query += ("+"+queryTerms[term+1])
-	print "Query\t\t= " + query.replace("+", " ")
+		query += (" "+queryTerms[term+1])
+	print "Query\t\t= " + query
+	query = query.replace(" ", "+")
 
 	# Output precision to user
 	print "Precision\t= " + str(precision)
@@ -90,10 +91,15 @@ while (currentPrecision < precision):
 		docs[i]['Description'] = docs[i]['Description'].replace('.', '')
 		docs[i]['Description'] = docs[i]['Description'].replace(',', '')
 		docs[i]['Description'] = docs[i]['Description'].replace('&', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('\'', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('!', '')
+
 		# Make description all lowercase
 		docs[i]['Description'] = docs[i]['Description'].lower()
+
 		# terms is the list of words in a document
 		terms = docs[i]['Description'].split()
+		
 		# wordCt represents the number of words in a given document
 		wordCt = float(len(terms))
 
@@ -162,7 +168,7 @@ while (currentPrecision < precision):
 	# note that we disregard terms unique to non-relevant documents
 	for key in relevant:
 		# no coefficients at this time
-		master[key] = relevant[key]/relevantCount - irrelevant[key]/irrelevantCount
+		master[key] = .75*relevant[key]/relevantCount - .15*irrelevant[key]/irrelevantCount
 		notYetATerm = True
 		# Make sure key is not already a query term
 		for term in queryTerms:
