@@ -5,12 +5,15 @@ from collections import defaultdict		# to initialize dictionary values to 0
 from math import log # for log for idf
 import sys						# for argv
 
-# Parse Input from command line
-# accountkey = sys.argv[1]
-# we will have to increment these arg indexes
-precision = float(sys.argv[1])
+# Take input from user
+print "Bing Account Key: ",
+accountKey = raw_input();
+print "\nPrecision: ",
+precision = float(raw_input())
 currentPrecision = -1.0
-query = sys.argv[2]
+print "\nQuery: ",
+query = raw_input()
+# queryTerms is a list of the terms from the query
 queryTerms = query.split()
 
 # stopWords list obtained from http://norm.al/2009/04/14/list-of-english-stop-words/
@@ -22,7 +25,7 @@ while (currentPrecision < precision):
 	# Generate bing api parameters
 	print "Parameters:"
 
-	# account key will eventually be taken from the command line
+	# we will have to remove this line
 	accountKey = 'NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ'
 	print "Client key\t= " + accountKey
 
@@ -99,7 +102,7 @@ while (currentPrecision < precision):
 
 		# terms is the list of words in a document
 		terms = docs[i]['Description'].split()
-		
+
 		# wordCt represents the number of words in a given document
 		wordCt = float(len(terms))
 
