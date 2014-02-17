@@ -8,10 +8,10 @@ import sys						# for argv
 # Take input from user
 print "Bing Account Key: ",
 accountKey = raw_input();
-print "\nPrecision: ",
+print "Precision: ",
 precision = float(raw_input())
 currentPrecision = -1.0
-print "\nQuery: ",
+print "Query: ",
 query = raw_input()
 # queryTerms is a list of the terms from the query
 queryTerms = query.split()
