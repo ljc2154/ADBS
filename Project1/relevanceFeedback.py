@@ -123,7 +123,7 @@ while (currentPrecision < precision):
 		#for each term slurped, increment term's score for document
 		for term in terms:
 			# increment normalized term score
-			docs[i]['scores'][term] = (docs[i]['scores'][term] + 1)/wordCt
+			docs[i]['scores'][term] = docs[i]['scores'][term] + 1/wordCt
 			
 			# elongate list if necessary
 			if (len(idf[term]) is 0):
