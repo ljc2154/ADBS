@@ -4,8 +4,6 @@ import json
 from collections import defaultdict		# to initialize dictionary values to 0
 from math import log # for log for idf
 import sys						# for argv
-import nltk
-from urllib import urlopen
 
 # Parse Input from command line
 # accountkey = sys.argv[1]
@@ -88,35 +86,14 @@ while (currentPrecision < precision):
 		# Initialize all term scores to 0 for document
 		docs[i]['scores'] = defaultdict(int)
 
-		# Retrieve raw text, excluding HTML tags
-		url = docs[i]['Url']
-		html = urlopen(url).read()    
-		raw = nltk.clean_html(html)  
-
 		# Remove unnecessary characters
-		raw = raw.replace('.', '')
-		raw = raw.replace(',', '')
-		raw = raw.replace('\"', '')
-		raw = raw.replace(':', '')
-		raw = raw.replace('/', '')
-		raw = raw.replace('&', '')
-		raw = raw.replace('|', '')
-		raw = raw.replace('^', '')
-		raw = raw.replace('\'', '')
-		raw = raw.replace(';', '')
-		raw = raw.replace('-', '')
-		raw = raw.replace('[', '')
-		raw = raw.replace(']', '')
-		raw = raw.replace(')', '')
-		raw = raw.replace('(', '')
-		raw = raw.replace('#', '')
-		raw = raw.replace('$', '')
-		raw = raw.replace('!', '')
-
+		docs[i]['Description'] = docs[i]['Description'].replace('.', '')
+		docs[i]['Description'] = docs[i]['Description'].replace(',', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('&', '')
 		# Make description all lowercase
-		raw = raw.lower()
+		docs[i]['Description'] = docs[i]['Description'].lower()
 		# terms is the list of words in a document
-		terms = raw.split()
+		terms = docs[i]['Description'].split()
 		# wordCt represents the number of words in a given document
 		wordCt = float(len(terms))
 
@@ -208,6 +185,20 @@ while (currentPrecision < precision):
 
 	# Add 2 highest scoring terms to query
 	print "."
+	print "Augmenting by " + max1Term + " " + max2Term
+	if (max1Term != ""):
+		queryTerms.append(max1Term)
+		if (max2Term != ""):
+			queryTerms.append(max2Term)
+	else:
+		# Halts on same conditions that cause sample program to halt
+		print "Below desired precision, but can no longer augment the query"
+		break
+
+	# Sort query terms by master score
+	def getScore(k): return master[k.lower()]
+	queryTerms.sort(key=getScore, reverse=True)
+t "."
 	print "Augmenting by " + max1Term + " " + max2Term
 	if (max1Term != ""):
 		queryTerms.append(max1Term)
