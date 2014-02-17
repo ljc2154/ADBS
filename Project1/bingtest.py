@@ -195,5 +195,5 @@ while (currentPrecision < precision):
 		print "Below desired precision, but can no longer augment the query"
 
 	# Sort query terms by master score
-	def getScore(k): return master[k]
+	def getScore(k): return master[k.lower()]
 	queryTerms.sort(key=getScore, reverse=True)
