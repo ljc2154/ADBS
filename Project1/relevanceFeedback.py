@@ -4,6 +4,8 @@ import json
 from collections import defaultdict		# to initialize dictionary values to 0
 from math import log # for log for idf
 import sys						# for argv
+import nltk
+from urllib import urlopen
 
 # Parse Input from command line
 # accountkey = sys.argv[1]
@@ -86,14 +88,35 @@ while (currentPrecision < precision):
 		# Initialize all term scores to 0 for document
 		docs[i]['scores'] = defaultdict(int)
 
+		# Retrieve raw text, excluding HTML tags
+		url = docs[i]['Url']
+		html = urlopen(url).read()    
+		raw = nltk.clean_html(html)  
+
 		# Remove unnecessary characters
-		docs[i]['Description'] = docs[i]['Description'].replace('.', '')
-		docs[i]['Description'] = docs[i]['Description'].replace(',', '')
-		docs[i]['Description'] = docs[i]['Description'].replace('&', '')
+		raw = raw.replace('.', '')
+		raw = raw.replace(',', '')
+		raw = raw.replace('\"', '')
+		raw = raw.replace(':', '')
+		raw = raw.replace('/', '')
+		raw = raw.replace('&', '')
+		raw = raw.replace('|', '')
+		raw = raw.replace('^', '')
+		raw = raw.replace('\'', '')
+		raw = raw.replace(';', '')
+		raw = raw.replace('-', '')
+		raw = raw.replace('[', '')
+		raw = raw.replace(']', '')
+		raw = raw.replace(')', '')
+		raw = raw.replace('(', '')
+		raw = raw.replace('#', '')
+		raw = raw.replace('$', '')
+		raw = raw.replace('!', '')
+
 		# Make description all lowercase
-		docs[i]['Description'] = docs[i]['Description'].lower()
+		raw = raw.lower()
 		# terms is the list of words in a document
-		terms = docs[i]['Description'].split()
+		terms = raw.split()
 		# wordCt represents the number of words in a given document
 		wordCt = float(len(terms))
 
