@@ -68,12 +68,12 @@ We based our query-modification method on the Rocchio algorithm in
 Our query-modification method can be divided into 4 major steps:
 1. Document Term Score Compilation
 	a) Scores for all terms intially initialized to 0
-	b) Update the term score for each term in a document with
-		Normalized Term Frequency
+	b) Update the term score for each term in the title and description of a
+		document with Normalized Term Frequency
 		i) We do this for each document by incrementing each term's score by 1
 			divided by the document's term count (1/wordCt) for each term in the
 			document's term list.
-	c) Update the term score for each term in a document with
+	c) Update the term score for each term in title/description of document with
 		Inverse Document Frequency
 		i) We do this for each document by multiplying each term's score by
 			log(docsReturned/idf).
@@ -110,3 +110,7 @@ Bing Search Account Key: NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
 Note: this key is hard-coded into our script
 
 g)     Any additional information that you consider significant.
+We've had difficulty handling the unicode character ’.
+Note that this is not ' or `.
+It appears in the term you’ll which appears many times in a web page description
+when we query with "apple".

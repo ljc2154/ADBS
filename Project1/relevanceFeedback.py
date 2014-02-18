@@ -107,6 +107,7 @@ while (currentPrecision < precision):
 		docs[i]['scores'] = defaultdict(int)
 
 		# Remove unnecessary characters
+		# From description
 		docs[i]['Description'] = docs[i]['Description'].replace('.', '')
 		docs[i]['Description'] = docs[i]['Description'].replace(',', '')
 		docs[i]['Description'] = docs[i]['Description'].replace('&', '')
@@ -115,17 +116,28 @@ while (currentPrecision < precision):
 		docs[i]['Description'] = docs[i]['Description'].replace('\"', '')
 		docs[i]['Description'] = docs[i]['Description'].replace('?', '')
 		docs[i]['Description'] = docs[i]['Description'].replace('@', '')	
+		# From title
+		docs[i]['Title'] = docs[i]['Title'].replace('.', '')
+		docs[i]['Title'] = docs[i]['Title'].replace(',', '')
+		docs[i]['Title'] = docs[i]['Title'].replace('&', '')
+		docs[i]['Title'] = docs[i]['Title'].replace('\'', '')
+		docs[i]['Title'] = docs[i]['Title'].replace('!', '')
+		docs[i]['Title'] = docs[i]['Title'].replace('\"', '')
+		docs[i]['Title'] = docs[i]['Title'].replace('?', '')
+		docs[i]['Title'] = docs[i]['Title'].replace('@', '')
 
-		# Make description all lowercase
+		# Make lowercase
 		docs[i]['Description'] = docs[i]['Description'].lower()
+		docs[i]['Title'] = docs[i]['Title'].lower()
 
-		# terms is the list of words in a document
+		# terms is the list of words in the description and title
 		terms = docs[i]['Description'].split()
+		terms = terms + docs[i]['Title'].split()
 
 		# wordCt represents the number of words in a given document
 		wordCt = float(len(terms))
 
-		#for each term slurped, increment term's score for document
+		# for each term in list, increment term's score for document
 		for term in terms:
 			# increment normalized term score
 			docs[i]['scores'][term] = docs[i]['scores'][term] + 1/wordCt
