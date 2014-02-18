@@ -1,8 +1,8 @@
-a)     Your name and your partner's name and Columbia UNI;
+a)     Your name and your partner's name and Columbia UNI
 Louis Croce ljc2154
 Kevin Mangan kmm2256
 
-b)     A list of all the files that you are submitting;
+b)     A list of all the files that you are submitting
 README.txt: this file
 relevance.py: python script containing program source code
 Makefile: file containing steps to run program
@@ -10,7 +10,7 @@ transcript.txt: text file with test runs of our program from the 3 given
 	test queries "snow leopard", "gates", and "columbia"
 
 c)     A clear description of how to run your program (note that your project
-must compile/run under Linux in your CS account);
+must compile/run under Linux in your CS account)
 1. Change to project directory (ljc2154-proj1)
 2. Run program with command "make"
 3. Enter desired precision following "Precision: " prompt.
@@ -22,7 +22,7 @@ must compile/run under Linux in your CS account);
 The program will update the query and the user will repeat step 5 until the
 desired precision is reached or the query returns no relevant documents.
 
-d)     A clear description of the internal design of your project;
+d)     A clear description of the internal design of your project
 We chose to implement the project using the Python programming language.
 
 STRUCTURE OF CODE
@@ -60,7 +60,7 @@ We also use a dictionary called "idf" that maps terms to a list of bits to
 	measure the idf of a given term.
 	Each index of the list corresponds to a different document.
 
-e)     A detailed description of your query-modification method;
+e)     A detailed description of your query-modification method
 We based our query-modification method on the Rocchio algorithm in
 	correspondence with the scoring and term-weighting of the vector-space model
 	described chapters 9 and 6 of the Introduction to Information Retrieval
@@ -104,3 +104,9 @@ Our query-modification method can be divided into 4 major steps:
 4. Query Generation
 	a) Add terms with 2 highest master term scores to query.
 	b) Sort query by master term score.
+
+f)      Your Bing Search Account Key (so we can test your project)
+Bing Search Account Key: NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
+Note: this key is hard-coded into our script
+
+g)     Any additional information that you consider significant.
