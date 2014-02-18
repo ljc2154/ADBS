@@ -5,9 +5,7 @@ from collections import defaultdict		# to initialize dictionary values to 0
 from math import log # for log for idf
 import sys						# for argv
 
-# Take input from user
-print "Bing Account Key: ",
-accountKey = raw_input();
+# Take input from user.  Note that account key is already hard coded
 print "Precision: ",
 precision = float(raw_input())
 currentPrecision = -1.0
@@ -25,7 +23,7 @@ while (currentPrecision < precision):
 	# Generate bing api parameters
 	print "Parameters:"
 
-	# we will have to remove this line
+	# By defualt, program uses this account key
 	accountKey = 'NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ'
 	print "Client key\t= " + accountKey
 
@@ -62,9 +60,9 @@ while (currentPrecision < precision):
 	# Intialize idf dictionary to 0 for all documents
 	idf = defaultdict(list)
 
-	# Keep track of the number of relevant and irrelevant docs
+	# Keep track of the number of relevant and nonrelevant docs
 	relevantCount = 0
-	irrelevantCount = 0
+	nonrelevantCount = 0
 
 	# traverse results
 	for i in xrange(len(docs)):
@@ -84,39 +82,9 @@ while (currentPrecision < precision):
 			relevantCount = relevantCount + 1
 			docs[i]['relevant'] = 'Y'
 		else:
-			irrelevantCount = irrelevantCount + 1
+			nonrelevantCount = nonrelevantCount + 1
 			docs[i]['relevant'] = 'N'
 
-		# Initialize all term scores to 0 for document
-		docs[i]['scores'] = defaultdict(int)
-
-		# Remove unnecessary characters
-		docs[i]['Description'] = docs[i]['Description'].replace('.', '')
-		docs[i]['Description'] = docs[i]['Description'].replace(',', '')
-		docs[i]['Description'] = docs[i]['Description'].replace('&', '')
-		docs[i]['Description'] = docs[i]['Description'].replace('\'', '')
-		docs[i]['Description'] = docs[i]['Description'].replace('!', '')
-
-		# Make description all lowercase
-		docs[i]['Description'] = docs[i]['Description'].lower()
-
-		# terms is the list of words in a document
-		terms = docs[i]['Description'].split()
-
-		# wordCt represents the number of words in a given document
-		wordCt = float(len(terms))
-
-		#for each term slurped, increment term's score for document
-		for term in terms:
-			# increment normalized term score
-			docs[i]['scores'][term] = docs[i]['scores'][term] + 1/wordCt
-			
-			# elongate list if necessary
-			if (len(idf[term]) is 0):
-				idf[term] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-			# mark idf for this document
-			idf[term][i] = 1
 
 	# We update our users with a summary of their feedback
 	print "======================"
@@ -132,9 +100,45 @@ while (currentPrecision < precision):
 	else:
 		print "Still below the desired precision of " + str(precision)
 
-	# Apply idfs to term scores
+	# Begin indexing terms
 	print "Indexing results",
+	for i in xrange(len(docs)):
+		# Initialize all term scores to 0 for document
+		docs[i]['scores'] = defaultdict(int)
+
+		# Remove unnecessary characters
+		docs[i]['Description'] = docs[i]['Description'].replace('.', '')
+		docs[i]['Description'] = docs[i]['Description'].replace(',', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('&', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('\'', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('!', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('\"', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('?', '')
+		docs[i]['Description'] = docs[i]['Description'].replace('@', '')	
+
+		# Make description all lowercase
+		docs[i]['Description'] = docs[i]['Description'].lower()
+
+		# terms is the list of words in a document
+		terms = docs[i]['Description'].split()
+
+		# wordCt represents the number of words in a given document
+		wordCt = float(len(terms))
+
+		#for each term slurped, increment term's score for document
+		for term in terms:
+			# increment normalized term score
+			docs[i]['scores'][term] = docs[i]['scores'][term] + 1/wordCt
+			
+			# initialize list if necessary
+			if (len(idf[term]) is 0):
+				idf[term] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+			# mark idf for this document
+			idf[term][i] = 1
+
 	# Calculate actual idfs
+	print ".",
 	for key in idf:
 		count = 0
 		for i in xrange(10):
@@ -151,14 +155,14 @@ while (currentPrecision < precision):
 	# 2 dictionaries for relevant and nonrelevant
 	print ".",
 	relevant = defaultdict(int)
-	irrelevant = defaultdict(int)
+	nonrelevant = defaultdict(int)
 	for i in xrange(10):
 		if docs[i]['relevant'] == 'Y':
 			for key in docs[i]['scores']:
 				relevant[key] = relevant[key] + docs[i]['scores'][key]
 		else:
 			for key in docs[i]['scores']:
-				irrelevant[key] = irrelevant[key] + docs[i]['scores'][key]
+				nonrelevant[key] = nonrelevant[key] + docs[i]['scores'][key]
 
 
 	# merge into master dictionary: subtract relvant from nonrelevant
@@ -171,12 +175,12 @@ while (currentPrecision < precision):
 	# note that we disregard terms unique to non-relevant documents
 	for key in relevant:
 		# no coefficients at this time
-		master[key] = .75*relevant[key]/relevantCount - .15*irrelevant[key]/irrelevantCount
+		master[key] = .75*relevant[key]/relevantCount
+		master[key] = master[key] - .15*nonrelevant[key]/nonrelevantCount
 		notYetATerm = True
 		# Make sure key is not already a query term
 		for term in queryTerms:
 			if key == term.lower():
-				master[key] = 1.
 				notYetATerm = False
 
 		# Check if key not a stop word has a high enough score to add to query
@@ -191,6 +195,10 @@ while (currentPrecision < precision):
 			elif (master[key] > max2Score and key not in stopWords):
 				max2Score = master[key]
 				max2Term = key
+
+	# Increment score of previous query terms by some constant
+	for term in queryTerms:
+		master[term.lower()] = master[term.lower()] + 1/len(queryTerms)
 
 	# Add 2 highest scoring terms to query
 	print "."
@@ -207,3 +215,6 @@ while (currentPrecision < precision):
 	# Sort query terms by master score
 	def getScore(k): return master[k.lower()]
 	queryTerms.sort(key=getScore, reverse=True)
+	for term in queryTerms:
+		print term + " " + str(master[term.lower()])
+	print "bill" + " " + str(master["bill"])
