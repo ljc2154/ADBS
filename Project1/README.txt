@@ -5,13 +5,14 @@ Kevin Mangan kmm2256
 b)     A list of all the files that you are submitting
 README.txt: this file
 relevance.py: python script containing program source code
+funcs.py: python file containing functions used in relevance.py
 Makefile: file containing steps to run program
 transcript.txt: text file with test runs of our program from the 3 given
 	test queries "snow leopard", "gates", and "columbia"
 
 c)     A clear description of how to run your program (note that your project
 must compile/run under Linux in your CS account)
-1. Change to project directory (ljc2154-proj1)
+1. Change to project directory if not already there (ljc2154-proj1)
 2. Run program with command "make"
 3. Enter desired precision following "Precision: " prompt.
 4. Enter desired query following "Query: " prompt.
@@ -59,6 +60,10 @@ Similar to a given document's 'scores' mapping, we implement relevant,
 We also use a dictionary called "idf" that maps terms to a list of bits to
 	measure the idf of a given term.
 	Each index of the list corresponds to a different document.
+
+FUNCTIONS
+To enhance the readability of our script, we stored most of our code as
+	functions in the file funcs.py.
 
 e)     A detailed description of your query-modification method
 We based our query-modification method on the Rocchio algorithm in
