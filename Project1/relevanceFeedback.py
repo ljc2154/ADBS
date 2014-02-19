@@ -107,6 +107,7 @@ while (currentPrecision < precision):
 		docs[i]['scores'] = defaultdict(int)
 
 		# Remove unnecessary characters
+		def removeNonAscii(s): return "".join(i for i in s if ord(i)<128)
 		# From description
 		docs[i]['Description'] = docs[i]['Description'].replace('.', '')
 		docs[i]['Description'] = docs[i]['Description'].replace(',', '')
@@ -115,7 +116,8 @@ while (currentPrecision < precision):
 		docs[i]['Description'] = docs[i]['Description'].replace('!', '')
 		docs[i]['Description'] = docs[i]['Description'].replace('\"', '')
 		docs[i]['Description'] = docs[i]['Description'].replace('?', '')
-		docs[i]['Description'] = docs[i]['Description'].replace('@', '')	
+		docs[i]['Description'] = docs[i]['Description'].replace('@', '')
+		docs[i]['Description'] = removeNonAscii(docs[i]['Description'])
 		# From title
 		docs[i]['Title'] = docs[i]['Title'].replace('.', '')
 		docs[i]['Title'] = docs[i]['Title'].replace(',', '')
@@ -125,6 +127,7 @@ while (currentPrecision < precision):
 		docs[i]['Title'] = docs[i]['Title'].replace('\"', '')
 		docs[i]['Title'] = docs[i]['Title'].replace('?', '')
 		docs[i]['Title'] = docs[i]['Title'].replace('@', '')
+		docs[i]['Title'] = removeNonAscii(docs[i]['Title'])
 
 		# Make lowercase
 		docs[i]['Description'] = docs[i]['Description'].lower()
