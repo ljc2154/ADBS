@@ -1,0 +1,648 @@
+Test Cases
+1.     Look for information on the Mac OS X Snow Leopard operating system, starting with the query [snow leopard].
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ljc2154@hanoi /home/ljc2154/ADBS/Project1 $ make
+python relevanceFeedback.py
+Precision:  .9
+Query:  snow leopard
+Parameters:
+Client key	= NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
+Query		= snow leopard
+Precision	= 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27snow+leopard%27&$top=10&$format=json
+Total no of results : 10
+Bing Search Results:
+======================
+Result 1
+[
+ Title: Snow leopard - Wikipedia, the free encyclopedia
+ Description: Snow leopards are slightly smaller than the other big cats but, like them, exhibit a range of sizes, generally weighing between 27 and 55 kg (60 and 121 lb), with an ...
+ Url: http://en.wikipedia.org/wiki/Snow_Leopard
+]
+
+Relevant (Y/N)?
+N
+Result 2
+[
+ Title: Snow Leopards, Snow Leopard Pictures, Snow Leopard Facts ...
+ Description: Learn all you wanted to know about snow leopards with pictures, videos, photos, facts, and news from National Geographic.
+ Url: http://animals.nationalgeographic.com/animals/mammals/snow-leopard/
+]
+
+Relevant (Y/N)?
+N
+Result 3
+[
+ Title: Mac OS X 10.6 Snow Leopard - Apple Store (U.S.)
+ Description: If you need to purchase Mac OS X 10.6 Snow Leopard, you may order it from this page. The most current version of OS X is OS X 10.9 Mavericks.
+ Url: http://store.apple.com/us/product/MC573Z/A/mac-os-x-106-snow-leopard
+]
+
+Relevant (Y/N)?
+Y
+Result 4
+[
+ Title: Snow Leopard | Basic Facts About Snow Leopards | Defenders ...
+ Description: Learn about the size, diet, population, range, behavior and other fascinating facts about snow leopards.
+ Url: http://www.defenders.org/snow-leopard/basic-facts
+]
+
+Relevant (Y/N)?
+N
+Result 5
+[
+ Title: Snow Leopard | Species | WWF - World Wildlife Fund
+ Description: The snow leopard’s powerful build allows it to scale great steep slopes with ease. Its hind legs give the snow leopard the ability to leap six times the length of ...
+ Url: http://worldwildlife.org/species/snow-leopard
+]
+
+Relevant (Y/N)?
+N
+Result 6
+[
+ Title: Snow Leopard | San Diego Zoo Animals
+ Description: So how do snow leopards live at high altitudes? They keep mainly to cliffs and rocky slopes, below the permanent snow line. Snow leopards have a relatively small head ...
+ Url: http://animals.sandiegozoo.org/animals/snow-leopard
+]
+
+Relevant (Y/N)?
+N
+Result 7
+[
+ Title: Apple - Support - Snow Leopard
+ Description: Get help with installing and using Snow Leopard, setting up email accounts, connecting to the Internet, troubleshooting, and much more.
+ Url: http://www.apple.com/support/snowleopard/
+]
+
+Relevant (Y/N)?
+Y
+Result 8
+[
+ Title: Snow Leopard Trust - Official Site
+ Description: Located in Seattle, they work to protect the endangered snow leopard and its Central Asian habitat.
+ Url: http://www.snowleopard.org/
+]
+
+Relevant (Y/N)?
+N
+Result 9
+[
+ Title: OS X - Official Site
+ Description: The new OS X is loaded with new features, apps, and technologies that give you the power to do more. And make your Mac even more energy-efficient.
+ Url: http://www.apple.com/osx/
+]
+
+Relevant (Y/N)?
+Y
+Result 10
+[
+ Title: Amazon.com: snow leopard
+ Description: Mac OS X Server v10.6.3 Snow Leopard - Unlimited Client License by Apple Mac OS X 10.6 "Snow Leopard" Server Unlimited MC190Z/A (DVD-ROM) - Mac OS X Intel
+ Url: http://www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3Asnow%20leopard
+]
+
+Relevant (Y/N)?
+Y
+======================
+FEEDBACK SUMMARY
+Query snow leopard
+Precision 0.4
+Still below the desired precision of 0.9
+Indexing results . . . . . .
+Augmenting by x os
+Parameters:
+Client key	= NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
+Query		= x os leopard snow
+Precision	= 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27x+os+leopard+snow%27&$top=10&$format=json
+Total no of results : 10
+Bing Search Results:
+======================
+Result 1
+[
+ Title: Mac OS X 10.6 Snow Leopard - Apple Store (U.S.)
+ Description: If you need to purchase Mac OS X 10.6 Snow Leopard, you may order it from this page. The most current version of OS X is OS X 10.9 Mavericks.
+ Url: http://store.apple.com/us/product/MC573Z/A/mac-os-x-106-snow-leopard
+]
+
+Relevant (Y/N)?
+Y
+Result 2
+[
+ Title: Mac OS X Snow Leopard - Wikipedia, the free encyclopedia
+ Description: Mac OS X Snow Leopard (version 10.6) is the seventh major release of Mac OS X, Apple's desktop and server operating system for Macintosh computers. Snow ...
+ Url: http://en.wikipedia.org/wiki/Mac_OS_X_Snow_Leopard
+]
+
+Relevant (Y/N)?
+Y
+Result 3
+[
+ Title: Apple - Support - Snow Leopard
+ Description: Get help with installing and using Snow Leopard, setting up email accounts, connecting to the Internet, troubleshooting, and much more.
+ Url: http://www.apple.com/support/snowleopard/
+]
+
+Relevant (Y/N)?
+Y
+Result 4
+[
+ Title: Apple Mac OS X Snow Leopard for Mac - Free download and ...
+ Description: Sneaking in a few days before its promised September release, the tune-up for Mac OS X Leopard costs $29 for current Leopard users, and packs just enough ...
+ Url: http://download.cnet.com/Apple-Mac-OS-X-Snow-Leopard/3000-18513_4-90306.html
+]
+
+Relevant (Y/N)?
+Y
+Result 5
+[
+ Title: OS X - Official Site
+ Description: The new OS X is loaded with new features, apps, and technologies that give you the power to do more. And make your Mac even more energy-efficient.
+ Url: http://www.apple.com/osx/
+]
+
+Relevant (Y/N)?
+Y
+Result 6
+[
+ Title: Amazon.com: Mac OS X version 10.6.3 Snow Leopard (Mac ...
+ Description: Mac OS X Snow Leopard is an even more powerful and refined version of the world’s most advanced operating system. In ways big and small, it gets faster, more ...
+ Url: http://www.amazon.com/version-Leopard-computer-processor-required/dp/B001AMHWP8
+]
+
+Relevant (Y/N)?
+Y
+Result 7
+[
+ Title: Mac OS X - Apple Mac Lion and Snow Leopard reviews and ...
+ Description: CNET's comprehensive Mac OS X Lion and OS X Snow Leopard coverage: Get in-depth analysis of Lion's new features, how much it will cost you, what you'll ...
+ Url: http://www.cnet.com/mac-os-x-snow-leopard/
+]
+
+Relevant (Y/N)?
+Y
+Result 8
+[
+ Title: x os snow leopard | eBay - Electronics, Cars, Fashion ...
+ Description: Visit eBay for great deals on a huge selection x os snow leopard. Shop eBay!
+ Url: http://www.ebay.com/sch/i.html?_nkw=x+os+snow+leopard
+]
+
+Relevant (Y/N)?
+N
+Result 9
+[
+ Title: Mac OS X Leopard - Wikipedia, the free encyclopedia
+ Description: Mac OS X Leopard (version 10.5) is the sixth major release of Mac OS X, Apple's desktop and server operating system for Macintosh computers. Leopard was released on ...
+ Url: http://en.wikipedia.org/wiki/Mac_OS_X_Leopard
+]
+
+Relevant (Y/N)?
+Y
+Result 10
+[
+ Title: mac os snow leopard | eBay - Electronics, Cars, Fashion ...
+ Description: Find great deals on eBay for mac os snow leopard and mac osx snow leopard. Shop with confidence.
+ Url: http://www.ebay.com/sch/i.html?_nkw=mac+os+snow+leopard
+]
+
+Relevant (Y/N)?
+Y
+======================
+FEEDBACK SUMMARY
+Query x os leopard snow
+Precision 0.9
+Desired precision reached, done
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2.     Look for information on Microsoft founder Bill Gates, starting with the query [gates].
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ljc2154@hanoi /home/ljc2154/ADBS/Project1 $ make
+python relevanceFeedback.py
+Precision:  .9
+Query:  gates
+Parameters:
+Client key	= NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
+Query		= gates
+Precision	= 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates%27&$top=10&$format=json
+Total no of results : 10
+Bing Search Results:
+======================
+Result 1
+[
+ Title: Gates - Powering Progress™ in belts, hose & hydraulics
+ Description: Gates Corporation is Powering Progress™ in the Oil & Gas, Energy, Mining, Marine, Agriculture, Transportation and Automotive Industries.
+ Url: http://gates.com/
+]
+
+Relevant (Y/N)?
+N
+Result 2
+[
+ Title: Driveway Gates | Automatic Gates | Electric Gates
+ Description: Driveway Gates - Automatic Gates The high-quality driveway gates from GateCrafters.com come in a wide variety of options to ...
+ Url: http://www.gatecrafters.com/design_your_gates.aspx
+]
+
+Relevant (Y/N)?
+N
+Result 3
+[
+ Title: Automotive | Gates Corporation
+ Description: Gates offers the most complete line of original equipment products, including automotive hoses, belts & accessories for the automotive aftermarket.
+ Url: http://www.gates.com/automotive.cfm
+]
+
+Relevant (Y/N)?
+N
+Result 4
+[
+ Title: Amazon.com: gates
+ Description: In stock but may require an extra 1-2 days to process. FREE Shipping on orders over $35
+ Url: http://www.amazon.com/s?ie=UTF8&page=1&rh=i%3Aaps%2Ck%3Agates
+]
+
+Relevant (Y/N)?
+N
+Result 5
+[
+ Title: Safety Gates - Health & Safety - Babies "R" Us
+ Description: Safety gates available at Babies'R'Us with the best prices and top selections! Shop now for quality, safe and durable baby safety gates and accessories!
+ Url: http://www.toysrus.com/category/index.jsp?categoryId=3243470
+]
+
+Relevant (Y/N)?
+N
+Result 6
+[
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Description: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, investor, programmer, inventor and philanthropist. Gates is the ...
+ Url: http://en.wikipedia.org/wiki/Bill_Gates
+]
+
+Relevant (Y/N)?
+Y
+Result 7
+[
+ Title: Gates | Define Gates at Dictionary.com
+ Description: gate 1 (ɡeɪt) —n: 1. a movable barrier, usually hinged, for closing an opening in a wall, fence, etc: 2. an opening to allow passage into or out of an enclosed place
+ Url: http://dictionary.reference.com/browse/gates
+]
+
+Relevant (Y/N)?
+N
+Result 8
+[
+ Title: Gate - Wikipedia, the free encyclopedia
+ Description: Types . Types of gates include: Baby gate; City gate; Hampshire gate; Kissing gate; Lych gate; Mon (architecture), Japanese gates of many varieties including the Torii
+ Url: http://en.wikipedia.org/wiki/Gate
+]
+
+Relevant (Y/N)?
+N
+Result 9
+[
+ Title: Baby Gates - Babies"R"Us - Toysrus
+ Description: Safe & durable baby gates will keep your baby safe. Choose from a large assortment of baby gates including extra wide gates to suit your needs. Shop today.
+ Url: http://www.toysrus.com/family/index.jsp?categoryId=2256222
+]
+
+Relevant (Y/N)?
+N
+Result 10
+[
+ Title: Town of Gates - A Community For All People
+ Description: Gates, New York is a dynamic town in Monroe County with an interesting past and a bright future. The town was incorporated in 1813 and was the last remnants of ...
+ Url: http://www.townofgates.org/
+]
+
+Relevant (Y/N)?
+N
+======================
+FEEDBACK SUMMARY
+Query gates
+Precision 0.1
+Still below the desired precision of 0.9
+Indexing results . . . . . .
+Augmenting by bill programmer
+Parameters:
+Client key	= NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
+Query		= gates bill programmer
+Precision	= 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27gates+bill+programmer%27&$top=10&$format=json
+Total no of results : 10
+Bing Search Results:
+======================
+Result 1
+[
+ Title: Bill Gates, programmer? | ZDNet - ZDNet | Technology News ...
+ Description: Bill Gates, programmer? Summary: Clearly he did some programming in his teen years but we don't know what he worked on, and while Paul Allen went on to write advanced ...
+ Url: http://www.zdnet.com/blog/murphy/bill-gates-programmer/640
+]
+
+Relevant (Y/N)?
+Y
+Result 2
+[
+ Title: Bill Gates (American computer programmer, businessman, and ...
+ Description: American computer programmer and entrepreneur who cofounded Microsoft Corporation, the world’s largest personal-computer software company. Gates wrote his first ...
+ Url: http://www.britannica.com/EBchecked/topic/226865/Bill-Gates
+]
+
+Relevant (Y/N)?
+Y
+Result 3
+[
+ Title: Bill Gates - Wikipedia, the free encyclopedia
+ Description: William Henry "Bill" Gates III (born October 28, 1955) is an American business magnate, investor, programmer, inventor and philanthropist. Gates is the former chief ...
+ Url: http://en.wikipedia.org/wiki/Bill_Gates
+]
+
+Relevant (Y/N)?
+Y
+Result 4
+[
+ Title: Bill Gates–1986 | Programmers At Work
+ Description: As chief executive officer of Microsoft, William H. (Bill) Gates is considered one of the driving forces behind today's personal computing and office automation industry.
+ Url: http://programmersatwork.wordpress.com/bill-gates-1986/
+]
+
+Relevant (Y/N)?
+Y
+Result 5
+[
+ Title: Top 5 Computer Programmers in the World ~ Tricks Lab
+ Description: Bill Gates Bill Gates: Founder of world's largest software company Microsoft, ... Most graduates today are more advanced programmers than Bill Gates ever was.
+ Url: http://www.trickslab.net/2013/05/Top-5-Programmers.html
+]
+
+Relevant (Y/N)?
+Y
+Result 6
+[
+ Title: Is Bill Gates the best computer technician/programmer in ...
+ Description: Best Answer: I bet Billy doesnt even know how to write code anymore. ... Bill ran his company like an Economist. I give him credit for understanding the ...
+ Url: http://answers.yahoo.com/question/index?qid=20090311104329AAdV0pq
+]
+
+Relevant (Y/N)?
+Y
+Result 7
+[
+ Title: Bill Gates Biography - Facts, Birthday, Life Story ...
+ Description: Biography.com tracks the life and career of Bill Gates, from his early interest in computer programming to his place as founder of Microsoft, the world's largest ...
+ Url: http://www.biography.com/people/bill-gates-9307520
+]
+
+Relevant (Y/N)?
+Y
+Result 8
+[
+ Title: Is Bill Gates the best programmer in the world?
+ Description: Best Answer: I'd be surprised if Mr Gates wrote more than 0.01% of either Windows or Office, so that's not really the way to measure his programming abilities. I ...
+ Url: http://answers.yahoo.com/question/index?qid=20130811101453AA9KR0P
+]
+
+Relevant (Y/N)?
+Y
+Result 9
+[
+ Title: Bill Gates Quotes
+ Description: A collection of quotes from Microsoft co-founder, computer programmer, and philanthropist Bill Gates (1955- ).
+ Url: http://www.notable-quotes.com/g/gates_bill.html
+]
+
+Relevant (Y/N)?
+Y
+Result 10
+[
+ Title: How good a programmer was Bill Gates? - Quora
+ Description: Answer (1 of 2): That's kind of like asking "How good a quarter back is Dan Marino today". He's one of the best QB's of all time. But he no longer plays. Bill has ...
+ Url: http://www.quora.com/How-good-a-programmer-was-Bill-Gates
+]
+
+Relevant (Y/N)?
+Y
+======================
+FEEDBACK SUMMARY
+Query gates bill programmer
+Precision 1.0
+Desired precision reached, done
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+3.     Look for information on our university, starting with the query [columbia].
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ljc2154@hanoi /home/ljc2154/ADBS/Project1 $ make
+python relevanceFeedback.py
+Precision:  .9
+Query:  columbia
+Parameters:
+Client key	= NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
+Query		= columbia
+Precision	= 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27columbia%27&$top=10&$format=json
+Total no of results : 10
+Bing Search Results:
+======================
+Result 1
+[
+ Title: Columbia Sportswear - Official Site
+ Description: Shop direct from Columbia Sportswear. Buy Columbia jackets, pants, shirts, fleece, shoes, boots & sweaters. Visit our blog, watch videos & meet our athletes.
+ Url: http://www.columbia.com/
+]
+
+Relevant (Y/N)?
+N
+Result 2
+[
+ Title: Columbia University - Official Site
+ Description: Founded in 1754 as King's College by royal charter, it is the oldest institution of higher learning in the State of New York. Located in New York City and a member of ...
+ Url: http://www.columbia.edu/
+]
+
+Relevant (Y/N)?
+Y
+Result 3
+[
+ Title: Columbia (name) - Wikipedia, the free encyclopedia
+ Description: Columbia is a historical and poetic name used for the United States of America and is also the name of its female personification. It has inspired the names of many ...
+ Url: http://en.wikipedia.org/wiki/Columbia_(name)
+]
+
+Relevant (Y/N)?
+N
+Result 4
+[
+ Title: :: Welcome to the City of Columbia ::
+ Description: The Columbia City Hall, also known as Old United States Court House and Post Office, was built in 1870.It was listed on the National Register of Historic Places in 1973.
+ Url: http://columbiasc.net/
+]
+
+Relevant (Y/N)?
+N
+Result 5
+[
+ Title: Columbia Sportswear | International > Select a Country
+ Description: Welcome to the Greater Outdoors. Experience the Columbia Sportswear website specific to your country and language. Learn more about our products and find out where to ...
+ Url: http://www.columbia.com/on/demandware.store/Sites-Columbia_US-Site/default/Home-SelectCountry
+]
+
+Relevant (Y/N)?
+N
+Result 6
+[
+ Title: Columbia, Missouri - Official Site
+ Description: The City of Columbia Missouri's official web site. Perform business transactions, view services, department information, upcoming meetings and events.
+ Url: http://www.gocolumbiamo.com/
+]
+
+Relevant (Y/N)?
+N
+Result 7
+[
+ Title: Home | Columbia Business School
+ Description: Columbia Business School brings a global perspective, cutting-edge methodology, and the energy of New York City to its MBA, EMBA, Executive Education, PhD, and MS ...
+ Url: http://www8.gsb.columbia.edu/
+]
+
+Relevant (Y/N)?
+Y
+Result 8
+[
+ Title: Columbia, California | Historic Gold Rush Town
+ Description: Come discover Columbia and explore the rich history of this charming California Gold Rush town located in the heart of the Mother Lode off of highway 49.
+ Url: http://www.visitcolumbiacalifornia.com/
+]
+
+Relevant (Y/N)?
+N
+Result 9
+[
+ Title: Columbia University - Wikipedia, the free encyclopedia
+ Description: Columbia University in the City of New York, commonly referred to as Columbia University, is an American private Ivy League research university located in ...
+ Url: http://en.wikipedia.org/wiki/Columbia_university
+]
+
+Relevant (Y/N)?
+Y
+Result 10
+[
+ Title: Columbia Restaurant - Official Site
+ Description: The Columbia Restaurant Group corporate home page. Entry point to information about Florida's oldest restaurant, The Columbia Restaurant.
+ Url: http://www.columbiarestaurant.com/
+]
+
+Relevant (Y/N)?
+N
+======================
+FEEDBACK SUMMARY
+Query columbia
+Precision 0.3
+Still below the desired precision of 0.9
+Indexing results . . . . . .
+Augmenting by university school
+Parameters:
+Client key	= NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
+Query		= columbia university school
+Precision	= 0.9
+URL: https://api.datamarket.azure.com/Bing/Search/Web?Query=%27columbia+university+school%27&$top=10&$format=json
+Total no of results : 10
+Bing Search Results:
+======================
+Result 1
+[
+ Title: Columbia University - Official Site
+ Description: Founded in 1754 as King's College by royal charter, it is the oldest institution of higher learning in the State of New York. Located in New York City and a member of ...
+ Url: http://www.columbia.edu/
+]
+
+Relevant (Y/N)?
+Y
+Result 2
+[
+ Title: The School at Columbia University - Official Site
+ Description: Elementary school for children in school districts 3 and 5, through a random lottery. Describes philosophy, curriculum, admissions, tuition, and other topics.
+ Url: http://theschool.columbia.edu/
+]
+
+Relevant (Y/N)?
+Y
+Result 3
+[
+ Title: Columbia College, Columbia University - Official Site
+ Description: Columbia College’s Phi Beta Kappa chapter welcomed 22 new members as Junior Phi Beta Kappa members on January 31.
+ Url: http://www.college.columbia.edu/
+]
+
+Relevant (Y/N)?
+Y
+Result 4
+[
+ Title: Columbia University - Wikipedia, the free encyclopedia
+ Description: Columbia University in the City of New York, commonly referred to as Columbia University, is an American private Ivy League research university located in the ...
+ Url: http://en.wikipedia.org/wiki/Columbia_university
+]
+
+Relevant (Y/N)?
+Y
+Result 5
+[
+ Title: School News : News Item : Two+Columbia+Business+School ...
+ Description: NEW YORK — Columbia Business School is pleased to announce that two distinguished economists, Ilyana Kuziemko and Emi Nakamura, have been selected as ...
+ Url: http://www4.gsb.columbia.edu/news/item/7331821/Two+Columbia+Business+School+Professors+Awarded+2014+Sloan+Research+Fellowships
+]
+
+Relevant (Y/N)?
+Y
+Result 6
+[
+ Title: Columbia Law School - Official Site
+ Description: Features news about events at the Law School and recent publications of the Law School's faculty. For prospective students, the site offers curriculum information ...
+ Url: http://www.law.columbia.edu/
+]
+
+Relevant (Y/N)?
+Y
+Result 7
+[
+ Title: Schools | Columbia University in the City of New York
+ Description: Architecture, Planning & Preservation » The school's international leadership role invites all the disciplines devoted to the built environment to think differently.
+ Url: http://www.columbia.edu/content/schools.html
+]
+
+Relevant (Y/N)?
+Y
+Result 8
+[
+ Title: Columbia University School of Nursing
+ Description: Announcing the future home of Columbia University School of Nursing. Columbia Nursing faces a historic opportunity. Our new building will create an environment where ...
+ Url: http://www.cumc.columbia.edu/nursing/
+]
+
+Relevant (Y/N)?
+Y
+Result 9
+[
+ Title: Admissions | Columbia University in the City of New York
+ Description: For information on admission to a Columbia school, select the appropriate school from the drop-down menu on the right.
+ Url: http://www.columbia.edu/content/admissions.html
+]
+
+Relevant (Y/N)?
+Y
+Result 10
+[
+ Title: Columbia College Today
+ Description: MY COLUMBIA. Columbia University Development and Alumni Relations recently launched its redesigned website, Columbia Connection, which offers myriad ...
+ Url: http://www.college.columbia.edu/cct_archive/sep05/cover3.php
+]
+
+Relevant (Y/N)?
+Y
+======================
+FEEDBACK SUMMARY
+Query columbia university school
+Precision 1.0
+Desired precision reached, done
+
