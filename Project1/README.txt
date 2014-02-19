@@ -110,7 +110,3 @@ Bing Search Account Key: NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
 Note: this key is hard-coded into our script
 
 g)     Any additional information that you consider significant.
-We've had difficulty handling the unicode character ’.
-Note that this is not ' or `.
-It appears in the term you’ll which appears many times in a web page description
-when we query with "apple".

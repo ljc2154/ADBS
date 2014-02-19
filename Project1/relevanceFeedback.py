@@ -3,7 +3,7 @@ import base64
 import json
 from collections import defaultdict		# to initialize dictionary values to 0
 from math import log # for log for idf
-import sys						# for argv
+import funcs
 
 # Take input from user.  Note that account key is already hard coded
 print "Precision: ",
@@ -41,49 +41,12 @@ while (currentPrecision < precision):
 	bingUrl = 'https://api.datamarket.azure.com/Bing/Search/Web?Query=%27' + query + '%27&$top=10&$format=json'
 	print "URL: " + bingUrl
 
-	# Query bing api and receive response
-	accountKeyEnc = base64.b64encode(accountKey + ':' + accountKey)
-	headers = {'Authorization': 'Basic ' + accountKeyEnc}
-	req = urllib2.Request(bingUrl, headers = headers)
-	response = urllib2.urlopen(req)
-
-	# content contains the xml/json response from Bing. 
-	content = response.read()
-	results = json.loads(content)
-
+	# Query bing api
 	# docs is a list of results stored as dictionaries
-	docs = results['d']['results']
-	print "Total no of results : " + str(len(docs))
-	print "Bing Search Results:"
-	print "======================"
+	docs = funcs.queryBing(query, bingUrl, accountKey)
 
-	# Intialize idf dictionary to 0 for all documents
-	idf = defaultdict(list)
-
-	# Keep track of the number of relevant and nonrelevant docs
-	relevantCount = 0
-	nonrelevantCount = 0
-
-	# traverse results
-	for i in xrange(len(docs)):
-		# Print the search result for the user
-		print "Result", i+1
-		print "["
-		print " Title: " + docs[i]['Title']
-		print " Description: " + docs[i]['Description']
-		print " Url: " + docs[i]['Url']
-		print "]\n"
-		# Obtain relevance feedback and update rel/irrel info
-		answer = "X"
-		while answer is not "Y" and answer is not "N":
-			print "Relevant (Y/N)?"
-			answer = raw_input()
-		if answer is "Y":
-			relevantCount = relevantCount + 1
-			docs[i]['relevant'] = 'Y'
-		else:
-			nonrelevantCount = nonrelevantCount + 1
-			docs[i]['relevant'] = 'N'
+	# Display query results and obtain relevance feedback from user
+	docs = funcs.displayResultsAndGetFeedback(docs)
 
 
 	# We update our users with a summary of their feedback
@@ -92,16 +55,13 @@ while (currentPrecision < precision):
 	print "Query " + query.replace("+", " ")
 
 	# Check precision
-	currentPrecision = float(relevantCount) / len(docs)
-	print "Precision " + str(currentPrecision)
-	if (currentPrecision >= precision):
-		print "Desired precision reached, done"
+	if funcs.precisionReached(docs, precision):
 		break
-	else:
-		print "Still below the desired precision of " + str(precision)
 
 	# Begin indexing terms
 	print "Indexing results",
+	# Intialize idf dictionary to 0 for all documents
+	idf = defaultdict(list)
 	for i in xrange(len(docs)):
 		# Initialize all term scores to 0 for document
 		docs[i]['scores'] = defaultdict(int)
@@ -156,13 +116,13 @@ while (currentPrecision < precision):
 	print ".",
 	for key in idf:
 		count = 0
-		for i in xrange(10):
+		for i in xrange(len(docs)):
 			count = count + idf[key][i]
 		idf[key][10] = count
 
 	# Apply idf to document's term scores
 	print ".",
-	for i in xrange(10):
+	for i in xrange(len(docs)):
 		for key in docs[i]['scores']:
 			docs[i]['scores'][key] = docs[i]['scores'][key] * log(10./idf[key][10])
 
@@ -171,7 +131,7 @@ while (currentPrecision < precision):
 	print ".",
 	relevant = defaultdict(int)
 	nonrelevant = defaultdict(int)
-	for i in xrange(10):
+	for i in xrange(len(docs)):
 		if docs[i]['relevant'] == 'Y':
 			for key in docs[i]['scores']:
 				relevant[key] = relevant[key] + docs[i]['scores'][key]
@@ -190,8 +150,8 @@ while (currentPrecision < precision):
 	# note that we disregard terms unique to non-relevant documents
 	for key in relevant:
 		# no coefficients at this time
-		master[key] = .75*relevant[key]/relevantCount
-		master[key] = master[key] - .15*nonrelevant[key]/nonrelevantCount
+		master[key] = .75*relevant[key]/funcs.getRelevantCount(docs)
+		master[key] = master[key] - .15*nonrelevant[key]/(1-funcs.getRelevantCount(docs))
 		notYetATerm = True
 		# Make sure key is not already a query term
 		for term in queryTerms:
