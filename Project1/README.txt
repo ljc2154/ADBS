@@ -26,26 +26,14 @@ desired precision is reached or the query returns no relevant documents.
 d)     A clear description of the internal design of your project
 We chose to implement the project using the Python programming language.
 
-STRUCTURE OF CODE
-Our program runs our python script which consists of an initial information
-	gathering stage followed by a while loop.
-The while loop consists of four steps:
-	1. query bing API and store results in the program
-	2. output results one by one to user
-		a) record relevance feedback
-		b) score document's terms
-	3. perform further indexing
-		a) update document's term frequency information for term score
-		b) apply idf to term score
-		c) compile overall relevant/nonrelevant term scores
-		d) compute master term scores using rocchio algorithm
-	4. update query with top 2 term scores that aren't in query or stop words
-
 DATA STRUCTURES
 In this project, we made extensive use of Python's dictionary data type as
 	well as Python's list data type.
 We store the query terms as well as the stop words in lists
 	(queryTerms and stopWords).
+NOTE: Because we used the dictionary data type and because we will not be
+	graded on efficiency, we were essentially able to index while applying term
+	frequency to a term's score computation for a given document.
 When the documents were returned from the bing query, they are converted from
 	json to a list of dictionaries.
 	We store this list of dictionaries in our own variable docs.
@@ -64,6 +52,23 @@ We also use a dictionary called "idf" that maps terms to a list of bits to
 FUNCTIONS
 To enhance the readability of our script, we stored most of our code as
 	functions in the file funcs.py.
+
+STRUCTURE OF CODE
+Our program runs our python script which consists of an initial information
+	gathering stage followed by a while loop.
+The while loop consists of four steps:
+	1. query bing API and store results in the program
+	2. output results one by one to user
+		a) record relevance feedback
+		b) remove unnecessary characters from document
+	3. Indexing/Scoring
+		a) generate terms list for each document
+		b) update a term in a doc's score with normalized term frequency
+				while indexing (in our df dictionary of lists)
+		c) apply idf to term score
+		d) compile overall relevant/nonrelevant term scores
+		e) compute master term scores using rocchio algorithm
+	4. update query with top 2 term scores that aren't in query or stop words
 
 e)     A detailed description of your query-modification method
 We based our query-modification method on the Rocchio algorithm in
@@ -111,7 +116,7 @@ Our query-modification method can be divided into 4 major steps:
 	b) Sort query by master term score.
 
 f)      Your Bing Search Account Key (so we can test your project)
-Bing Search Account Key: NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ
+Bing Search Account Key: 9e0ZegIk++5Y9nY4guIsePsyEoKHw//0Cz9btJYlTAY
 Note: this key is hard-coded into our script
 
 g)     Any additional information that you consider significant.
