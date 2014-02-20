@@ -64,7 +64,7 @@ The while loop consists of four steps:
 	3. Indexing/Scoring
 		a) generate terms list for each document
 		b) update a term in a doc's score with normalized term frequency
-				while indexing (in our df dictionary of lists)
+				while also indexing by term (in our df dictionary of lists)
 		c) apply idf to term score
 		d) compile overall relevant/nonrelevant term scores
 		e) compute master term scores using rocchio algorithm
