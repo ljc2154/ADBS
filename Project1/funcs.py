@@ -43,7 +43,7 @@ def displayResultsAndStoreFeedback(docs):
 		# Obtain relevance feedback and update rel/irrel info
 		answer = "X"
 		while answer is not "Y" and answer is not "N":
-			print "Relevant (Y/N)?"
+			print "Relevant (Y/N)?",
 			answer = raw_input()
 		if answer is "Y":
 			docs[i]['relevant'] = 'Y'
@@ -148,7 +148,7 @@ def generateRelNonRelDicts(docs):
 
 # Merge term scores from relevant and nonrelevant dictionaries into
 # 1 dictionary using the Rocchio algorithm
-def generateMasterDict(relevant, nonrelevant, docs, queryTerms, roundAdded):
+def generateMasterDict(relevant, nonrelevant, docs, queryTerms):
 	# determine number of relevant docs
 	relevantCount = getRelevantCount(docs)
 
@@ -167,7 +167,7 @@ def generateMasterDict(relevant, nonrelevant, docs, queryTerms, roundAdded):
 	# Set query terms to higher score
 	for term in queryTerms:
 		master[term.lower()] = 1
-		
+
 	return master
 
 # returns the keys with the two highest scores not yet in queryTerms

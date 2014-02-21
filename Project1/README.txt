@@ -109,8 +109,7 @@ Our query-modification method can be divided into 4 major steps:
 			Gamma constant (we used .15).
 	c) Weight previous query terms higher
 		i) Similar to how Rocchio uses an alpha constant multiplied by the query
-			term score, we decided to increment the master scores by 1 divided
-			by the number of terms in the previous query.
+			term score, we decided to set the master scores to 1.
 4. Query Generation
 	a) Add terms with 2 highest master term scores to query.
 	b) Sort query by master term score.
