@@ -148,7 +148,7 @@ def generateRelNonRelDicts(docs):
 
 # Merge term scores from relevant and nonrelevant dictionaries into
 # 1 dictionary using the Rocchio algorithm
-def generateMasterDict(relevant, nonrelevant, docs, queryTerms):
+def generateMasterDict(relevant, nonrelevant, docs, queryTerms, roundAdded):
 	# determine number of relevant docs
 	relevantCount = getRelevantCount(docs)
 
@@ -164,9 +164,10 @@ def generateMasterDict(relevant, nonrelevant, docs, queryTerms):
 			if key == term.lower():
 				notYetATerm = False
 
-	# Increment score of previous query terms by some constant
+	# Set query terms to higher score
 	for term in queryTerms:
-		master[term.lower()] = master[term.lower()] + 1/len(queryTerms)
+		master[term.lower()] = 1
+		
 	return master
 
 # returns the keys with the two highest scores not yet in queryTerms

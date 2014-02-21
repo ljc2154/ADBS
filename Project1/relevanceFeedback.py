@@ -14,6 +14,14 @@ query = raw_input()
 # queryTerms is a list of the terms from the query
 queryTerms = query.split()
 
+# roundAdded maps a query term to the round of relevance feedback it was added
+roundAdded = defaultdict(int)
+for term in queryTerms:
+	roundAdded[term] = 1
+
+# rnd is the current round of relevance feedback we are on
+rnd = 1
+
 # Loop until we have achieved desired precision
 # or we can no longer generate query terms
 while (currentPrecision < precision):
@@ -21,7 +29,7 @@ while (currentPrecision < precision):
 	print "Parameters:"
 
 	# By defualt, program uses this account key
-	accountKey = 'NCei/F/B/mWf0X51305yv4IqAv8uuJKQ1Fx55SGzMqQ'
+	accountKey = '9e0ZegIk++5Y9nY4guIsePsyEoKHw//0Cz9btJYlTAY'
 	print "Client key\t= " + accountKey
 
 	# Generate query and convert characters to html format
@@ -99,7 +107,8 @@ while (currentPrecision < precision):
 
 	# merge into master dictionary: apply Rocchio Algorithm
 	print ".",
-	master = funcs.generateMasterDict(relevant, nonrelevant, docs, queryTerms)
+	master = funcs.generateMasterDict(relevant, nonrelevant, docs, queryTerms,
+							roundAdded)
 
 	# determine the two highest scoring terms not yet in query
 	print ".",
@@ -110,8 +119,10 @@ while (currentPrecision < precision):
 	print "Augmenting by " + max1Term + " " + max2Term
 	if (max1Term != ""):
 		queryTerms.append(max1Term)
+		roundAdded[max1Term] = rnd + 1
 		if (max2Term != ""):
 			queryTerms.append(max2Term)
+			roundAdded[max2Term] = rnd + 1
 	else:
 		# Halts on same conditions that cause sample program to halt
 		print "Below desired precision, but can no longer augment the query"
@@ -120,3 +131,6 @@ while (currentPrecision < precision):
 	# Sort query terms by master score
 	def getScore(k): return master[k.lower()]
 	queryTerms.sort(key=getScore, reverse=True)
+
+	# Increment feedback round
+	rnd = rnd + 1
