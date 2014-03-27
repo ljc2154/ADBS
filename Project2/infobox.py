@@ -46,24 +46,23 @@ for result in search_results:
 				person['description'] = setDictVals(person['description'], properties, '/common/topic/description')	
 				infobox['person'] = person
 
-				# Check if search result is an Author, Actor, or BusinessPerson
-				isAuthor = False
-				isActor = False
-				isBusinessPerson = False
-				for val in properties['/people/person/profession']['values']:
-					if (val['text'] == 'Author'):
-						isAuthor = True
-					elif (val['text'] == 'Actor'):
-						isActor = True
-					elif (val['text'] == 'Businessperson'):
-						isBusinessPerson = True
+			# Check if search result is an Author
+			if (val['text'] == 'Author'):
+				author = defaultdict(list)
+				author['books'] = setDictVals(author['books'], properties, '/book/author/works_written')
+				author['booksonauth'] = setDictVals(author['booksonauth'], properties, '/book/book_subject/works')
+				author['influenced'] = setDictVals(author['influenced'], properties, '/influence/influence_node/influenced')
+				author['influencedby'] = setDictVals(author['influencedby'], properties, '/influence/influence_node/influenced_by')
+				for b in author['influencedby']:
+					print b
+				infobox['author'] = author
 
-				# Get information for Author
-				if isAuthor:
-					author = defaultdict(list)
-					author['books'] = setDictVals(author['books'], properties, '/book/author/works_written')
-					for d in author['books']:
-						print d
-				else:
-					print "you suck"
+			# Check if search result is an Actor or BusinessPerson
+			isActor = False
+			isBusinessPerson = False
+			for val in properties['/people/person/profession']['values']:
+				if (val['text'] == 'Actor'):
+					isActor = True
+				elif (val['text'] == 'Businessperson'):
+					isBusinessPerson = True
 		break
