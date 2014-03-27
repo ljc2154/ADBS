@@ -2,14 +2,14 @@ import json
 import urllib
 from collections import defaultdict		# to initialize dictionary values to 0
 
-def setDictVals(list, properties, path):
+def setDictVals(ourList, properties, path):
 	if (path in properties):
 		for x in properties[path]['values']:
-			list.append(x['text'])
-		return list
+			ourList.append(x['text'])
+		return ourList
 
 api_key = 'AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow'
-query = 'Leonardo Dicaprio'
+query = 'Bill Gates'
 search_url = 'https://www.googleapis.com/freebase/v1/search'
 topic_url = 'https://www.googleapis.com/freebase/v1/topic'
 params = {
@@ -25,10 +25,11 @@ for result in search_results:
 		url = topic_url + result['mid'] + '?key=' + api_key
 		topic_response = json.loads(urllib.urlopen(url).read())
 		properties = topic_response['property']
-		actorSet = False
+		isActor = False
+		isBusinessPerson = False
 		for val in properties['/type/object/type']['values']:
 			# Check if search result is a Person
-			if (val['text'] == 'Person'):
+			if (val['id'] == '/people/person'):
 				person = defaultdict(list)
 				person['name'] = setDictVals(person['name'], properties, '/type/object/name')
 				person['birthday'] = setDictVals(person['birthday'], properties, '/people/person/date_of_birth')
@@ -48,7 +49,7 @@ for result in search_results:
 				infobox['person'] = person
 
 			# Check if search result is an Author
-			elif (val['text'] == 'Author'):
+			elif (val['id'] == '/book/author'):
 				author = defaultdict(list)
 				author['books'] = setDictVals(author['books'], properties, '/book/author/works_written')
 				author['booksonauth'] = setDictVals(author['booksonauth'], properties, '/book/book_subject/works')
@@ -57,8 +58,8 @@ for result in search_results:
 				infobox['author'] = author
 
 			# Check if search result is an Actor
-			elif (not actorSet and (val['text'] == 'Film actor' or val['text'] == 'TV Actor')):
-				actorSet = True
+			elif (not isActor and (val['id'] == '/film/actor' or val['id'] == 'tv/tv_actor')):
+				isActor = True
 				actor = defaultdict(str)
 				if ('/film/actor/film' in properties):
 					# map film to character
@@ -66,9 +67,20 @@ for result in search_results:
 						actor[film['property']['/film/performance/film']['values'][0]['text']] = film['property']['/film/performance/character']['values'][0]['text']
 				infobox['actor'] = actor
 
-			# Check if search result is an Actor or BusinessPerson
-			isBusinessPerson = False
-			for val in properties['/people/person/profession']['values']:
-				if (val['text'] == 'Businessperson'):
-					isBusinessPerson = True
+			# Check if search result is a BusinessPerson
+			elif (not isBusinessPerson and (val['id'] == '/organization/organization_founder' or val['id'] == '/business/board_member')):
+				isBusinessPerson = True
+				bp = defaultdict(list)
+				bp['founded'] = setDictVals(bp['founded'], properties, '/organization/organization_founder/organizations_founded')
+
+				if ('/business/board_member/organization_board_memberships' in properties):
+					for org in properties['/business/board_member/organization_board_memberships']['values']:
+						a = defaultdict(str)
+						if ('/organization/organization_board_membership/organization' in org['property']):
+							a['organization'] = org['property']['/organization/organization_board_membership/organization']['values'][0]['text']
+						bp['leadership'].append(a)		
+				for d in bp['leadership']:
+					print d['organization']
+				infobox['businessperson'] = bp
+
 		break
