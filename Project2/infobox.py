@@ -9,7 +9,7 @@ def setDictVals(list, properties, path):
 		return list
 
 api_key = 'AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow'
-query = 'Bill Gates'
+query = 'Leonardo Dicaprio'
 search_url = 'https://www.googleapis.com/freebase/v1/search'
 topic_url = 'https://www.googleapis.com/freebase/v1/topic'
 params = {
@@ -25,6 +25,7 @@ for result in search_results:
 		url = topic_url + result['mid'] + '?key=' + api_key
 		topic_response = json.loads(urllib.urlopen(url).read())
 		properties = topic_response['property']
+		actorSet = False
 		for val in properties['/type/object/type']['values']:
 			# Check if search result is a Person
 			if (val['text'] == 'Person'):
@@ -47,20 +48,27 @@ for result in search_results:
 				infobox['person'] = person
 
 			# Check if search result is an Author
-			if (val['text'] == 'Author'):
+			elif (val['text'] == 'Author'):
 				author = defaultdict(list)
 				author['books'] = setDictVals(author['books'], properties, '/book/author/works_written')
 				author['booksonauth'] = setDictVals(author['booksonauth'], properties, '/book/book_subject/works')
 				author['influenced'] = setDictVals(author['influenced'], properties, '/influence/influence_node/influenced')
 				author['influencedby'] = setDictVals(author['influencedby'], properties, '/influence/influence_node/influenced_by')
-				
+				infobox['author'] = author
+
+			# Check if search result is an Actor
+			elif (not actorSet and (val['text'] == 'Film actor' or val['text'] == 'TV Actor')):
+				actorSet = True
+				actor = defaultdict(str)
+				if ('/film/actor/film' in properties):
+					# map film to character
+					for film in properties['/film/actor/film']['values']:
+						actor[film['property']['/film/performance/film']['values'][0]['text']] = film['property']['/film/performance/character']['values'][0]['text']
+				infobox['actor'] = actor
 
 			# Check if search result is an Actor or BusinessPerson
-			isActor = False
 			isBusinessPerson = False
 			for val in properties['/people/person/profession']['values']:
-				if (val['text'] == 'Actor'):
-					isActor = True
-				elif (val['text'] == 'Businessperson'):
+				if (val['text'] == 'Businessperson'):
 					isBusinessPerson = True
 		break
