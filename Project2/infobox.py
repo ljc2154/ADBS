@@ -53,9 +53,7 @@ for result in search_results:
 				author['booksonauth'] = setDictVals(author['booksonauth'], properties, '/book/book_subject/works')
 				author['influenced'] = setDictVals(author['influenced'], properties, '/influence/influence_node/influenced')
 				author['influencedby'] = setDictVals(author['influencedby'], properties, '/influence/influence_node/influenced_by')
-				for b in author['influencedby']:
-					print b
-				infobox['author'] = author
+				
 
 			# Check if search result is an Actor or BusinessPerson
 			isActor = False
