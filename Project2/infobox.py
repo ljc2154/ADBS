@@ -222,43 +222,224 @@ if isPerson:
 			print name
 	if (person['birthday']):
 		print 'Birthday:',
-		for bd in person['birthday']:
-			print bd
+		for date in person['birthday']:
+			print date
 	if (person['deathdate'] or person['deathplace'] or person['deathcause']):
 		print 'Death:',
 		if (person['deathdate']):
-			for dd in person['deathdate']:
-				print dd,
+			for deathdate in person['deathdate']:
+				print deathdate,
 		if (person['deathplace']):
 			print "at",
-			for dp in person['deathplace']:
-				print dp + ", ",
+			for deathplace in person['deathplace']:
+				print deathplace + ", ",
 		if (person['deathcause']):
 			sys.stdout.write('cause: (')
-			for dc in xrange(len(person['deathcause'])):
+			for deathcause in xrange(len(person['deathcause'])):
 				sys.stdout.write(person['deathcause'][dc])
-				if (dc < len(person['deathcause'])-1):
+				if (deathcause < len(person['deathcause'])-1):
 					print ', ',
 				else:
 					print ')',
 		print 
 	if (person['birthplace']):
 		print 'Place of birth:',
-		for p in person['birthplace']:
-			print p
+		for place in person['birthplace']:
+			print place
 	if (person['description']):
 		print 'Descriptions:',
-		for d in person['description']:
-			print d
+		for description in person['description']:
+			print description
 	if (person['siblings']):
 		print 'Siblings:',
-		for s in person['siblings']:
-			print s
-			# if ('/people/person/sibling_s' in properties):
-			# 	for sibling in properties['/people/person/sibling_s']['values']:
-			# 		if ('/people/sibling_relationship/sibling' in sibling['property']):
-			# 			person['siblings'].append(sibling['property']['/people/sibling_relationship/sibling']['values'][0]['text'])
-			# if ('/people/person/spouse_s' in properties):
-			# 	for spouse in properties['/people/person/spouse_s']['values']:
-			# 		if ('/people/marriage/spouse' in spouse['property']):
-			# 			person['spouses'].append(spouse['property']['/people/marriage/spouse']['values'][0]['text'])
+		for sibling in person['siblings']:
+			print sibling
+	if (person['spouses']):
+		print 'Spouses:',
+		for spouse in person['spouses']:
+			print spouse
+
+	# Print Actor Attributes
+	if (isActor):
+		if infobox['actor']:
+			print 'Films: Character | Film Name'
+			for film in infobox['actor']:
+				print infobox['actor'][film] + ' | ' + film
+
+	# Print Author Attributes
+	if (isAuthor):
+		author = infobox['author']
+		if (author['books']):
+			print 'Books:',
+			for book in author['books']:
+				print book
+		if (author['influencedby']):
+			print 'Influenced By:',
+			for auth in author['influencedby']:
+				print auth
+		if (author['booksonauth']):
+			print 'Books About:',
+			for book in author['booksonauth']:
+				print book
+		if (author['influenced']):
+			print 'Influenced:',
+			for influenced in author['influenced']:
+				print influenced
+
+	# Print BusinessPerson Attributes
+	if (isBusinessPerson):
+		bp = infobox['businessperson']
+		if (bp['founded']):
+			print 'Founded:',
+			for org in bp['founded']:
+				print org
+		if (bp['leadership']):
+			print 'Leadership: | Organization | Role | Title | From-To |'
+			for org in bp['leadership']:
+				print '|',
+				if org['organization']:
+					print org['organization'],
+				print '|',
+				if org['role']:
+					print org['role'],
+				print '|',
+				if org['title']:
+					print org['title'],
+				sys.stdout.write('| (')
+				if org['from']:
+					print org['from'],
+				print '/',
+				if org['to']:
+					print org['to'],
+				print ') |'
+		if (bp['boardmember']):
+			print 'Board Member: | Organization | Role | Title | From-To |'
+			for org in bp['boardmember']:
+				print '|',
+				if org['organization']:
+					print org['organization'],
+				print '|',
+				if org['role']:
+					print org['role'],
+				print '|',
+				if org['title']:
+					print org['title'],
+				sys.stdout.write(' | (')
+				if org['from']:
+					print org['from'],
+				print '/',
+				if org['to']:
+					print org['to'],
+				sys.stdout.write(') |\n')
+
+# Print League Attributes
+elif isLeague:
+	league = infobox['league']
+	if (league['name']):
+		print league['name'][0] + '(LEAGUE)'
+		print 'Name:',
+		for name in league['name']:
+			print name
+	if (league['sport']):
+		print 'Sport:',
+		for sport in league['sport']:
+			print sport
+	if league['slogan']:
+		print 'Slogan:',
+		for slogan in league['slogan']:
+			print slogan
+	if league['website']:
+		print 'Official Website:',
+		for website in league['website']:
+			print website
+	if league['championship']:
+		print 'Championship:',
+		for championship in league['championship']:
+			print championship
+	if league['teams']:
+		print 'Teams:',
+		for team in league['teams']:
+			print team
+	if league['description']:
+		print 'Description:',
+		for description in league['description']:
+			print description
+
+# Print SportsTeam Attributes
+elif isSportsTeam:
+	team = infobox['team']
+	if team['name']:
+		print team['name'][0] + '(SPORTS TEAM)'
+		print 'Name:',
+		for name in team['name']:
+			print name
+	if team['sport']:
+		print 'Sport:',
+		for sport in team['sport']:
+			print sport
+	if team['arena']:
+		print 'Arena:',
+		for arena in team['arena']:
+			print arena
+	if team['championships']:
+		print 'Championships:',
+		for championship in team['championships']:
+			print championship
+	if team['founded']:
+		print 'Founded:',
+		for date in team['founded']:
+			print date
+	if team['leagues']:
+		print 'Leagues:',
+		for league in team['leagues']:
+			print league
+	if team['coaches']:
+		print 'Coaches: | Name | Position | From/To |'
+		for coach in team['coaches']:
+			print '|',
+			if coach['name']:
+				for name in coach['name']:
+				 print name,
+			print '|',
+			if coach['position']:
+				for position in coach['position']:
+					print position,
+			sys.stdout.write(' | (')
+			if coach['from']:
+				for date in coach['from']:
+					print date,
+			sys.stdout.write('/')
+			if coach['to']:
+				for date in coach['to']:
+					print date,
+			sys.stdout.write(') |\n')
+	if team['players']:
+		print 'PlayersRoster: | Name | Position | Number | From/To |'
+		for player in team['players']:
+			print '|',
+			if player['name']:
+				for name in player['name']:
+				 print name,
+			print '|',
+			if player['position']:
+				for position in player['position']:
+					print position,
+			print '|',
+			if player['number']:
+				for number in player['number']:
+					print number,
+			sys.stdout.write(' | (')
+			if player['from']:
+				for date in player['from']:
+					print date,
+			sys.stdout.write('/')
+			if player['to']:
+				for date in player['to']:
+					print date,
+			sys.stdout.write(') |\n')
+	if team['description']:
+		print 'Description:',
+		for description in team['description']:
+			print description
+
+
