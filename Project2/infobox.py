@@ -10,6 +10,32 @@ def setDictVals(ourList, properties, path):
 			ourList.append(x['text'])
 		return ourList
 
+# Takes a string s and returns a list of count-sized pieces of the string
+def splitCount(s, count):
+     return [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]
+
+def newRow(title, data):
+	n = 120
+	print '| ' + ('-' * n) + ' |'
+	title = title + ':'
+	print '| ' + title.ljust(n) + ' |'
+	if data is list:
+		for entry in data:
+			newEntry(entry)
+	else:
+		newEntry(data)
+
+def newEntry(entry):
+	#splitEntry = splitCount(entry, 70)
+	n = 120
+	for line in entry:
+		if len(line) > n:
+			splitLines = splitCount(line, n)
+			for splitLine in splitLines:
+				print '| ' + splitLine.ljust(n) + ' |'
+		else:
+			print '| ' + line.ljust(n) + ' |'
+
 api_key = 'AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow'
 # test query
 query = raw_input("Query: ")
@@ -217,229 +243,159 @@ if isPerson:
 	# Print Person Attributes
 	person = infobox['person']
 	if (person['name']):
-		print 'Name:',
-		for name in person['name']:
-			print name
+		newRow('Name', person['name'])
 	if (person['birthday']):
-		print 'Birthday:',
-		for date in person['birthday']:
-			print date
+		newRow('Birthday', person['birthday'])
 	if (person['deathdate'] or person['deathplace'] or person['deathcause']):
-		print 'Death:',
 		if (person['deathdate']):
-			for deathdate in person['deathdate']:
-				print deathdate,
+			newRow('Date of death', person['deathdate'])
 		if (person['deathplace']):
-			print "at",
-			for deathplace in person['deathplace']:
-				print deathplace + ", ",
+			newRow('Place of death', person['deathplace'])
 		if (person['deathcause']):
-			sys.stdout.write('cause: (')
-			for deathcause in xrange(len(person['deathcause'])):
-				sys.stdout.write(person['deathcause'][dc])
-				if (deathcause < len(person['deathcause'])-1):
-					print ', ',
-				else:
-					print ')',
-		print 
+			newRow('Causes of death', person['deathcause'])
 	if (person['birthplace']):
-		print 'Place of birth:',
-		for place in person['birthplace']:
-			print place
+		newRow('Place of birth', person['birthplace'])
 	if (person['description']):
-		print 'Descriptions:',
-		for description in person['description']:
-			print description
+		newRow('Description', person['description'])
 	if (person['siblings']):
-		print 'Siblings:',
-		for sibling in person['siblings']:
-			print sibling
+		newRow('Siblings', person['siblings'])
 	if (person['spouses']):
-		print 'Spouses:',
-		for spouse in person['spouses']:
-			print spouse
+		newRow('Spouses', person['spouses'])
 
 	# Print Actor Attributes
 	if (isActor):
 		if infobox['actor']:
-			print 'Films: Character | Film Name'
+			data = {}
 			for film in infobox['actor']:
-				print infobox['actor'][film] + ' | ' + film
+				element = infobox['actor'][film] + ' | ' + film
+				data.append(element)
+			newRow('Films (Character | Film Name', data)
 
 	# Print Author Attributes
 	if (isAuthor):
 		author = infobox['author']
 		if (author['books']):
-			print 'Books:',
-			for book in author['books']:
-				print book
+			newRow('Books', author['books'])
 		if (author['influencedby']):
-			print 'Influenced By:',
-			for auth in author['influencedby']:
-				print auth
+			newRow('Influenced by', author['influencedby'])
 		if (author['booksonauth']):
-			print 'Books About:',
-			for book in author['booksonauth']:
-				print book
+			newRow('Books about', author['booksonauth'])
 		if (author['influenced']):
-			print 'Influenced:',
-			for influenced in author['influenced']:
-				print influenced
+			newRow('Influenced', author['influenced'])
 
 	# Print BusinessPerson Attributes
 	if (isBusinessPerson):
 		bp = infobox['businessperson']
 		if (bp['founded']):
-			print 'Founded:',
-			for org in bp['founded']:
-				print org
+			newRow('Founded', bp['founded'])
 		if (bp['leadership']):
-			print 'Leadership: | Organization | Role | Title | From-To |'
+			data = []
 			for org in bp['leadership']:
-				print '|',
+				element = ""
 				if org['organization']:
-					print org['organization'],
-				print '|',
+					element = element + org['organization'] + '|'
 				if org['role']:
-					print org['role'],
-				print '|',
+						element = element + org['role'] + '|'
 				if org['title']:
-					print org['title'],
-				sys.stdout.write('| (')
+					element = element + org['title'] + '|'
 				if org['from']:
-					print org['from'],
-				print '/',
+					element = element + org['from'] + '-'
 				if org['to']:
-					print org['to'],
-				print ') |'
+					element = element + org['to'] + '|'
+				data.append(element)
+			newRow('Leadership: | Organization | Role | Title | From-To |', data)
 		if (bp['boardmember']):
-			print 'Board Member: | Organization | Role | Title | From-To |'
+			data = []
 			for org in bp['boardmember']:
-				print '|',
+				element = ""
 				if org['organization']:
-					print org['organization'],
-				print '|',
+					element = element + org['organization'] + '|'
 				if org['role']:
-					print org['role'],
-				print '|',
+					element = element + org['role'] + '|'
 				if org['title']:
-					print org['title'],
-				sys.stdout.write(' | (')
+					element = element + org['title'] + '|'
 				if org['from']:
-					print org['from'],
-				print '/',
+					element = element + org['from'] + '-'
 				if org['to']:
-					print org['to'],
-				sys.stdout.write(') |\n')
+					element = element + org['to'] + '|'
+				data.append(element)
+			newRow('Board Member: | Organization | Role | Title | From-To |', data)
 
 # Print League Attributes
 elif isLeague:
 	league = infobox['league']
 	if (league['name']):
 		print league['name'][0] + '(LEAGUE)'
-		print 'Name:',
-		for name in league['name']:
-			print name
+		newRow('Name', league['name'])
 	if (league['sport']):
-		print 'Sport:',
-		for sport in league['sport']:
-			print sport
+		newRow('Sport', league['sport'])
 	if league['slogan']:
-		print 'Slogan:',
-		for slogan in league['slogan']:
-			print slogan
+		newRow('Slogan', league['slogan'])
 	if league['website']:
-		print 'Official Website:',
-		for website in league['website']:
-			print website
+		newRow('Official website', league['website'])
 	if league['championship']:
-		print 'Championship:',
-		for championship in league['championship']:
-			print championship
+		newRow('Championship', league['championship'])
 	if league['teams']:
-		print 'Teams:',
-		for team in league['teams']:
-			print team
+		newRow('Teams', league['teams'])
 	if league['description']:
-		print 'Description:',
-		for description in league['description']:
-			print description
+		newRow('Description', league['description'])
 
 # Print SportsTeam Attributes
 elif isSportsTeam:
 	team = infobox['team']
 	if team['name']:
 		print team['name'][0] + '(SPORTS TEAM)'
-		print 'Name:',
-		for name in team['name']:
-			print name
+		newRow('Name', team['name'])
 	if team['sport']:
-		print 'Sport:',
-		for sport in team['sport']:
-			print sport
+		newRow('Sport', team['sport'])
 	if team['arena']:
-		print 'Arena:',
-		for arena in team['arena']:
-			print arena
+		newRow('Arena', team['arena'])
 	if team['championships']:
-		print 'Championships:',
-		for championship in team['championships']:
-			print championship
+		newRow('Championships', team['championships'])
 	if team['founded']:
-		print 'Founded:',
-		for date in team['founded']:
-			print date
+		newRow('Founded', team['founded'])
 	if team['leagues']:
-		print 'Leagues:',
-		for league in team['leagues']:
-			print league
+		newRow('Leagues', team['leagues'])
 	if team['coaches']:
-		print 'Coaches: | Name | Position | From/To |'
+		data = []
 		for coach in team['coaches']:
-			print '|',
+			element = ""
 			if coach['name']:
 				for name in coach['name']:
-				 print name,
-			print '|',
+				 element = element + name + '|'
 			if coach['position']:
 				for position in coach['position']:
-					print position,
-			sys.stdout.write(' | (')
+					element = element + position + '|'
 			if coach['from']:
 				for date in coach['from']:
-					print date,
-			sys.stdout.write('/')
+					element = element + date + '-'
 			if coach['to']:
 				for date in coach['to']:
-					print date,
-			sys.stdout.write(') |\n')
+					element = element + date + '|'
+			data.append(element)
+		newRow('Coaches: | Name | Position | From/To |', data)
 	if team['players']:
-		print 'PlayersRoster: | Name | Position | Number | From/To |'
+		data = []
 		for player in team['players']:
-			print '|',
+			element = ""
 			if player['name']:
 				for name in player['name']:
-				 print name,
-			print '|',
+				 element = element + name + '|'
 			if player['position']:
 				for position in player['position']:
-					print position,
-			print '|',
+					element = element + position + '|'
 			if player['number']:
 				for number in player['number']:
-					print number,
-			sys.stdout.write(' | (')
+					element = element + number + '|'
 			if player['from']:
 				for date in player['from']:
-					print date,
-			sys.stdout.write('/')
+					element = element + date + '-'
 			if player['to']:
 				for date in player['to']:
-					print date,
-			sys.stdout.write(') |\n')
+					element = element + date + '|'
+			data.append(element)
+		newRow('PlayersRoster: | Name | Position | Number | From/To |', data)
 	if team['description']:
-		print 'Description:',
-		for description in team['description']:
-			print description
+		newRow('Description', team['description'])
 
 
