@@ -12,7 +12,10 @@ def setDictVals(ourList, properties, path):
 
 # Takes a string s and returns a list of count-sized pieces of the string
 def splitCount(s, count):
-     return [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]
+	s = s.replace("\r","")
+	s = s.replace("\n","")
+	s = s.replace("\t","")
+	return [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]
 
 def newRow(title, data):
 	n = 120
@@ -30,11 +33,11 @@ def newEntry(entry):
 	n = 120
 	for line in entry:
 		if len(line) > n:
-			splitLines = splitCount(line, n)
+			splitLines = splitCount(line, 110)
 			for splitLine in splitLines:
-				print '| ' + splitLine.ljust(n) + ' |'
+				print '| '.ljust(12) + splitLine.ljust(n-10) + ' |'
 		else:
-			print '| ' + line.ljust(n) + ' |'
+			print '| '.ljust(12) + line.ljust(110) + ' |'
 
 api_key = 'AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow'
 # test query
@@ -225,6 +228,7 @@ for result in search_results:
 	if (isPerson or isAuthor or isActor or isBusinessPerson or isLeague or isSportsTeam):
 		break
 
+print '\n'
 # Output Results
 if isPerson:
 	# Print Person and Types
@@ -415,5 +419,7 @@ elif isSportsTeam:
 		newRow('PlayersRoster: | Name | Position | Number | From/To |', data)
 	if team['description']:
 		newRow('Description', team['description'])
+
+print '| ' + ('-' * 120) + ' |\n\n'
 
 
