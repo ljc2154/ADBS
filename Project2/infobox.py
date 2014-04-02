@@ -100,11 +100,17 @@ for result in search_results:
 		# Check if search result is an Actor
 		elif (not isActor and (val['id'] == '/film/actor' or val['id'] == 'tv/tv_actor')):
 			isActor = True
-			actor = defaultdict(str)
+			actor = []
 			if ('/film/actor/film' in properties):
-				# map film to character
 				for film in properties['/film/actor/film']['values']:
-					actor[film['property']['/film/performance/film']['values'][0]['text']] = film['property']['/film/performance/character']['values'][0]['text']
+					f = defaultdict(list)
+					if ('/film/performance/character' in film['property']):
+						for val in film['property']['/film/performance/character']['values']:
+							f['character'].append(val['text'])
+					if ('/film/performance/film') in film['property']:
+						for val in film['property']['/film/performance/film']['values']:
+							f['film'].append(val['text'])
+					actor.append(f)
 			infobox['actor'] = actor
 
 		# Check if search result is a BusinessPerson
@@ -265,11 +271,23 @@ if isPerson:
 	# Print Actor Attributes
 	if (isActor):
 		if infobox['actor']:
-			data = {}
+			data = []
 			for film in infobox['actor']:
-				element = infobox['actor'][film] + ' | ' + film
+				movie_names = ''
+				for film_name in film['film']:
+					if movie_names == '':
+						movie_names += film_name
+					else:
+						movie_names += ', ' + film_name
+				movie_names = ' | ' + movie_names
+				element = movie_names
+				for character in film['character']:
+					if element == movie_names:
+						element = character + element
+					else:
+						element = character + ', ' + element
 				data.append(element)
-			newRow('Films (Character | Film Name', data)
+			newRow('Films (Character | Film Name)', data)
 
 	# Print Author Attributes
 	if (isAuthor):
