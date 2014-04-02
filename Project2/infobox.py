@@ -15,7 +15,11 @@ def splitCount(s, count):
 	s = s.replace("\r","")
 	s = s.replace("\n","")
 	s = s.replace("\t","")
-	return [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]
+	remainder = len(s) % 110
+	remainderStart = len(s) - remainder
+	result = [''.join(x) for x in zip(*[list(s[z::count]) for z in range(count)])]
+	result.append(s[remainderStart::])
+	return result
 
 def newRow(title, data):
 	n = 120
