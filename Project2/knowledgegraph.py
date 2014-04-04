@@ -47,12 +47,25 @@ def newEntry(entry):
 
 
 # Make sure script utilized correctly with command line arguments
+usageStr = "Usage error: Format must be python knowledgegraph.py -key <Freebase API key> -q <query> -t <infobox|question>\n"
+usageStr += " or make ARGS=\"-key <Freebase API key> -q <query> -t <infobox|question>\"\n"
+usageStr += " or python knowledgegraph.py -key <Freebase API key> -f <file of queries> -t <infobox|question>\n"
+usageStr += " or make ARGS=\" -key <Freebase API key> -f <file of queries> -t <infobox|question>\""
+if len(sys.argv) != 7:
+	sys.exit(usageStr)
+# args will store args in order they appear on reference implementation instructions
 args = sys.argv
-if len(args) != 7 or args[1] != '-key' or (args[3] != '-q' and args[3] != '-f') or args[5] != '-t' or (args[6] != 'infobox' and args[6] != 'question'):
-	usageStr = "Usage error: Format must be python knowledgegraph.py -key <Freebase API key> -q <query> -t <infobox|question>\n"
-	usageStr += " or make ARGS=\"-key <Freebase API key> -q <query> -t <infobox|question>\"\n"
-	usageStr += " or python knowledgegraph.py -key <Freebase API key> -f <file of queries> -t <infobox|question>\n"
-	usageStr += " or make ARGS=\" -key <Freebase API key> -f <file of queries> -t <infobox|question>\""
+for i in xrange(len(sys.argv) -1):
+	if i == '-key':
+		args[1] = '-key'
+		args[2] = sys.argv[i+1]
+	elif i == '-q' or i == '-f':
+		args[3] = sys.argv[i]
+		args[4] = sys.argv[i+1]
+	elif i == '-t':
+		args[5] = '-t'
+		args[6] = sys.argv[i+1]
+if args[1] != '-key' or (args[3] != '-q' and args[3] != '-f') or args[5] != '-t' or (args[6] != 'infobox' and args[6] != 'question'):
 	sys.exit(usageStr)
 	
 api_key = 'AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow'
