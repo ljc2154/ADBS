@@ -115,6 +115,7 @@ if args[6] == 'infobox':
 						'query': query,
 						'key': api_key
 		}
+		# First query Freebase's Search API to get topics
 		url = search_url + '?' + urllib.urlencode(params)
 		response = json.loads(urllib.urlopen(url).read())
 		search_results = response['result']
@@ -128,7 +129,9 @@ if args[6] == 'infobox':
 		isBusinessPerson = False
 		isLeague = False
 		isSportsTeam = False
+		# Run until we have a valild topicin search_results
 		for result in search_results:
+			# query Freebase's Topic API
 			url = topic_url + result['mid'] + '?key=' + api_key
 			topic_response = json.loads(urllib.urlopen(url).read())
 			properties = topic_response['property']
@@ -136,6 +139,7 @@ if args[6] == 'infobox':
 				# Check if search result is a Person
 				if (val['id'] == '/people/person'):
 					isPerson = True
+					# Every attribute of person stored in a list at key attribute in person dict
 					person = defaultdict(list)
 					setDictVals(person['name'], properties, '/type/object/name')
 					setDictVals(person['birthday'], properties, '/people/person/date_of_birth')
@@ -143,6 +147,7 @@ if args[6] == 'infobox':
 					setDictVals(person['deathdate'], properties, '/people/deceased_person/date_of_death')
 					setDictVals(person['deathplace'], properties, '/people/deceased_person/place_of_death')
 					setDictVals(person['deathcause'], properties, '/people/deceased_person/cause_of_death')
+					# For consistency with the values being lists of strings in person, we only take one name per sibling/spouse
 					if ('/people/person/sibling_s' in properties):
 						for sibling in properties['/people/person/sibling_s']['values']:
 							if ('/people/sibling_relationship/sibling' in sibling['property']):
@@ -155,38 +160,48 @@ if args[6] == 'infobox':
 						for x in properties['/common/topic/description']['values']:
 							person['description'].append(x['value'])
 
+					# set the person key of infobox to the person dict
 					infobox['person'] = person
 
 				# Check if search result is an Author
 				elif (val['id'] == '/book/author'):
 					isAuthor = True
+					# Every attribute of author stored in a list at key attribute in author dict
 					author = defaultdict(list)
 					setDictVals(author['books'], properties, '/book/author/works_written')
 					setDictVals(author['booksonauth'], properties, '/book/book_subject/works')
 					setDictVals(author['influenced'], properties, '/influence/influence_node/influenced')
 					setDictVals(author['influencedby'], properties, '/influence/influence_node/influenced_by')
+					
+					# set the author key of infobox to the author dict
 					infobox['author'] = author
 
 				# Check if search result is an Actor
 				elif (not isActor and (val['id'] == '/film/actor' or val['id'] == 'tv/tv_actor')):
 					isActor = True
+					# Every attribute of actor stored in a dict a given index in the author list
 					actor = []
 					if ('/film/actor/film' in properties):
 						for film in properties['/film/actor/film']['values']:
 							f = defaultdict(list)
+							# Every character played/film name of a film f stored in a list at key character/film in dict f
 							setDictVals(f['character'], film['property'], '/film/performance/character')
 							setDictVals(f['film'], film['property'], '/film/performance/film')
 							actor.append(f)
+					# set the 'actor' key of infobox to the actor dict
 					infobox['actor'] = actor
 
 				# Check if search result is a BusinessPerson
 				elif (not isBusinessPerson and (val['id'] == '/organization/organization_founder' or val['id'] == '/business/board_member')):
 					isBusinessPerson = True
+					# Every attribute of businessperson stored in a list at key attribute in bp dict
 					bp = defaultdict(list)
 					setDictVals(bp['founded'], properties, '/organization/organization_founder/organizations_founded')
 					# handle board member
 					if ('/business/board_member/organization_board_memberships' in properties):
+						# the key 'boardmember's value is a list of dicts for each org
 						for org in properties['/business/board_member/organization_board_memberships']['values']:
+							# Every attribute of org a is stored in a list at key attribute in dict a
 							a = defaultdict(list)
 							setDictVals(a['organization'], org['property'], '/organization/organization_board_membership/organization')
 							setDictVals(a['title'], org['property'], '/organization/organization_board_membership/title')
@@ -196,7 +211,9 @@ if args[6] == 'infobox':
 							bp['boardmember'].append(a)
 					# handle leadership
 					if ('/business/board_member/leader_of' in properties):
+						# the key 'leadership's value is a list of dicts for each org
 						for org in properties['/business/board_member/leader_of']['values']:
+							# Every attribute of org a is stored in a list at key attribute in dict a
 							a = defaultdict(list)
 							setDictVals(a['organization'], org['property'], '/organization/leadership/organization')
 							setDictVals(a['title'], org['property'], '/organization/leadership/title')
@@ -204,11 +221,13 @@ if args[6] == 'infobox':
 							setDictVals(a['from'], org['property'], '/organization/leadership/from')
 							setDictVals(a['to'], org['property'], '/organization/leadership/to')
 							bp['leadership'].append(a)
+					# set the 'businessperson' key of infobox to the bp dict
 					infobox['businessperson'] = bp
 
 				# Check if search result is a League
 				elif (val['id'] == '/sports/sports_league'):
 					isLeague = True
+					# Every attribute of league stored in a list at key attribute in league dict
 					league = defaultdict(list)
 					setDictVals(league['name'], properties, '/type/object/name')
 					setDictVals(league['championship'], properties, '/sports/sports_league/championship')
@@ -218,15 +237,18 @@ if args[6] == 'infobox':
 					if ('/common/topic/description' in properties):
 						for x in properties['/common/topic/description']['values']:
 							league['description'].append(x['value'])
+					# For consistency purposes, we only take the first team name of a given team (league is dict of lists of strs)
 					if ('/sports/sports_league/teams' in properties):
 						for team in properties['/sports/sports_league/teams']['values']:
 							if ('/sports/sports_league_participation/team' in team['property']):
 								league['teams'].append(team['property']['/sports/sports_league_participation/team']['values'][0]['text'])
+					# set the 'league' key of infobox to the league dict
 					infobox['league'] = league
 
 				# Check if search result is a SportsTeam
 				elif (not isSportsTeam and (val['id'] == '/sports/sports_team' or val['id'] == '/sports/professional_sports_team')):
 					isSportsTeam = True
+					# Every attribute of team stored in a list at key attribute in team dict
 					team = defaultdict(list)
 					setDictVals(team['name'], properties, '/type/object/name')
 					if ('/common/topic/description' in properties):
@@ -236,7 +258,9 @@ if args[6] == 'infobox':
 					setDictVals(team['arena'], properties, '/sports/sports_team/arena_stadium')
 					setDictVals(team['championships'], properties, '/sports/sports_team/championships')
 					if ('/sports/sports_team/coaches' in properties):
+						# the key 'coaches's value is a list of dicts for each coach
 						for coach in properties['/sports/sports_team/coaches']['values']:
+							# Every attribute of coach c is stored in a list at key attribute in c dict
 							c = defaultdict(list)
 							setDictVals(c['name'], coach['property'], '/sports/sports_team_coach_tenure/coach')
 							setDictVals(c['number'], coach['property'], '/sports/sports_team_coach_tenure/number')
@@ -251,7 +275,9 @@ if args[6] == 'infobox':
 								team['leagues'].append(league['property']['/sports/sports_league_participation/league']['values'][0]['text'])
 					team['locations'] = setDictVals(team['locations'], properties, '/sports/sports_team/location')
 					if ('/sports/sports_team/roster' in properties):
+						# the key 'players's value is a list of dicts for each player
 						for player in properties['/sports/sports_team/roster']['values']:
+							# Every attribute of player c is stored in a list at key attribute in c dict
 							c = defaultdict(list)
 							setDictVals(c['name'], player['property'], '/sports/sports_team_roster/player')
 							setDictVals(c['number'], player['property'], '/sports/sports_team_roster/number')
@@ -259,8 +285,10 @@ if args[6] == 'infobox':
 							setDictVals(c['to'], player['property'], '/sports/sports_team_roster/to')
 							setDictVals(c['position'], player['property'], '/sports/sports_team_roster/position')
 							team['players'].append(c)
+					# set the 'businessperson' key of infobox to the bp dict
 					infobox['team'] = team
 
+			# If we have received valuable information from this search result, we stop querying Topic API
 			if (isPerson or isAuthor or isActor or isBusinessPerson or isLeague or isSportsTeam):
 				break
 
