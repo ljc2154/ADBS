@@ -87,7 +87,8 @@ for i in xrange(len(sys.argv) -1):
 if args[1] != '-key' or (args[3] != '-q' and args[3] != '-f') or args[5] != '-t' or (args[6] != 'infobox' and args[6] != 'question'):
 	sys.exit(usageStr)
 	
-api_key = 'AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow'
+#api_key = 'AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow'
+api_key = args[2]
 print 'Let me see...'
 
 # Handle infobox request (Part 1)
