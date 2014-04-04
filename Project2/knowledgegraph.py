@@ -101,6 +101,14 @@ if args[6] == 'infobox':
 	
 	# Generate infobox for each query term
 	for query in queryList:
+		# Remove new line char
+		if query[-1] == '\n':
+			query = query[:-1]
+
+		# Output Query-Question
+		print 'Query-Question: ' + query
+
+		# Prepare query to Freebase Search and Topic APIs
 		search_url = 'https://www.googleapis.com/freebase/v1/search'
 		topic_url = 'https://www.googleapis.com/freebase/v1/topic'
 		params = {
@@ -111,7 +119,7 @@ if args[6] == 'infobox':
 		response = json.loads(urllib.urlopen(url).read())
 		search_results = response['result']
 
-		infobox = defaultdict(dict)
+		infobox = {}
 
 		# Gather information from query
 		isPerson = False
@@ -166,12 +174,8 @@ if args[6] == 'infobox':
 					if ('/film/actor/film' in properties):
 						for film in properties['/film/actor/film']['values']:
 							f = defaultdict(list)
-							if ('/film/performance/character' in film['property']):
-								for val in film['property']['/film/performance/character']['values']:
-									f['character'].append(val['text'])
-							if ('/film/performance/film') in film['property']:
-								for val in film['property']['/film/performance/film']['values']:
-									f['film'].append(val['text'])
+							setDictVals(f['character'], film['property'], '/film/performance/character')
+							setDictVals(f['film'], film['property'], '/film/performance/film')
 							actor.append(f)
 					infobox['actor'] = actor
 
@@ -184,31 +188,21 @@ if args[6] == 'infobox':
 					if ('/business/board_member/organization_board_memberships' in properties):
 						for org in properties['/business/board_member/organization_board_memberships']['values']:
 							a = defaultdict(list)
-							if ('/organization/organization_board_membership/organization' in org['property']):
-								setDictVals(a['organization'], org['property'], '/organization/organization_board_membership/organization')
-							if ('/organization/organization_board_membership/title' in org ['property']):
-								setDictVals(a['title'], org['property'], '/organization/organization_board_membership/title')
-							if ('/organization/organization_board_membership/role' in org['property']):
-								setDictVals(a['role'], org['property'], '/organization/organization_board_membership/role')
-							if ('/organization/organization_board_membership/from' in org['property']):
-								setDictVals(a['from'], org['property'], '/organization/organization_board_membership/from')
-							if ('/organization/organization_board_membership/to' in org['property']):
-								setDictVals(a['to'], org['property'], '/organization/organization_board_membership/to')
+							setDictVals(a['organization'], org['property'], '/organization/organization_board_membership/organization')
+							setDictVals(a['title'], org['property'], '/organization/organization_board_membership/title')
+							setDictVals(a['role'], org['property'], '/organization/organization_board_membership/role')
+							setDictVals(a['from'], org['property'], '/organization/organization_board_membership/from')
+							setDictVals(a['to'], org['property'], '/organization/organization_board_membership/to')
 							bp['boardmember'].append(a)
 					# handle leadership
 					if ('/business/board_member/leader_of' in properties):
 						for org in properties['/business/board_member/leader_of']['values']:
 							a = defaultdict(list)
-							if (org['property']):
-								setDictVals(a['organization'], org['property'], '/organization/leadership/organization')
-							if ('/organization/leadership/title' in org ['property']):
-								setDictVals(a['title'], org['property'], '/organization/leadership/title')
-							if ('/organization/leadership/role' in org['property']):
-								setDictVals(a['role'], org['property'], '/organization/leadership/role')
-							if ('/organization/leadership/from' in org['property']):
-								setDictVals(a['from'], org['property'], '/organization/leadership/from')
-							if ('/organization/leadership/to' in org['property']):
-								setDictVals(a['to'], org['property'], '/organization/leadership/to')
+							setDictVals(a['organization'], org['property'], '/organization/leadership/organization')
+							setDictVals(a['title'], org['property'], '/organization/leadership/title')
+							setDictVals(a['role'], org['property'], '/organization/leadership/role')
+							setDictVals(a['from'], org['property'], '/organization/leadership/from')
+							setDictVals(a['to'], org['property'], '/organization/leadership/to')
 							bp['leadership'].append(a)
 					infobox['businessperson'] = bp
 
@@ -244,18 +238,11 @@ if args[6] == 'infobox':
 					if ('/sports/sports_team/coaches' in properties):
 						for coach in properties['/sports/sports_team/coaches']['values']:
 							c = defaultdict(list)
-							if ('/sports/sports_team_coach_tenure/coach' in coach['property']):
-								for val in coach['property']['/sports/sports_team_coach_tenure/coach']['values']:
-									c['name'].append(val['text'])
-							if ('/sports/sports_team_coach_tenure/from' in coach['property']):
-								for val in coach['property']['/sports/sports_team_coach_tenure/from']['values']:
-									c['from'].append(val['text'])
-							if ('/sports/sports_team_coach_tenure/to'	in coach['property']):
-								for val in coach['property']['/sports/sports_team_coach_tenure/to']['values']:
-									c['to'].append(val['text'])
-							if ('/sports/sports_team_coach_tenure/position'	in coach['property']):
-								for val in coach['property']['/sports/sports_team_coach_tenure/position']['values']:
-									c['position'].append(val['text'])
+							setDictVals(c['name'], coach['property'], '/sports/sports_team_coach_tenure/coach')
+							setDictVals(c['number'], coach['property'], '/sports/sports_team_coach_tenure/number')
+							setDictVals(c['from'], coach['property'], '/sports/sports_team_coach_tenure/from')
+							setDictVals(c['to'], coach['property'], '/sports/sports_team_coach_tenure/to')
+							setDictVals(c['position'], coach['property'], '/sports/sports_team_coach_tenure/position')
 							team['coaches'].append(c)
 					team['founded'] = setDictVals(team['founded'], properties, '/sports/sports_team/founded')
 					if ('/sports/sports_team/league' in properties):
@@ -266,21 +253,11 @@ if args[6] == 'infobox':
 					if ('/sports/sports_team/roster' in properties):
 						for player in properties['/sports/sports_team/roster']['values']:
 							c = defaultdict(list)
-							if ('/sports/sports_team_roster/player' in player['property']):
-								for val in player['property']['/sports/sports_team_roster/player']['values']:
-									c['name'].append(val['text'])
-							if ('/sports/sports_team_roster/number' in player['property']):
-								for val in player['property']['/sports/sports_team_roster/number']['values']:
-									c['number'].append(val['text'])
-							if ('/sports/sports_team_roster/from' in player['property']):
-								for val in player['property']['/sports/sports_team_roster/from']['values']:
-									c['from'].append(val['text'])
-							if ('/sports/sports_team_roster/to'	in player['property']):
-								for val in player['property']['/sports/sports_team_roster/to']['values']:
-									c['to'].append(val['text'])
-							if ('/sports/sports_team_roster/position'	in player['property']):
-								for val in player['property']['/sports/sports_team_roster/position']['values']:
-									c['position'].append(val['text'])
+							setDictVals(c['name'], player['property'], '/sports/sports_team_roster/player')
+							setDictVals(c['number'], player['property'], '/sports/sports_team_roster/number')
+							setDictVals(c['from'], player['property'], '/sports/sports_team_roster/from')
+							setDictVals(c['to'], player['property'], '/sports/sports_team_roster/to')
+							setDictVals(c['position'], player['property'], '/sports/sports_team_roster/position')
 							team['players'].append(c)
 					infobox['team'] = team
 
@@ -309,7 +286,7 @@ if args[6] == 'infobox':
 					else:
 						nameString += ')'
 				if (isBusinessPerson):
-					nameString += 'BUSINESS)'
+					nameString += 'BUSINESS_PERSON)'
 
 			print nameString.ljust(122) + ' |'
 
@@ -334,19 +311,6 @@ if args[6] == 'infobox':
 						element = '|'
 						element = concatAtts(element, film, 'character')
 						element = concatAtts(element, film, 'film')
-
-						# for film_name in film['film']:
-						# 	if movie_names == '':
-						# 		movie_names += film_name
-						# 	else:
-						# 		movie_names += ', ' + film_name
-						# movie_names = ' | ' + movie_names
-						# element = movie_names
-						# for character in film['character']:
-						# 	if element == movie_names:
-						# 		element = character + element
-						# 	else:
-						# 		element = character + ', ' + element
 						data.append(element)
 					newRow('Films (Character | Film Name)', data)
 
