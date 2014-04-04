@@ -23,6 +23,7 @@ def splitCount(s, count):
 	result.append(s[remainderStart::])
 	return result
 
+# Outputs another row
 def newRow(title, data):
 	n = 120
 	print '| ' + ('-' * n) + ' |'
@@ -33,6 +34,13 @@ def newRow(title, data):
 			newEntry(entry)
 	else:
 		newEntry(data)
+
+# Does samething as newRow except data is stored
+# at a dictionary key.
+# Provides check that key exists
+def newRowDict(title, d, k):
+	if k in d and d[k]:
+		newRow(title, d[k])
 
 def newEntry(entry):
 	#splitEntry = splitCount(entry, 70)
@@ -45,6 +53,17 @@ def newEntry(entry):
 		else:
 			print '| '.ljust(12) + line.ljust(110) + ' |'
 
+# Concatenates attributes in d[k] to s followed by a pipe.
+# Useful for outputting information for BusinessPerson
+def concatAtts(s, d, k):
+	if k in d:
+		for att in d[k]:
+			if att == d[k][0]:
+				s += ' ' + att
+			else:
+				s += ', ' + att
+		s += ' |'
+	return s
 
 # Make sure script utilized correctly with command line arguments
 usageStr = "Usage error: Format must be python knowledgegraph.py -key <Freebase API key> -q <query> -t <infobox|question>\n"
@@ -164,32 +183,32 @@ if args[6] == 'infobox':
 					# handle board member
 					if ('/business/board_member/organization_board_memberships' in properties):
 						for org in properties['/business/board_member/organization_board_memberships']['values']:
-							a = defaultdict(str)
+							a = defaultdict(list)
 							if ('/organization/organization_board_membership/organization' in org['property']):
-								a['organization'] = org['property']['/organization/organization_board_membership/organization']['values'][0]['text']
+								setDictVals(a['organization'], org['property'], '/organization/organization_board_membership/organization')
 							if ('/organization/organization_board_membership/title' in org ['property']):
-								a['title'] = org['property']['/organization/organization_board_membership/title']['values'][0]['text']
+								setDictVals(a['title'], org['property'], '/organization/organization_board_membership/title')
 							if ('/organization/organization_board_membership/role' in org['property']):
-								a['role'] = org['property']['/organization/organization_board_membership/role']['values'][0]['text']
+								setDictVals(a['role'], org['property'], '/organization/organization_board_membership/role')
 							if ('/organization/organization_board_membership/from' in org['property']):
-								a['from'] = org['property']['/organization/organization_board_membership/from']['values'][0]['text']
+								setDictVals(a['from'], org['property'], '/organization/organization_board_membership/from')
 							if ('/organization/organization_board_membership/to' in org['property']):
-								a['to'] = org['property']['/organization/organization_board_membership/to']['values'][0]['text']
+								setDictVals(a['to'], org['property'], '/organization/organization_board_membership/to')
 							bp['boardmember'].append(a)
 					# handle leadership
 					if ('/business/board_member/leader_of' in properties):
 						for org in properties['/business/board_member/leader_of']['values']:
-							a = defaultdict(str)
-							if ('/organization/leadership/organization' in org['property']):
-								a['organization'] = org['property']['/organization/leadership/organization']['values'][0]['text']
+							a = defaultdict(list)
+							if (org['property']):
+								setDictVals(a['organization'], org['property'], '/organization/leadership/organization')
 							if ('/organization/leadership/title' in org ['property']):
-								a['title'] = org['property']['/organization/leadership/title']['values'][0]['text']
+								setDictVals(a['title'], org['property'], '/organization/leadership/title')
 							if ('/organization/leadership/role' in org['property']):
-								a['role'] = org['property']['/organization/leadership/role']['values'][0]['text']
+								setDictVals(a['role'], org['property'], '/organization/leadership/role')
 							if ('/organization/leadership/from' in org['property']):
-								a['from'] = org['property']['/organization/leadership/from']['values'][0]['text']
+								setDictVals(a['from'], org['property'], '/organization/leadership/from')
 							if ('/organization/leadership/to' in org['property']):
-								a['to'] = org['property']['/organization/leadership/to']['values'][0]['text']
+								setDictVals(a['to'], org['property'], '/organization/leadership/to')
 							bp['leadership'].append(a)
 					infobox['businessperson'] = bp
 
@@ -296,94 +315,73 @@ if args[6] == 'infobox':
 
 			# Print Person Attributes
 			person = infobox['person']
-			if (person['name']):
-				newRow('Name', person['name'])
-			if (person['birthday']):
-				newRow('Birthday', person['birthday'])
+			newRowDict('Name', person, 'name')
+			newRowDict('Birthday', person, 'birthday')
 			if (person['deathdate'] or person['deathplace'] or person['deathcause']):
-				if (person['deathdate']):
-					newRow('Date of death', person['deathdate'])
-				if (person['deathplace']):
-					newRow('Place of death', person['deathplace'])
-				if (person['deathcause']):
-					newRow('Causes of death', person['deathcause'])
-			if (person['birthplace']):
-				newRow('Place of birth', person['birthplace'])
-			if (person['description']):
-				newRow('Description', person['description'])
-			if (person['siblings']):
-				newRow('Siblings', person['siblings'])
-			if (person['spouses']):
-				newRow('Spouses', person['spouses'])
+				newRowDict('Date of death', person, 'deathdate')
+				newRowDict('Place of death', person, 'deathplace')
+				newRowDict('Causes of death', person, 'deathcause')
+			newRowDict('Place of birth', person, 'birthplace')
+			newRowDict('Description', person, 'description')
+			newRowDict('Siblings', person, 'siblings')
+			newRowDict('Spouses', person, 'spouses')
 
 			# Print Actor Attributes
 			if (isActor):
 				if infobox['actor']:
 					data = []
 					for film in infobox['actor']:
-						movie_names = ''
-						for film_name in film['film']:
-							if movie_names == '':
-								movie_names += film_name
-							else:
-								movie_names += ', ' + film_name
-						movie_names = ' | ' + movie_names
-						element = movie_names
-						for character in film['character']:
-							if element == movie_names:
-								element = character + element
-							else:
-								element = character + ', ' + element
+						element = '|'
+						element = concatAtts(element, film, 'character')
+						element = concatAtts(element, film, 'film')
+
+						# for film_name in film['film']:
+						# 	if movie_names == '':
+						# 		movie_names += film_name
+						# 	else:
+						# 		movie_names += ', ' + film_name
+						# movie_names = ' | ' + movie_names
+						# element = movie_names
+						# for character in film['character']:
+						# 	if element == movie_names:
+						# 		element = character + element
+						# 	else:
+						# 		element = character + ', ' + element
 						data.append(element)
 					newRow('Films (Character | Film Name)', data)
 
 			# Print Author Attributes
 			if (isAuthor):
 				author = infobox['author']
-				if (author['books']):
-					newRow('Books', author['books'])
-				if (author['influencedby']):
-					newRow('Influenced by', author['influencedby'])
-				if (author['booksonauth']):
-					newRow('Books about', author['booksonauth'])
-				if (author['influenced']):
-					newRow('Influenced', author['influenced'])
+				newRowDict('Books', author, 'books')
+				newRowDict('Influenced by', author, 'influencedby')
+				newRowDict('Books about', author, 'booksonauth')
+				newRowDict('Influenced', author, 'influenced')
 
 			# Print BusinessPerson Attributes
 			if (isBusinessPerson):
 				bp = infobox['businessperson']
-				if (bp['founded']):
-					newRow('Founded', bp['founded'])
+				newRowDict('Founded', bp, 'founded')
 				if (bp['leadership']):
 					data = []
 					for org in bp['leadership']:
-						element = ""
-						if org['organization']:
-							element = element + org['organization'] + '|'
-						if org['role']:
-								element = element + org['role'] + '|'
-						if org['title']:
-							element = element + org['title'] + '|'
-						if org['from']:
-							element = element + org['from'] + '-'
-						if org['to']:
-							element = element + org['to'] + '|'
+						element = '|'
+						element = concatAtts(element, org, 'organization')
+						element = concatAtts(element, org, 'role')
+						element = concatAtts(element, org, 'title')
+						element = concatAtts(element, org, 'from')
+						element = concatAtts(element, org, 'to')
 						data.append(element)
 					newRow('Leadership: | Organization | Role | Title | From-To |', data)
 				if (bp['boardmember']):
 					data = []
 					for org in bp['boardmember']:
-						element = ""
-						if org['organization']:
-							element = element + org['organization'] + '|'
-						if org['role']:
-							element = element + org['role'] + '|'
-						if org['title']:
-							element = element + org['title'] + '|'
-						if org['from']:
-							element = element + org['from'] + '-'
-						if org['to']:
-							element = element + org['to'] + '|'
+						element = '|'
+						element = concatAtts(element, org, 'organization')
+						element = concatAtts(element, org, 'role')
+						element = concatAtts(element, org, 'title')
+						element = concatAtts(element, org, 'from')
+						element = concatAtts(element, org, 'to')
 						data.append(element)
 					newRow('Board Member: | Organization | Role | Title | From-To |', data)
 			print '| ' + ('-' * 120) + ' |\n\n'
@@ -391,23 +389,17 @@ if args[6] == 'infobox':
 		# Print League Attributes
 		elif isLeague:
 			league = infobox['league']
-			if (league['name']):
+			if 'name' in league:
 				print '  ' + ('-' * 120)
 				temp = '| ' + league['name'][0] + '(LEAGUE)'
 				print temp.ljust(122) + ' |'
 				newRow('Name', league['name'])
-			if (league['sport']):
-				newRow('Sport', league['sport'])
-			if league['slogan']:
-				newRow('Slogan', league['slogan'])
-			if league['website']:
-				newRow('Official website', league['website'])
-			if league['championship']:
-				newRow('Championship', league['championship'])
-			if league['teams']:
-				newRow('Teams', league['teams'])
-			if league['description']:
-				newRow('Description', league['description'])
+			newRowDict('Sport', league, 'sport')
+			newRowDict('Slogan', league, 'slogan')
+			newRowDict('Official website', league, 'website')
+			newRowDict('Championship', league, 'championship')
+			newRowDict('Teams', league, 'teams')
+			newRowDict('Description', league, 'description')
 			print '| ' + ('-' * 120) + ' |\n\n'
 
 		# Print SportsTeam Attributes
@@ -418,57 +410,33 @@ if args[6] == 'infobox':
 				temp = '| ' + team['name'][0] + '(SPORTS TEAM)'
 				print temp.ljust(122) + ' |'
 				newRow('Name', team['name'])
-			if team['sport']:
-				newRow('Sport', team['sport'])
-			if team['arena']:
-				newRow('Arena', team['arena'])
-			if team['championships']:
-				newRow('Championships', team['championships'])
-			if team['founded']:
-				newRow('Founded', team['founded'])
-			if team['leagues']:
-				newRow('Leagues', team['leagues'])
+			newRowDict('Sport', team, 'sport')
+			newRowDict('Arena', team, 'arena')
+			newRowDict('Championships', team, 'championships')
+			newRowDict('Founded', team, 'founded')
+			newRowDict('Leagues', team, 'leagues')
 			if team['coaches']:
 				data = []
 				for coach in team['coaches']:
-					element = ""
-					if coach['name']:
-						for name in coach['name']:
-						 element = element + name + '|'
-					if coach['position']:
-						for position in coach['position']:
-							element = element + position + '|'
-					if coach['from']:
-						for date in coach['from']:
-							element = element + date + '-'
-					if coach['to']:
-						for date in coach['to']:
-							element = element + date + '|'
+					element = '|'
+					element = concatAtts(element, coach, 'name')
+					element = concatAtts(element, coach, 'position')
+					element = concatAtts(element, coach, 'from')
+					element = concatAtts(element, coach, 'to')
 					data.append(element)
 				newRow('Coaches: | Name | Position | From/To |', data)
 			if team['players']:
 				data = []
 				for player in team['players']:
-					element = ""
-					if player['name']:
-						for name in player['name']:
-						 element = element + name + '|'
-					if player['position']:
-						for position in player['position']:
-							element = element + position + '|'
-					if player['number']:
-						for number in player['number']:
-							element = element + number + '|'
-					if player['from']:
-						for date in player['from']:
-							element = element + date + '-'
-					if player['to']:
-						for date in player['to']:
-							element = element + date + '|'
+					element = '|'
+					element = concatAtts(element, player, 'name')
+					element = concatAtts(element, player, 'position')
+					element = concatAtts(element, player, 'number')
+					element = concatAtts(element, player, 'from')
+					element = concatAtts(element, player, 'to')
 					data.append(element)
 				newRow('PlayersRoster: | Name | Position | Number | From/To |', data)
-			if team['description']:
-				newRow('Description', team['description'])
+			newRowDict('Description', team, 'description')
 			print '| ' + ('-' * 120) + ' |\n\n'
 		else:
 			print 'No related information about the query ' + query + ' was found!'
