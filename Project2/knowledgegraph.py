@@ -137,12 +137,12 @@ if args[6] == 'infobox':
 				if (val['id'] == '/people/person'):
 					isPerson = True
 					person = defaultdict(list)
-					person['name'] = setDictVals(person['name'], properties, '/type/object/name')
-					person['birthday'] = setDictVals(person['birthday'], properties, '/people/person/date_of_birth')
-					person['birthplace'] = setDictVals(person['birthplace'], properties, '/people/person/place_of_birth')
-					person['deathdate'] = setDictVals(person['Deathdate'], properties, '/people/deceased_person/date_of_death')
-					person['deathplace'] = setDictVals(person['deathplace'], properties, '/people/deceased_person/place_of_death')
-					person['deathcause'] = setDictVals(person['deathcause'], properties, '/people/deceased_person/cause_of_death')
+					setDictVals(person['name'], properties, '/type/object/name')
+					setDictVals(person['birthday'], properties, '/people/person/date_of_birth')
+					setDictVals(person['birthplace'], properties, '/people/person/place_of_birth')
+					setDictVals(person['deathdate'], properties, '/people/deceased_person/date_of_death')
+					setDictVals(person['deathplace'], properties, '/people/deceased_person/place_of_death')
+					setDictVals(person['deathcause'], properties, '/people/deceased_person/cause_of_death')
 					if ('/people/person/sibling_s' in properties):
 						for sibling in properties['/people/person/sibling_s']['values']:
 							if ('/people/sibling_relationship/sibling' in sibling['property']):
@@ -161,10 +161,10 @@ if args[6] == 'infobox':
 				elif (val['id'] == '/book/author'):
 					isAuthor = True
 					author = defaultdict(list)
-					author['books'] = setDictVals(author['books'], properties, '/book/author/works_written')
-					author['booksonauth'] = setDictVals(author['booksonauth'], properties, '/book/book_subject/works')
-					author['influenced'] = setDictVals(author['influenced'], properties, '/influence/influence_node/influenced')
-					author['influencedby'] = setDictVals(author['influencedby'], properties, '/influence/influence_node/influenced_by')
+					setDictVals(author['books'], properties, '/book/author/works_written')
+					setDictVals(author['booksonauth'], properties, '/book/book_subject/works')
+					setDictVals(author['influenced'], properties, '/influence/influence_node/influenced')
+					setDictVals(author['influencedby'], properties, '/influence/influence_node/influenced_by')
 					infobox['author'] = author
 
 				# Check if search result is an Actor
@@ -183,7 +183,7 @@ if args[6] == 'infobox':
 				elif (not isBusinessPerson and (val['id'] == '/organization/organization_founder' or val['id'] == '/business/board_member')):
 					isBusinessPerson = True
 					bp = defaultdict(list)
-					bp['founded'] = setDictVals(bp['founded'], properties, '/organization/organization_founder/organizations_founded')
+					setDictVals(bp['founded'], properties, '/organization/organization_founder/organizations_founded')
 					# handle board member
 					if ('/business/board_member/organization_board_memberships' in properties):
 						for org in properties['/business/board_member/organization_board_memberships']['values']:
@@ -210,11 +210,11 @@ if args[6] == 'infobox':
 				elif (val['id'] == '/sports/sports_league'):
 					isLeague = True
 					league = defaultdict(list)
-					league['name'] = setDictVals(league['name'], properties, '/type/object/name')
-					league['championship'] = setDictVals(league['championship'], properties, '/sports/sports_league/championship')
-					league['sport'] = setDictVals(league['sport'], properties, '/sports/sports_league/sport')
-					league['slogan'] = setDictVals(league['slogan'], properties, '/organization/organization/slogan')
-					league['website'] = setDictVals(league['website'], properties, '/common/topic/official_website')
+					setDictVals(league['name'], properties, '/type/object/name')
+					setDictVals(league['championship'], properties, '/sports/sports_league/championship')
+					setDictVals(league['sport'], properties, '/sports/sports_league/sport')
+					setDictVals(league['slogan'], properties, '/organization/organization/slogan')
+					setDictVals(league['website'], properties, '/common/topic/official_website')
 					if ('/common/topic/description' in properties):
 						for x in properties['/common/topic/description']['values']:
 							league['description'].append(x['value'])
@@ -228,13 +228,13 @@ if args[6] == 'infobox':
 				elif (not isSportsTeam and (val['id'] == '/sports/sports_team' or val['id'] == '/sports/professional_sports_team')):
 					isSportsTeam = True
 					team = defaultdict(list)
-					team['name'] = setDictVals(team['name'], properties, '/type/object/name')
+					setDictVals(team['name'], properties, '/type/object/name')
 					if ('/common/topic/description' in properties):
 						for x in properties['/common/topic/description']['values']:
 							team['description'].append(x['value'])
-					team['sport'] = setDictVals(team['sport'], properties, '/sports/sports_team/sport')
-					team['arena'] = setDictVals(team['arena'], properties, '/sports/sports_team/arena_stadium')
-					team['championships'] = setDictVals(team['championships'], properties, '/sports/sports_team/championships')
+					setDictVals(team['sport'], properties, '/sports/sports_team/sport')
+					setDictVals(team['arena'], properties, '/sports/sports_team/arena_stadium')
+					setDictVals(team['championships'], properties, '/sports/sports_team/championships')
 					if ('/sports/sports_team/coaches' in properties):
 						for coach in properties['/sports/sports_team/coaches']['values']:
 							c = defaultdict(list)
@@ -295,9 +295,9 @@ if args[6] == 'infobox':
 			newRowDict('Name', person, 'name')
 			newRowDict('Birthday', person, 'birthday')
 			if (person['deathdate'] or person['deathplace'] or person['deathcause']):
-				newRowDict('Date of death', person, 'deathdate')
-				newRowDict('Place of death', person, 'deathplace')
-				newRowDict('Causes of death', person, 'deathcause')
+				newRowDict('Death date', person, 'deathdate')
+				newRowDict('Death place', person, 'deathplace')
+				newRowDict('Death causes', person, 'deathcause')
 			newRowDict('Place of birth', person, 'birthplace')
 			newRowDict('Description', person, 'description')
 			newRowDict('Siblings', person, 'siblings')
@@ -388,7 +388,7 @@ if args[6] == 'infobox':
 					element = concatAtts(element, coach, 'from')
 					element = concatAtts(element, coach, 'to')
 					data.append(element)
-				newRow('Coaches: | Name | Position | From/To |', data)
+				newRow('Coaches: | Name | Position | From | To |', data)
 			if team['players']:
 				data = []
 				for player in team['players']:
@@ -399,7 +399,7 @@ if args[6] == 'infobox':
 					element = concatAtts(element, player, 'from')
 					element = concatAtts(element, player, 'to')
 					data.append(element)
-				newRow('PlayersRoster: | Name | Position | Number | From/To |', data)
+				newRow('PlayersRoster: | Name | Position | Number | From | To |', data)
 			newRowDict('Description', team, 'description')
 			print '| ' + ('-' * 120) + ' |\n\n'
 		else:
