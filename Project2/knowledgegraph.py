@@ -177,7 +177,7 @@ if args[6] == 'infobox':
 					infobox['author'] = author
 
 				# Check if search result is an Actor
-				elif (not isActor and (val['id'] == '/film/actor' or val['id'] == 'tv/tv_actor')):
+				elif (not isActor and (val['id'] == '/film/actor' or val['id'] == '/tv/tv_actor')):
 					isActor = True
 					# Every attribute of actor stored in a dict a given index in the author list
 					actor = []
@@ -268,12 +268,12 @@ if args[6] == 'infobox':
 							setDictVals(c['to'], coach['property'], '/sports/sports_team_coach_tenure/to')
 							setDictVals(c['position'], coach['property'], '/sports/sports_team_coach_tenure/position')
 							team['coaches'].append(c)
-					team['founded'] = setDictVals(team['founded'], properties, '/sports/sports_team/founded')
+					setDictVals(team['founded'], properties, '/sports/sports_team/founded')
 					if ('/sports/sports_team/league' in properties):
 						for league in properties['/sports/sports_team/league']['values']:
 							if ('/sports/sports_league_participation/league' in league['property']):
 								team['leagues'].append(league['property']['/sports/sports_league_participation/league']['values'][0]['text'])
-					team['locations'] = setDictVals(team['locations'], properties, '/sports/sports_team/location')
+					setDictVals(team['locations'], properties, '/sports/sports_team/location')
 					if ('/sports/sports_team/roster' in properties):
 						# the key 'players's value is a list of dicts for each player
 						for player in properties['/sports/sports_team/roster']['values']:
@@ -446,30 +446,36 @@ elif args[6] == 'question':
 		if question[-1] == '\n':
 			question = question[:-1]
 
+		# Output Query-Question
+		print 'Query-Question: ' + question
+
 		# Modify query for API
 		query = question[12:]
 		if query[-1] == '?':
 			query = query[:-1]
 
+		# Prepare for book query and organization query to the Freebase MQL API using query
 		search_url = "https://www.googleapis.com/freebase/v1/mqlread"
 		
+		# set book and organization query parameters
 		bookQuery = '[{"/book/author/works_written": [{"a:name": null,"name~=": "' + query + '"}],"id": null,"name": null,"type": "/book/author"}]'
 		orgQuery = '[{"/organization/organization_founder/organizations_founded": [{"a:name": null,"name~=": "' + query + '"}],"id": null,"name": null,"type": "/organization/organization_founder"}]'
-
 		bookParams = {
 						'query': bookQuery,
 						'key': api_key
 		}
-
 		orgParams = {
 						'query': orgQuery,
 						'key': api_key
 		}
 		
+		# Query Freebase MQL API
 		bookUrl = search_url + '?' + urllib.urlencode(bookParams)
 		orgUrl = search_url + '?' + urllib.urlencode(orgParams)
 		bookResponse = json.loads(urllib.urlopen(bookUrl).read())
 		orgResponse = json.loads(urllib.urlopen(orgUrl).read())
+
+		# Store 'result' key of response dictionary as list book/org results
 		bookResults = []
 		orgResults = []
 		if 'result' in bookResponse:
@@ -477,41 +483,41 @@ elif args[6] == 'question':
 		if 'result' in orgResponse:
 			orgResults = orgResponse['result']
 
-		creators = {}
+		# creators dictionary maps a person's name to a list of (as_what_kind_of_person, list_of_created_this) tuples
+		creators = defaultdict(list)
 
 		for item in bookResults:
 			if '/book/author/works_written' in item:
+				# incase book has two names (possible under Freebase's organization strategy)
 				bookList = []
 				for book in item['/book/author/works_written']:
 					if 'a:name' in book:
 						bookList.append(book['a:name'])
-				if item['name'] in creators:
-					creators[item['name']].append(('Author', bookList))
-				else:
-					creators[item['name']] = []
-					creators[item['name']].append(('Author', bookList))
-
+				# append tuple to list
+				creators[item['name']].append(('Author', bookList))
 
 		for item in orgResults:
+			# incase organization has two names (possible under Freebase's organization strategy)
 			if '/organization/organization_founder/organizations_founded' in item:
 				orgList = []
 				for org in item['/organization/organization_founder/organizations_founded']:
 					if 'a:name' in org:
 						orgList.append(org['a:name'])
-				if item['name'] in creators:
-					creators[item['name']].append(('Business Person', orgList))
-				else:
-					creators[item['name']] = []
-					creators[item['name']].append(('Business Person', orgList))
+				# append tuple to list
+				creators[item['name']].append(('Business Person', orgList))
 
-		
-
+		# Output results
 		print '  ' + ('-' * 120)
 		temp = '| ' + question
 		print temp.ljust(122) + ' |' 
 
+		# creators is a dict with keys sorted
 		creators = collections.OrderedDict(sorted(creators.items()))
 
+		# Output creator as type_of_creator created:
+		#				creation a
+		# 			creation b
+		#				...
 		for key in creators:
 			books = []
 			orgs = []

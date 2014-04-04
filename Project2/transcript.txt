@@ -1,0 +1,1265 @@
+Louiss-MacBook-Pro-3:ljc2154-proj2 Louis$ python knowledgegraph.py -key AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow -f 'test-infobox.qfile' -t infobox
+Let me see...
+Query-Question: Bill Gates
+  ------------------------------------------------------------------------------------------------------------------------
+| Bill Gates(AUTHOR, BUSINESS_PERSON)                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Name:                                                                                                                    |
+|           Bill Gates                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Birthday:                                                                                                                |
+|           1955-10-28                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Place of birth:                                                                                                          |
+|           Seattle                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Description:                                                                                                             |
+|           William Henry "Bill" Gates III is an American business magnate, philanthropist, investor, computer programmer, |
+|            and inventor. Gates is the former chief executive and chairman of Microsoft, the world’s largest personal-com |
+|           puter software company, which he co-founded with Paul Allen.He is consistently ranked in the Forbes list of th |
+|           e world's wealthiest people and was the wealthiest overall from 1995 to 2009—excluding 2008, when he was ranke |
+|           d third; in 2011 he was the wealthiest American and the world's second wealthiest person. According to the Blo |
+|           omberg Billionaires List, Gates became the the world's richest person again in 2013, a position that he last h |
+|           eld on the list in 2007. As of March 2014, he is the richest.During his career at Microsoft, Gates held the po |
+|           sitions of CEO and chief software architect, and remains the largest individual shareholder, with 6.4 percent  |
+|           of the common stock. He has also authored and co-authored several books.Gates is one of the best-known entrepr |
+|           eneurs of the personal computer revolution. Gates has been criticized for his business tactics, which have bee |
+|           n considered anti-competitive, an opinion which has in some cases been upheld by judicial courts. In the later |
+|            stages of his career, Gates has pursued a number of philanthropic endeavors, donating large amounts of money  |
+|           to various charitable organizations and scientific research programs through the Bill & Melinda Gates Foundati |
+|           on, established in 2000.                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Siblings:                                                                                                                |
+|           Libby Gates                                                                                                    |
+|           Kristi Gates                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Spouses:                                                                                                                 |
+|           Melinda Gates                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Books:                                                                                                                   |
+|           Business @ the Speed of Thought: Using a Digital Nervous System                                                |
+|           The Road Ahead                                                                                                 |
+|           Open Letter to Hobbyists                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Books about:                                                                                                             |
+|           Creative Capitalism: A Conversation with Bill Gates, Warren Buffett, and Other Economic Leaders                |
+|           The Microsoft File: The Secret Case against Bill Gates                                                         |
+|           Programmers at work                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Influenced:                                                                                                              |
+|           Marc Nicholas Rohde                                                                                            |
+|           Naveen Jain                                                                                                    |
+|           Cenk Aydin                                                                                                     |
+|           Daniel Podgaichenko                                                                                            |
+|           yogendrachavda                                                                                                 |
+|           Yogendra Chavda                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Founded:                                                                                                                 |
+|           Bill & Melinda Gates Foundation                                                                                |
+|           Microsoft Corporation                                                                                          |
+|           Corbis                                                                                                         |
+|           bgC3                                                                                                           |
+|           Cascade Investment                                                                                             |
+|           Microsoft Research                                                                                             |
+|           The Global Fund to Fight AIDS, Tuberculosis & Malaria                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Leadership: | Organization | Role | Title | From-To |:                                                                   |
+|           | Microsoft Corporation | Chief Executive Officer | Chief Executive Officer | 1975-04-04 | 2000-01-12 |        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Board Member: | Organization | Role | Title | From-To |:                                                                 |
+|           | Bill & Melinda Gates Foundation | | Co-Chairman | | |                                                        |
+|           | Microsoft Corporation | Chairman | Chairman | 1981 | 2014-02-04 |                                            |
+|           | Berkshire Hathaway | | | 2004 | |                                                                            |
+|           | Corbis | | Chair | 1989 | |                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: Robert Downey Jr.
+  ------------------------------------------------------------------------------------------------------------------------
+| Robert Downey Jr.(ACTOR)                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Name:                                                                                                                    |
+|           Robert Downey Jr.                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Birthday:                                                                                                                |
+|           1965-04-04                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Place of birth:                                                                                                          |
+|           Manhattan                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Description:                                                                                                             |
+|           Robert John Downey, Jr. is an American actor who made his screen debut at the age of five, appearing in his fa |
+|           ther Robert Downey, Sr.'s film Pound. He has appeared in roles associated with the Brat Pack, such as Less Tha |
+|           n Zero and Weird Science. Other films he has starred in include Air America, Soapdish, and Natural Born Killer |
+|           s. He starred as Charlie Chaplin, the title character in the 1992 film Chaplin, earning him a nomination for t |
+|           he Academy Award for Best Actor.After being released from the California Substance Abuse Treatment Facility an |
+|           d State Prison in 2000 for drug charges, Downey joined the cast of the TV series Ally McBeal playing Calista F |
+|           lockhart's love interest. His performance was praised and he received a Golden Globe Award for Best Performanc |
+|           e by an Actor in a Supporting Role in a Series, Miniseries, or Television Film. His character was written out  |
+|           when Downey was fired after two drug arrests in late 2000 and early 2001. After one last stay in a court-order |
+|           ed drug treatment program, Downey finally achieved sobriety.His more recent films include The Singing Detectiv |
+|           e, Kiss Kiss Bang Bang, A Scanner Darkly, Gothika, Zodiac and Tropic Thunder, for which he was nominated an Ac |
+|           ademy Award for Best Supporting Actor. In 2008, Downey played the role of Marvel superhero Tony Stark / Iron M |
+|           an in the live action film Iron Man, a role he reprised in Iron Man 2, Marvel's The Avengers, and Iron Man 3.  |
+|           He reprised his role in a cameo appearance in The Incredible Hulk. He will again reprise his role in the upcom |
+|           ing films, Avengers: Age of Ultron and another Avengers sequel. In 2009, he played the title character in Guy  |
+|           Ritchie's Sherlock Holmes and again in 2011's Sherlock Holmes: A Game of Shadows.                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Siblings:                                                                                                                |
+|           Allyson Downey                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Spouses:                                                                                                                 |
+|           Deborah Falconer                                                                                               |
+|           Susan Downey                                                                                                   |
+|           Sarah Jessica Parker                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Films (Character | Film Name):                                                                                           |
+|           | Ralph Carr | 1969 |                                                                                          |
+|           | James Barris | A Scanner Darkly |                                                                            |
+|           | Billy Covington | Air America |                                                                              |
+|           | Derek Lutz | Back to School |                                                                                |
+|           | Charlie Chaplin | Chaplin |                                                                                  |
+|           | Nick Penrose | Eros |                                                                                        |
+|           | Lee | Firstborn |                                                                                            |
+|           | Steven Schwimmer | Game 6 |                                                                                  |
+|           | Joe Wershba | Good Night, and Good Luck |                                                                    |
+|           | Thomas Reilly | Heart and Souls |                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: Jackson
+  ------------------------------------------------------------------------------------------------------------------------
+| Michael Jackson(AUTHOR, ACTOR, BUSINESS_PERSON)                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Name:                                                                                                                    |
+|           Michael Jackson                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Birthday:                                                                                                                |
+|           1958-08-29                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Death date:                                                                                                              |
+|           2009-06-25                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Death place:                                                                                                             |
+|           Holmby Hills                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Death causes:                                                                                                            |
+|           Cardiac arrest                                                                                                 |
+|           Homicide                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Place of birth:                                                                                                          |
+|           Gary                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Description:                                                                                                             |
+|           Michael Joseph Jackson (August 29, 1958 – June 25, 2009) was an American recording artist, dancer, singer-song |
+|           writer, musician, and philanthropist. Referred to as the King of Pop, Jackson is recognized as the most succes |
+|           sful entertainer of all time by Guinness World Records. His contribution to music, dance, and fashion, along w |
+|           ith a much-publicized personal life, made him a global figure in popular culture for over four decades. The se |
+|           venth child of the Jackson family, he debuted on the professional music scene along with his brothers as a mem |
+|           ber of The Jackson 5, then the Jacksons in 1964, and began his solo career in 1971. In the early 1980s, Jackso |
+|           n became a dominant figure in popular music. The music videos for his songs, including those of "Beat It", "Bi |
+|           llie Jean", and "Thriller", were credited with transforming the medium into an art form and a promotional tool |
+|           , and the popularity of these videos helped to bring the relatively new television channel MTV to fame And Cor |
+|           dell Francis Admire Michael Jackson As His Best. Videos such as ...                                            |
+|           Michael Joseph Jackson was an American recording artist, actor, producer, dancer, businessman, and philanthrop |
+|           ist. Often referred to by the honorific nickname "The King of Pop", his contributions to music, dance, and fas |
+|           hion, along with his publicized personal life, made him a global figure in popular culture for over four decad |
+|           es.The eighth child of the Jackson family, he debuted on the professional music scene along with his brothers  |
+|           as a member of The Jackson 5 in 1968, and began his solo career in 1971. In the early 1980s, Jackson became a  |
+|           dominant figure in popular music. The music videos for his songs, including those of "Beat It", "Billie Jean", |
+|            and "Thriller", were credited with breaking down racial barriers and with transforming the medium into an art |
+|            form and promotional tool. The popularity of these videos helped to bring the then-relatively-new television  |
+|           channel MTV to fame. With videos such as "Black or White" and "Scream", he continued to innovate the medium th |
+|           roughout the 1990s, as well as forging a reputation as a touring solo artist. Through stage and video performa |
+|           nces, Jackson popularized a number of complicated dance techniques, such as the robot and the moonwalk, to whi |
+|           ch he gave the name. His distinctive sound and style has influenced numerous hip hop, post-disco, contemporary |
+|            R&B, pop, and rock artists.                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Siblings:                                                                                                                |
+|           Janet Jackson                                                                                                  |
+|           Jermaine Jackson                                                                                               |
+|           La Toya Jackson                                                                                                |
+|           Marlon Jackson                                                                                                 |
+|           Randy Jackson                                                                                                  |
+|           Jackie Jackson                                                                                                 |
+|           Tito Jackson                                                                                                   |
+|           Rebbie Jackson                                                                                                 |
+|           Brandon Jackson                                                                                                |
+|           Joh'Vonnie Jackson                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Spouses:                                                                                                                 |
+|           Lisa Marie Presley                                                                                             |
+|           Debbie Rowe                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Films (Character | Film Name):                                                                                           |
+|           | | Moonwalker |                                                                                               |
+|           | Scarecrow | The Wiz |                                                                                        |
+|           | Agent M.J. | Miss Cast Away |                                                                                |
+|           | Agent M | Men in Black II |                                                                                  |
+|           | Captain EO | Captain EO |                                                                                    |
+|           | Maestro | Michael Jackson's Ghosts |                                                                         |
+|           | Captain EO | Captain EO Promo & Pre-show |                                                                   |
+|           | Scarecrow | Wiz on Down the Road |                                                                           |
+|           | Mayor | Michael Jackson's Ghosts |                                                                           |
+|           | Mayor Ghoul | Michael Jackson's Ghosts |                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Books:                                                                                                                   |
+|           Moonwalk                                                                                                       |
+|           Dancing the Dream                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Influenced by:                                                                                                           |
+|           Charlie Chaplin                                                                                                |
+|           James Brown                                                                                                    |
+|           Walt Disney                                                                                                    |
+|           Redd Foxx                                                                                                      |
+|           Nipsey Russell                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Books about:                                                                                                             |
+|           On Michael Jackson                                                                                             |
+|           The River of Winged Dreams                                                                                     |
+|           The Passion-Driven Writer and the Digital-Age Literary Marketplace                                             |
+|           To Walk a Lifetime in Michael Jackson's Moccasins                                                              |
+|           Michael Jackson and Summertime from This Point On                                                              |
+|           Looking at the World through Michael Jackson's Left Eye (Part 1)                                               |
+|           Looking at the World through Michael Jackson's Left Eye (Part 2)                                               |
+|           Looking at the World through Michael Jackson's Left Eye (Part 3 of 4)                                          |
+|           Looking at the World through Michael Jackson's Left Eye (Part 4 of 4)                                          |
+|           Evidence of Angels                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Influenced:                                                                                                              |
+|           Usher                                                                                                          |
+|           Justin Timberlake                                                                                              |
+|           Lady Gaga                                                                                                      |
+|           Britney Spears                                                                                                 |
+|           Nicole Scherzinger                                                                                             |
+|           Leigh Francis                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Founded:                                                                                                                 |
+|           Sony/ATV Music Publishing                                                                                      |
+|           Heal the World Foundation                                                                                      |
+|           MJJ Music                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: NFL
+  ------------------------------------------------------------------------------------------------------------------------
+| National Football League(LEAGUE)                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Name:                                                                                                                    |
+|           National Football League                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sport:                                                                                                                   |
+|           American football                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Official website:                                                                                                        |
+|           http://www.nfl.com/                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Championship:                                                                                                            |
+|           Super Bowl                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Teams:                                                                                                                   |
+|           Detroit Lions                                                                                                  |
+|           Carolina Panthers                                                                                              |
+|           Arizona Cardinals                                                                                              |
+|           Baltimore Ravens                                                                                               |
+|           Jacksonville Jaguars                                                                                           |
+|           Kansas City Chiefs                                                                                             |
+|           Denver Broncos                                                                                                 |
+|           New York Jets                                                                                                  |
+|           New York Giants                                                                                                |
+|           Oakland Raiders                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Description:                                                                                                             |
+|           The National Football League is a professional American football league that constitutes one of the four major |
+|            professional sports leagues in North America. It is composed of 32 teams divided equally between the National |
+|            Football Conference and the American Football Conference. The highest professional level of the sport in the  |
+|           world, the NFL runs a 17-week regular season from the week after Labor Day to the week after Christmas, with e |
+|           ach team playing sixteen games and having one bye week each season. Out of the league's 32 teams, six from eac |
+|           h conference compete in the NFL playoffs, a single-elimination tournament culminating in the Super Bowl, playe |
+|           d between the champions of the NFC and AFC. The champions of the Super Bowl are awarded the Vince Lombardi Tro |
+|           phy. Various other awards exist to recognize individual players and coaches. Most games are played on Sunday a |
+|           fternoons; some games are also played on Mondays and Thursdays during the regular season. There are games on S |
+|           aturdays during the first two playoff weekends. Sometimes, there are also Saturday games during the last few w |
+|           eeks of the regular season.The NFL was formed on August 20, 1920, as the American Professional Football Confer |
+|           ence; the league changed its name to the American Professional Football Association on September 17, 1920, and |
+|            changed its name to the National Football League on June 24, 1922, after spending the 1920 and 1921 seasons a |
+|           s the APFA. In 1966, the NFL agreed to merge with the rival American Football League, effective 1970; the firs |
+|           t Super Bowl was held at the end of that same season in January 1967. Today, the NFL has the highest average a |
+|           ttendance of any professional sports league in the world and is the most popular sports league in the United S |
+|           tates. The Super Bowl is among the biggest club sporting events in the world and individual Super Bowl games a |
+|           ccount for many of the most-watched television programs in American history. At the corporate level, the NFL i |
+|           s a nonprofit 501 association. The NFL's executive officer is the commissioner, who has broad authority in gov |
+|           erning the league.                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: NBA
+  ------------------------------------------------------------------------------------------------------------------------
+| National Basketball Association(LEAGUE)                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Name:                                                                                                                    |
+|           National Basketball Association                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sport:                                                                                                                   |
+|           Basketball                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Slogan:                                                                                                                  |
+|           Where Amazing Happens                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Official website:                                                                                                        |
+|           http://www.nba.com/                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Championship:                                                                                                            |
+|           NBA Finals                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Teams:                                                                                                                   |
+|           Detroit Pistons                                                                                                |
+|           Golden State Warriors                                                                                          |
+|           Los Angeles Lakers                                                                                             |
+|           Cleveland Cavaliers                                                                                            |
+|           Indiana Pacers                                                                                                 |
+|           Utah Jazz                                                                                                      |
+|           Orlando Magic                                                                                                  |
+|           Phoenix Suns                                                                                                   |
+|           Charlotte Bobcats                                                                                              |
+|           Houston Rockets                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Description:                                                                                                             |
+|           The National Basketball Association is the pre-eminent men's professional basketball league in North America,  |
+|           and is widely considered to be the premier men's professional basketball league in the world. It has thirty fr |
+|           anchised member clubs, and is an active member of USA Basketball, which is recognized by FIBA as the national  |
+|           governing body for basketball in the United States. The NBA is one of the four major North American profession |
+|           al sports leagues. NBA players are the world's best paid sportsmen, by average annual salary per player.The le |
+|           ague was founded in New York City on June 6, 1946, as the Basketball Association of America. The league adopte |
+|           d the name National Basketball Association on August 3, 1949, after absorbing the rival National Basketball Le |
+|           ague. The league's several international as well as individual team offices are directed out of its head offic |
+|           es located in the Olympic Tower at 645 Fifth Avenue in New York City. NBA Entertainment and NBA TV studios are |
+|            directed out of offices located in Secaucus, New Jersey.                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: NY Knicks
+  ------------------------------------------------------------------------------------------------------------------------
+| New York Knicks(SPORTS TEAM)                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Name:                                                                                                                    |
+|           New York Knicks                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sport:                                                                                                                   |
+|           Basketball                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Arena:                                                                                                                   |
+|           Madison Square Garden                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Championships:                                                                                                           |
+|           1970 NBA Finals                                                                                                |
+|           1973 NBA Finals                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Founded:                                                                                                                 |
+|           1946                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Leagues:                                                                                                                 |
+|           National Basketball Association                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Coaches: | Name | Position | From | To |:                                                                                |
+|           | Mike Woodson | Head coach | 2011-08-29 | |                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| PlayersRoster: | Name | Position | Number | From | To |:                                                                 |
+|           | Jamal Crawford | Shooting guard, Point guard | 11 | 2004 | 2008 |                                            |
+|           | Bill Bradley | | | 1967 | 1977 |                                                                             |
+|           | Patrick Ewing | Power forward, Center | 33 | 1985 | 2000 |                                                   |
+|           | Marcus Camby | Power forward, Center | 23 | 1998 | 2002 |                                                    |
+|           | Stephon Marbury | | | 2003 | 2008 |                                                                          |
+|           | Eddy Curry | | | 2005 | 2011 |                                                                               |
+|           | Chris Duhon | | | 2008 | 2010 |                                                                              |
+|           | Quentin Richardson | | | 2005 | 2009 |                                                                       |
+|           | Roger Mason, Jr. | | | 2010 | 2011 |                                                                         |
+|           | Ronny Turiaf | | | 2010 | 2011 |                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Description:                                                                                                             |
+|           The New York Knickerbockers, commonly referred to as the Knicks, are a professional basketball team based in N |
+|           ew York City, New York. The team, established by Ned Irish in 1946, was one of the founding members of the Bas |
+|           ketball Association of America, which became the NBA after merging with rival National Basketball League in 19 |
+|           49. The team plays at Madison Square Garden in the borough of Manhattan and is one of only two teams of the or |
+|           iginal National Basketball Association still located in its original city.The Knicks were successful during th |
+|           eir early years and were constant playoff contenders under the franchise's first head coach Joe Lapchick. Begi |
+|           nning in 1950, the Knicks made three consecutive appearances in the NBA Finals, all of which were losing effor |
+|           ts. Lapchick resigned in 1956 and the team subsequently began to falter. It was not until the late 1960s when  |
+|           Red Holzman became head coach did the Knicks begin to regain their former dominance. Holzman successfully guid |
+|           ed the Knicks to two championship titles in 1970 and 1973. The Knicks of the 1980s had mixed success that incl |
+|           uded six playoff appearances however, they failed to participate in the NBA Finals.                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: Miami Heat
+  ------------------------------------------------------------------------------------------------------------------------
+| Miami Heat(SPORTS TEAM)                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Name:                                                                                                                    |
+|           Miami Heat                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sport:                                                                                                                   |
+|           Basketball                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Arena:                                                                                                                   |
+|           American Airlines Arena                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Championships:                                                                                                           |
+|           2006 NBA Finals                                                                                                |
+|           2012 NBA Finals                                                                                                |
+|           2013 NBA Finals                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Founded:                                                                                                                 |
+|           1988                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Leagues:                                                                                                                 |
+|           National Basketball Association                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Coaches: | Name | Position | From | To |:                                                                                |
+|           | Erik Spoelstra | Coach | 2008-04 | |                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| PlayersRoster: | Name | Position | Number | From | To |:                                                                 |
+|           | Shaquille O'Neal | Center | 32 | 2004-07-14 | 2008-02 |                                                      |
+|           | Earl Barron | | | 2005 | 2008 |                                                                              |
+|           | Michael Beasley | Power forward, Small forward | 30 | 2008-06-26 | 2010-07-12 |                              |
+|           | Dorell Wright | | | 2004 | 2010-07-13 |                                                                      |
+|           | Jamaal Magloire | | | 2008-08-30 | 2011-12-09 |                                                              |
+|           | Carlos Arroyo | | | 2009-10-11 | 2011-03-01 |                                                                |
+|           | Quentin Richardson | | | 2009 | 2010-07-13 |                                                                 |
+|           | Shavlik Randolph | Power forward | 42 | 2009 | 2010 |                                                        |
+|           | Yakhouba Diawara | | | 2008-08-07 | 2010-07 |                                                                |
+|           | Ronny Turiaf | | | 2012-03-21 | 2012-07-27 |                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Description:                                                                                                             |
+|           The Miami Heat are a professional basketball team based in Miami, Florida, United States. The team is a member |
+|            of the Southeast Division in the Eastern Conference of the National Basketball Association. They play their h |
+|           ome games at the American Airlines Arena in Downtown Miami. The team owner is Micky Arison, who also owns crui |
+|           se-ship giant Carnival Corporation. The team president and de facto general manager is Pat Riley, and the head |
+|            coach is Erik Spoelstra. The mascot of the team is Burnie, an anthropomorphic fireball.Formed in 1988 as one  |
+|           of the NBA's four expansion franchises, the Heat have won three league championships, five conference titles a |
+|           nd 11 division titles. From February 3 to March 27, 2013, the Heat won 27 games in a row, the second-longest s |
+|           treak in NBA history. In 2013, Forbes valued the Heat at $625 million, sixth-most-valuable among NBA franchise |
+|           s.The Heat are not related to the Miami Floridians, an ABA team in the early 1970s, although the Heat have occ |
+|           asionally paid tribute to the older franchise by wearing a replica version of the Floridians' uniforms for the |
+|            NBA's "Hardwood Classics Nights" during the 2005–06 and 2011–12 seasons.                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Louiss-MacBook-Pro-3:ljc2154-proj2 Louis$ python knowledgegraph.py -key AIzaSyBsXEX0SMoWRYtQDRHWMHehGqmRiGRgQow -f 'test-question.qfile' -t question
+Let me see...
+Query-Question: Who created Google?
+  ------------------------------------------------------------------------------------------------------------------------
+| Who created Google?                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Aberjhani as Author created:                                                                                             |
+|           Google eBooks Launch Today and Present Top 10 Bestselling Titles                                               |
+|           10 Great Pages in My Very Own Google Plus Directory                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Aidan Chopra as Author created:                                                                                          |
+|           Google SketchUp For Dummies                                                                                    |
+|           Google SketchUp 7 for Dummies                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Alice Schertle as Author created:                                                                                        |
+|           Bill and Google Eyed Goblins                                                                                   |
+|           Bill and the google-eyed goblins                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Billy DeBeck as Author created:                                                                                          |
+|           Barney Google                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Brad Hill as Author created:                                                                                             |
+|           Google for Dummies                                                                                             |
+|           Building Your Business with Google For Dummies                                                                 |
+|           Google Search &amp; Rescue For Dummies                                                                         |
+|           Google-Suche Fur Dummies                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Brian Baskin as Author created:                                                                                          |
+|           Google talking                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Bud E. Smith as Author created:                                                                                          |
+|           Google Business Solutions All-in-One for Dummies                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Chris Sherman as Author created:                                                                                         |
+|           Google Power                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David A. Vise as Author created:                                                                                         |
+|           The Google Story                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Boles as Author created:                                                                                           |
+|           Google Apps Administrator Guide                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Crowder as Author created:                                                                                         |
+|           Google Earth For Dummies                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David F. Gallagher as Author created:                                                                                    |
+|           New Economy; A copyright dispute with the Church of Scientology is forcing Google to do some creative linking  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David M. Geary as Author created:                                                                                        |
+|           Google Web Toolkit Solutions                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Donna Baker as Author created:                                                                                           |
+|           How to Do Everything with Google Tools                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Dorling Kindersley as Author created:                                                                                    |
+|           DK Google E.encyclopedia                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Greg Holden as Author created:                                                                                           |
+|           Go Google                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Harold Davis as Author created:                                                                                          |
+|           Google advertising tools                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Howie Jacobson as Author created:                                                                                        |
+|           Google AdWords for Dummies                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jason Schafer as Author created:                                                                                         |
+|           I Google Myself                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jeff Jarvis as Author created:                                                                                           |
+|           What Would Google Do?                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jenny Holmes as Author created:                                                                                          |
+|           Parenting With Google                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jerri L. Ledford as Author created:                                                                                      |
+|           Google Analytics 2.0                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| John Battelle as Author created:                                                                                         |
+|           The Search: How Google and Its Rivals Rewrote the Rules of Business and Transformed Our Culture                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| John Mueller as Author created:                                                                                          |
+|           Mining Google web services                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Johnny Long as Author created:                                                                                           |
+|           Hacking con Google/ Hacking with Google                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jon Smith as Author created:                                                                                             |
+|           Get Into Bed With Google                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kai-Fu Lee as Business Person created:                                                                                   |
+|           Google China                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Karl Barksdale as Author created:                                                                                        |
+|           Google Apps for Dummies                                                                                        |
+|           Google Sites and Chrome for Dummies                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Larry Page as Business Person created:                                                                                   |
+|           Google                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Mark Malseed as Author created:                                                                                          |
+|           The Google Story                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Martin C. Brown as Author created:                                                                                       |
+|           Hacking Google Maps and Google Earth                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Mary E. Tyler as Author created:                                                                                         |
+|           Google Analytics                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Michael Busby as Author created:                                                                                         |
+|           Learn Google                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Michael Purvis as Author created:                                                                                        |
+|           Beginning Google Maps applications with PHP and Ajax                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Michael Young as Author created:                                                                                         |
+|           Google Maps mashups                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Nicholas G. Carr as Author created:                                                                                      |
+|           The Big Switch: Rewiring the World, from Edison to Google                                                      |
+|           Is Google Making Us Stupid?                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Perry Marshall as Author created:                                                                                        |
+|           Ultimate Guide to Google AdWords                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Preston Gralla as Author created:                                                                                        |
+|           Google Search and Tools in a Snap                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Rael Dornfest as Author created:                                                                                         |
+|           Google Hacks                                                                                                   |
+|           Google: The Missing Manual                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Randall E. Stross as Author created:                                                                                     |
+|           Planet Google                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Robbie Vanbrabant as Author created:                                                                                     |
+|           Google Guice                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ryan C. Williams as Author created:                                                                                      |
+|           Google Business Solutions All-in-One for Dummies                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ryan Teeter as Author created:                                                                                           |
+|           Google Apps for Dummies                                                                                        |
+|           Google Sites and Chrome for Dummies                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sara Gilbert as Author created:                                                                                          |
+|           The story of Google                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sarah Milstein as Author created:                                                                                        |
+|           Google: The Missing Manual                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sergey Brin as Business Person created:                                                                                  |
+|           Google                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Shelley O'Hara as Author created:                                                                                        |
+|           Easy Google                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sterling Udell as Author created:                                                                                        |
+|           Beginning Google Maps mashups with Mapplets, KML, and GeoRSS                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Susan Gunelius as Author created:                                                                                        |
+|           Google Blogger for Dummies                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Tara Brabazon as Author created:                                                                                         |
+|           The University of Google                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Tara Calishain as Author created:                                                                                        |
+|           Google pocket guide                                                                                            |
+|           Google Hacks                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ted Coombs as Author created:                                                                                            |
+|           Google Power Tools Bible                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Timesaver Books as Author created:                                                                                       |
+|           Google in 30 Pages or Less                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: Who created Lord of the Rings?
+  ------------------------------------------------------------------------------------------------------------------------
+| Who created Lord of the Rings?                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Brian Sibley as Author created:                                                                                          |
+|           The Lord of the Rings                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Christina Scull as Author created:                                                                                       |
+|           The Lord of the Rings: A Reader's Companion                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Christopher Smith as Author created:                                                                                     |
+|           The Lord of the Rings: Weapons and Warfare                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Brawn as Author created:                                                                                           |
+|           The Lord of the rings                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Colbert as Author created:                                                                                         |
+|           The Magical Worlds of the Lord of the Rings: The Amazing Myths, Legends, and Facts Behind the Masterpiece      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Fleming Rutledge as Author created:                                                                                      |
+|           The Battle for Middle-Earth: Tolkien's Divine Design in "the Lord of the Rings"                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Gary Russell as Author created:                                                                                          |
+|           The "Lord of the Rings" Official Stage Companion                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Howard Shore as Author created:                                                                                          |
+|           Lord of the Rings Instrumental Solos Viola Book                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| J. R. R. Tolkien as Author created:                                                                                      |
+|           The Lord of the Rings                                                                                          |
+|           Ring Goes South Book Lord of the Rings                                                                         |
+|           Appendices Final Book Lord of the Rings                                                                        |
+|           Ring Sets Out Book Lord of the Rings                                                                           |
+|           The Hobbit and the Lord of the Rings                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jane Chance as Author created:                                                                                           |
+|           The lord of the rings                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jane Johnson as Author created:                                                                                          |
+|           The Lord of the Rings: The Two Towers Visual Companion                                                         |
+|           The Lord of The Rings: The Complete Visual Companion                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jim Smith as Author created:                                                                                             |
+|           The lord of the rings                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kurt D. Bruner as Author created:                                                                                        |
+|           Finding God in the Lord of the Rings                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Lin Carter as Author created:                                                                                            |
+|           Tolkien: A Look Behind "The Lord of the Rings"                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Lynnette R. Porter as Author created:                                                                                    |
+|           Unsung Heroes of The Lord of the Rings : From the Page to the Screen                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Mario Govia as Author created:                                                                                           |
+|           The Lord of the rings                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Mark Eddy Smith as Author created:                                                                                       |
+|           Tolkien's Ordinary Virtues : Exploring the Spiritual Themes of the Lord of the Rings                           |
+|           A Closer Look at "The Lord of the Rings"                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Martin Barker as Author created:                                                                                         |
+|           Watching the Lord of the rings                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Matthew Warchus as Author created:                                                                                       |
+|           Lord of the Rings                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Neil D. Isaacs as Author created:                                                                                        |
+|           Understanding the Lord of the Rings: The Best of Tolkien Criticism                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Rayner Unwin as Author created:                                                                                          |
+|           The making of The lord of the rings                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Reiner Knizia as Author created:                                                                                         |
+|           Lord of the Rings Friends and Foes                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Richard Abanes as Author created:                                                                                        |
+|           Harry Potter, Narnia, and The lord of the rings                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Robert Eaglestone as Author created:                                                                                     |
+|           Reading the Lord of the Rings                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Rose A. Zimbardo as Author created:                                                                                      |
+|           Understanding the Lord of the Rings: The Best of Tolkien Criticism                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sandra Miesel as Author created:                                                                                         |
+|           Myth, Symbol &amp; religion in The lord of the rings                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Shaun McKenna as Author created:                                                                                         |
+|           Lord of the Rings                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Steven Schwartz as Author created:                                                                                       |
+|           The Lord of the Rings Official Game Secrets                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Stratford Caldecott as Author created:                                                                                   |
+|           Power of the Ring : The Spiritual Vision of the Lord of the Rings                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Terry Donaldson as Author created:                                                                                       |
+|           The Lord of the rings tarot                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Wayne G. Hammond as Author created:                                                                                      |
+|           The Lord of the Rings: A Reader's Companion                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: Who created Microsoft?
+  ------------------------------------------------------------------------------------------------------------------------
+| Who created Microsoft?                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| A. Nandy as Author created:                                                                                              |
+|           Practical Numerical Analysis using Microsoft Excel                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Alastair Day as Author created:                                                                                          |
+|           Mastering Financial Mathematics in Microsoft Excel                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ana M. Villar as Author created:                                                                                         |
+|           Microsoft Word                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Andy Rathbone as Author created:                                                                                         |
+|           MORE Microsoft Windows Me for Dummies                                                                          |
+|           Microsoft Windows Me Millennium Edition for dummies                                                            |
+|           Microsoft Windows 2000 Millennium Edition for Dummies, Pocket Edition                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ann Shaffer as Author created:                                                                                           |
+|           New Perspectives on Microsoft Office 2007, First Course, Windows Vista Edition                                 |
+|           Explore!  Microsoft Word 2000--Brief                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Barry Gerber as Author created:                                                                                          |
+|           Mastering Microsoft Exchange Server 2003                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ben Curry as Author created:                                                                                             |
+|           Microsoft Office SharePoint Server 2007 Best Practices                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Beverly Dretzke as Author created:                                                                                       |
+|           Statistics with Microsoft Excel                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Bill Gates as Business Person created:                                                                                   |
+|           Microsoft Corporation                                                                                          |
+|           Microsoft Research                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Bill Jelen as Author created:                                                                                            |
+|           Excel, Macros y VBA / VBA and Macros for Microsoft Excel                                                       |
+|           Charts and Graphs for Microsoft Office Excel 2007                                                              |
+|           Guerilla data analysis using Microsoft Excel                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Bryan Pfaffenberger as Author created:                                                                                   |
+|           Running Microsoft Internet Explorer 5                                                                          |
+|           Libro Oficial de Microsoft Internet Explorer                                                                   |
+|           Official Microsoft Internet Explorer 4 book                                                                    |
+|           Microsoft Windows 95 Internet kit                                                                              |
+|           The offical Microsoft Internet Explorer book                                                                   |
+|           Dynamics of Microsoft Word                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Casey D. Doyle as Author created:                                                                                        |
+|           Microsoft Press Computer Dictionary                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Charlie Russel as Author created:                                                                                        |
+|           Running Microsoft Windows NT server 4.0                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Christine Solomon as Author created:                                                                                     |
+|           Developing applications with Microsoft Office                                                                  |
+|           Microsoft Office 97 developer's handbook                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Clara Varela as Author created:                                                                                          |
+|           Microsoft Access 2003 Nociones Basicas                                                                         |
+|           Microsoft Access 2003 Nivel Intermedio                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Dan Gookin as Author created:                                                                                            |
+|           How to use Microsoft Excel 2000                                                                                |
+|           The Microsoft guide to managing memory with DOS 5                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David B. Yoffie as Author created:                                                                                       |
+|           Competing on Internet Time: Lessons from Netscape and Its Battle with Microsoft                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Beskeen as Author created:                                                                                         |
+|           Microsoft Office 2007 Illustrated Introductory, Windows XP Edition                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Blatner as Author created:                                                                                         |
+|           Microsoft Expression Design for Windows                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Bragg as Author created:                                                                                           |
+|           Microsoft Word 98 for the Mac                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David D. Busch as Author created:                                                                                        |
+|           Microsoft Works Suite 99 at a glance                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Karlins as Author created:                                                                                         |
+|           Teach yourself Microsoft FrontPage 98 in a week                                                                |
+|           Wild Web Graphics With Microsoft Image Composer                                                                |
+|           Microsoft Works for Kids &amp; Parents                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Sceppa as Author created:                                                                                          |
+|           Microsoft ADO.NET                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Dean Takahashi as Author created:                                                                                        |
+|           Opening the Xbox: Inside Microsoft's Plan to Unleash an Entertainment Revolution                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Deborah Kurata as Author created:                                                                                        |
+|           Doing objects in Microsoft Visual Basic 5.0                                                                    |
+|           Doing objects in Microsoft Visual Basic 4.0                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Diane Zak as Author created:                                                                                             |
+|           Programming with Microsoft Visual Basic .NET                                                                   |
+|           Microsoft Visual Basic 2005                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Don Benage as Author created:                                                                                            |
+|           Using Microsoft Visual studio                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Dylan G. Penal as Author created:                                                                                        |
+|           1 Way Microsoft Marches Strong                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ed Bott as Author created:                                                                                               |
+|           La Biblia de Microsoft Office 2003                                                                             |
+|           Faster Smarter Microsoft Windows XP                                                                            |
+|           Office Max - Using Microsoft Office 4                                                                          |
+|           Practical Microsoft Windows 2000 Professional                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ed Tittel as Author created:                                                                                             |
+|           Microsoft Windows NT 4 expert companion                                                                        |
+|           Microsoft certified systems engineer.                                                                          |
+|           Guide to Microsoft Windows 2000 Core Technologies                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ed Wilson as Author created:                                                                                             |
+|           Microsoft Windows PowerShell step by step                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Elaine J Marmel as Author created:                                                                                       |
+|           The essential Microsoft Word 2000 book                                                                         |
+|           Troubleshooting Microsoft Office XP                                                                            |
+|           Easy Microsoft Excel 97                                                                                        |
+|           Microsoft Office Project 2007 All-in-One Desk Reference for Dummies                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Faithe Wempen as Author created:                                                                                         |
+|           Special Edition Using Microsoft Office Word 2007                                                               |
+|           Using Microsoft Home Essentials 98                                                                             |
+|           Libro de Microsoft PowerPoint 2000 - Con Un CD-ROM                                                             |
+|           DDC Learning Microsoft Office XP Advanced Skills                                                               |
+|           Microsoft Access 2002 Fast &amp; Easy                                                                          |
+|           DDC Learning Microsoft Publisher 2002                                                                          |
+|           Practical Microsoft Windows 98                                                                                 |
+|           DDC Learning Microsoft Access 2002                                                                             |
+|           Microsoft Office 2007 for Seniors for Dummies                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Fergal Grimes as Author created:                                                                                         |
+|           Microsoft .Net for programmers                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Fernando Rodriguez as Author created:                                                                                    |
+|           Microsoft Excel 2003                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Gary B. Shelly as Author created:                                                                                        |
+|           Microsoft office                                                                                               |
+|           School Edition of Microsoft Office 2003                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| George Shepherd as Author created:                                                                                       |
+|           Manuel de référence Microsoft Visual C++ .NET                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Helen Feddema as Author created:                                                                                         |
+|           Microsoft Access Version 2002 Inside Out                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Inc. Systems as Author created:                                                                                          |
+|           Bt-Microsoft Windo Hbk                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| James Michael Stewart as Author created:                                                                                 |
+|           Guide to Microsoft Windows 2000 Core Technologies                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jan Ray as Author created:                                                                                               |
+|           Microsoft Excel Simple Projects                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jason Gerend as Author created:                                                                                          |
+|           Faster Smarter Microsoft Windows 98                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jerry Funk as Author created:                                                                                            |
+|           Learn Microsoft Works in a day                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Joan Preppernau as Author created:                                                                                       |
+|           Microsoft  Windows Vista Step by Step                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| John Wood as Author created:                                                                                             |
+|           Leaving Microsoft to Change the World                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Joseph J. Adamski as Author created:                                                                                     |
+|           New Perspectives on Microsoft Office Access 2007, Comprehensive                                                |
+|           New Perspectives on Microsoft Office Access 2007, Introductory                                                 |
+|           Comprehensive Microsoft Access 2.0 for Windows :                                                               |
+|           E-Course Microsoft Office 97                                                                                   |
+|           Introductory Microsoft Access 1.1 for Windows                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Judy Mardar as Author created:                                                                                           |
+|           Microsoft Office Excel 2003                                                                                    |
+|           Welcome To Microsoft Excel 2003                                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Julio M. Gonzalez as Author created:                                                                                     |
+|           Microsoft Powerpoint                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| June Jamrich Parsons as Author created:                                                                                  |
+|           New Perspectives on Microsoft Office Excel 2007, Comprehensive                                                 |
+|           New Perspectives on Microsoft Office Excel 2007, Introductory                                                  |
+|           A guide to Microsoft Windows 3.1                                                                               |
+|           An introduction to Microsoft Windows 3.1                                                                       |
+|           Brief Microsoft Windows 3.1 and DOS                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| KOTABE as Author created:                                                                                                |
+|           Global with Microsoft Encarta 98 Set                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kai-Fu Lee as Business Person created:                                                                                   |
+|           Microsoft Research Asia                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kate Gregory as Author created:                                                                                          |
+|           Microsoft Visual C++ .NET 2003 Kick Start                                                                      |
+|           Edicion Especial Microsoft Visual C++ 6                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kate J Chase as Author created:                                                                                          |
+|           A Guide to Microsoft Office 2000                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kathy Short as Author created:                                                                                           |
+|           Introduction to Microsoft Word and Excel                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kenneth Spencer as Author created:                                                                                       |
+|           Microsoft Windows 2000 Server - Administracion                                                                 |
+|           Cliente Servidor Con Microsoft Visual Basic                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kleber Stephenson as Author created:                                                                                     |
+|           Microsoft Office 2003 killertips                                                                               |
+|           Office 2003 / Microsoft Office 2003                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Kris Jamsa as Author created:                                                                                            |
+|           User's guide to Microsoft Windows 3.1                                                                          |
+|           Microsoft QuickPascal programming                                                                              |
+|           Fastback Plus Microsoft Quick Reference                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Larry Lozuk as Author created:                                                                                           |
+|           West's Essentials of Microsoft Word for                                                                        |
+|           Essentials of Microsoft Word for Windows                                                                       |
+|           Understanding and using Microsoft Word for Windows                                                             |
+|           Intermediate Microsoft Word for Windows 2.0                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Laura Lemay as Author created:                                                                                           |
+|           Microsoft FrontPage                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Mark L. Chambers as Author created:                                                                                      |
+|           Microsoft Office v.X for Mac                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Marty Matthews as Author created:                                                                                        |
+|           Microsoft Office Outlook 2007 QuickSteps                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Mary Jo Foley as Author created:                                                                                         |
+|           Microsoft 2.0: How Microsoft Plans to Stay Relevant in the Post-Gates Era                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Melanie Gass as Author created:                                                                                          |
+|           I Survived Microsoft Office 2007                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Michael Halvorson as Author created:                                                                                     |
+|           Microsoft Visual Basic 2008 Step by Step                                                                       |
+|           Integrating Microsoft Office XP Illustrated Brief                                                              |
+|           Microsoft Office 2003 Inside Out                                                                               |
+|           Running Guia Completa de Microsoft Office                                                                      |
+|           Learn Microsoft Visual Basic 6.0 Now                                                                           |
+|           Microsoft Office 2000 Premium au quotidien                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Michael Linenberger as Author created:                                                                                   |
+|           Total Workday Control Using Microsoft Outlook, 2nd Ed.                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Michael R. Middleton as Author created:                                                                                  |
+|           Data Analysis Using Microsoft Excel                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Microsoft Press as Author created:                                                                                       |
+|           Microsoft Press Computer Dictionary, 4th Edition                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Nabajyoti Barkakati as Author created:                                                                                   |
+|           Microsoft C/C++ 7 developer's guide                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Nancy Lewis as Author created:                                                                                           |
+|           Easy Microsoft Excel 2003 (2nd Edition)                                                                        |
+|           Easy Microsoft Office X                                                                                        |
+|           Microsoft Windows 2000 Professional Quick Reference                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Nathan Myhrvold as Business Person created:                                                                              |
+|           Microsoft Research                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Nevada Learning Series as Author created:                                                                                |
+|           Microsoft Excel 97 Quick Reference Guide                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Paul Allen as Business Person created:                                                                                   |
+|           Microsoft Corporation                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Paul Cornell as Author created:                                                                                          |
+|           Accessing and Analyzing Data with Microsoft Excel                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Paul Wray as Author created:                                                                                             |
+|           Computer Literacy With Microsoft Office 2000                                                                   |
+|           DDC Learning Microsoft Access 2002                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Pawan K. Bhardwaj as Author created:                                                                                     |
+|           MCTS 70-620 Microsoft Windows Vista                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Peter Mason as Author created:                                                                                           |
+|           Five-minute Microsoft Windows                                                                                  |
+|           Word processing with Microsoft Word for Windows                                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Qwiz as Author created:                                                                                                  |
+|           Trng TD Mac MS Wrd 6.0-Qwized Microsoft                                                                        |
+|           Trng TD MS Wn 95 F/Wn 3.1-Qwiz Microsoft                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ralph Ruby as Author created:                                                                                            |
+|           Microsoft works applications                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Randall E. Stross as Author created:                                                                                     |
+|           The Microsoft Way: The Real Story of How the Company Outsmarts Its Competition                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Rebecca M. Riordan as Author created:                                                                                    |
+|           Microsoft ADO.NET Step by Step                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Richard A. McMahon as Author created:                                                                                    |
+|           Microsoft Security Design Windows 2000                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Richard Rashid as Business Person created:                                                                               |
+|           Microsoft Research                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Robert A. Radcliffe as Author created:                                                                                   |
+|           Data handling utilities in Microsoft C                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Robert Bobel as Author created:                                                                                          |
+|           Active Introduction to Microsoft Windows 98                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Robert D. Schneider as Author created:                                                                                   |
+|           Microsoft SQL Server 2008 All-in-One Desk Reference for Dummies                                                |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Robert Lafore as Author created:                                                                                         |
+|           Object-oriented programming in Microsoft C++                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Robert Machalow as Author created:                                                                                       |
+|           Using Microsoft Works                                                                                          |
+|           Using Microsoft Excel                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Roi Facal as Author created:                                                                                             |
+|           Microsoft Powerpoint 2003 Nociones Basicas                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ron Mansfield as Author created:                                                                                         |
+|           Microsoft Office for the Mac Compact Guide                                                                     |
+|           The Mac book of Microsoft Word 5                                                                               |
+|           Working in Microsoft office                                                                                    |
+|           The compact guide to Microsoft Office                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Roy Ageloff as Author created:                                                                                           |
+|           Microsoft Excel 7 for Windows 95 - Advanced                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sharon Crawford as Author created:                                                                                       |
+|           Faster Smarter Microsoft Windows 98                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Shelley Gaskin as Author created:                                                                                        |
+|           GO! with Microsoft Office 2007 Introductory                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sheryl A. Sorby as Author created:                                                                                       |
+|           Microsoft Word 6.0 for Engineers                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sonia Silva as Author created:                                                                                           |
+|           Microsoft Outlook 2003                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Stephen C. Solosky as Author created:                                                                                    |
+|           Microsoft Excel                                                                                                |
+|           Microsoft Access                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Stephen Hawking as Business Person created:                                                                              |
+|           Microsoft Research                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Stephen L. Nelson as Author created:                                                                                     |
+|           MBA's guide to Microsoft Excel 2000                                                                            |
+|           Microsoft Excel 97 Field Guide                                                                                 |
+|           Microsoft Money 98 at a glance                                                                                 |
+|           Microsoft pocket guide to Microsoft Word 2000                                                                  |
+|           Microsoft FrontPage 2000 at a glance                                                                           |
+|           Microsoft PowerPoint 97 field guide                                                                            |
+|           Microsoft Help Desk for Microsoft Windows Nt Workstation 4.0                                                   |
+|           Ask the expert guide to Microsoft Money 2001                                                                   |
+|           Microsoft Access 97 field guide                                                                                |
+|           Microsoft Money 99 at a glance                                                                                 |
+|           Microsoft Windows 98 field guide                                                                               |
+|           Microsoft Outlook 2000 At a Glance                                                                             |
+|           Microsoft Exchange 5.0 field guide                                                                             |
+|           Microsoft Outlook 98 field guide                                                                               |
+|           Microsoft Outlook 97 at a glance                                                                               |
+|           Field guide to Microsoft Windows 95                                                                            |
+|           Microsoft Internet Explorer 4 field guide                                                                      |
+|           Microsoft Word 97 field guide                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Steven Holzner as Author created:                                                                                        |
+|           Microsoft Visual C# .NET 2003 kick start                                                                       |
+|           Special Edition Using Microsoft(R)  Office Visio 2007                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sue Mosher as Author created:                                                                                            |
+|           Microsoft Outlook 2007 Programming                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Syngress Publishing as Author created:                                                                                   |
+|           MCSE Microsoft TCP/IP on Windows NT 4.0 Study Guide                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Thomas J. Cashman as Author created:                                                                                     |
+|           Microsoft Office 2003                                                                                          |
+|           School Edition of Microsoft Office 2003                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Thomas Rizzo as Author created:                                                                                          |
+|           Professional Microsoft SharePoint search                                                                       |
+|           Programacion Con Microsoft Outlook Y Exchange                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Tonya Engst as Author created:                                                                                           |
+|           Microsoft Office 4.2 Survival Guide for Macintosh                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Vanessa Williams as Author created:                                                                                      |
+|           Microsoft SharePoint 2007 For Dummies                                                                          |
+|           Microsoft SharePoint 2003 for Dummies                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| William R. Pasewark as Author created:                                                                                   |
+|           Microsoft Office 2000                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| William R. Trotter as Author created:                                                                                    |
+|           Microsoft close combat - a bridge too far                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
+Query-Question: Who created Romeo and Juliet?
+  ------------------------------------------------------------------------------------------------------------------------
+| Who created Romeo and Juliet?                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Adolph Caso as Author created:                                                                                           |
+|           Romeo and Juliet: Original Text of                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Andrew Halliday as Author created:                                                                                       |
+|           Romeo and Juliet travestie, or, The cup of cold poison                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Ben Power as Author created:                                                                                             |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Bruce Coville as Author created:                                                                                         |
+|           William Shakespeare's Romeo and Juliet                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Charles Gounod as Author created:                                                                                        |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| David Garrick as Author created:                                                                                         |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Edward Loomis as Author created:                                                                                         |
+|           Romeo and Juliet in L.A                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Frederick Delius as Author created:                                                                                      |
+|           A village Romeo and Juliet                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Gail Herman as Author created:                                                                                           |
+|           Everybody Hates Romeo and Juliet                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Gareth Hinds as Author created:                                                                                          |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| George Lyman Kittredge as Author created:                                                                                |
+|           New light on Romeo and Juliet                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Gottfried Keller as Author created:                                                                                      |
+|           A village Romeo and Juliet                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| H. B. Charlton as Author created:                                                                                        |
+|           Romeo and Juliet as an experimental tragedy                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Harley Granville-Barker as Author created:                                                                               |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Harold Bloom as Author created:                                                                                          |
+|           UC Romeo and Juliet                                                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Helen Morris as Author created:                                                                                          |
+|           Romeo and Juliet by William Shakespeare                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| James Cunningham as Author created:                                                                                      |
+|           A study of the 1980's criticism of Shakespeare's tragedies with new readings of Romeo and Juliet, Titus Andron |
+|           icus,and Richard III                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| John Mahoney as Author created:                                                                                          |
+|           Romeo and Juliet, William Shakespeare                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Judith Arnold as Author created:                                                                                         |
+|           Just Like Romeo and Juliet                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Jules Tasca as Author created:                                                                                           |
+|           Romeo and Juliet are lovers                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Leo Fredricks as Author created:                                                                                         |
+|           Romeo and Juliet jig jig                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Lolita Chakrabarti as Author created:                                                                                    |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Lukas Erne as Author created:                                                                                            |
+|           The First Quarto of Romeo and Juliet                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Margaret Early as Author created:                                                                                        |
+|           The most excellent and lamentable tragedy of Romeo and Juliet                                                  |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Mark Morris as Author created:                                                                                           |
+|           Romeo and Juliet Teacher's Resource Book                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Natalie Bishop as Author created:                                                                                        |
+|           Love Like Romeo And Juliet                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Norris Houghton as Author created:                                                                                       |
+|           Romeo and Juliet and West Side Story                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Olin H. Moore as Author created:                                                                                         |
+|           The legend of Romeo and Juliet                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Peter Holding as Author created:                                                                                         |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Rebecca Lisle as Author created:                                                                                         |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Rex Gibson as Author created:                                                                                            |
+|           Cambridge Student Guide to Romeo and Juliet                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Russell Jackson as Author created:                                                                                       |
+|           Romeo and Juliet - Arden Shakespeare                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Russell L. Erickson as Author created:                                                                                   |
+|           The relation between quarto 1 and quarto 2 of Romeo and Juliet                                                 |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Sergei Prokofiev as Author created:                                                                                      |
+|           Romeo and Juliet Suite No. 2, Op. 64c                                                                          |
+|           Danse populaire from Romeo and Juliet                                                                          |
+|           Scene, and Mercutio, from Romeo and Juliet, ballet                                                             |
+|           Romeo and Juliet Suite No. 3, Op. 101                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| SparkNotes as Author created:                                                                                            |
+|           Romeo and Juliet (No Fear Shakespeare)                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| Theophilus Cibber as Author created:                                                                                     |
+|           Romeo and Juliet                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------ |
+| William Shakespeare as Author created:                                                                                   |
+|           Romeo and Juliet                                                                                               |
+|           The First Quarto of Romeo and Juliet                                                                           |
+|           An excellent conceited tragedie of Romeo and Juliet                                                            |
+| ------------------------------------------------------------------------------------------------------------------------ |
+
+
