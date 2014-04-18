@@ -279,3 +279,6 @@ Additionally, we made the choice to not output 'now' as the reference implementa
 assumes for coaches and other properties' 'to' sub-property.
 This is because just because Freebase doesn't have the 'to' data doesn't mean that the
 coach is still coaching.  Freebase just may not have the 'to' information stored.
+
+Although we require you to input some API key as a command line argument, the script
+will ultimately use ours which is hardcoded into it.
