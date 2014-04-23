@@ -18,7 +18,7 @@ rdr= csv.reader( source )
 
 blocks = defaultdict(dict)
 for row in rdr:
-	if row[1] != '0000000000' and row[1] != '' and row[0] != 'N/A' and row[0] != 'INCORRECT LICENSE':
+	if row[1] != '0000000000' and row[1] != '' and row[0] != 'N/A' and row[0] != 'INCORRECT LICENSE' and row[0] != '':
 		blocks[row[1]][row[0]] = 1
 
 output = open('INTEGRATED-DATASET.csv', 'w')
