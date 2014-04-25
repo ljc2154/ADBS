@@ -19,7 +19,12 @@ rdr= csv.reader( source )
 blocks = defaultdict(dict)
 for row in rdr:
 	if row[1] != '0000000000' and row[1] != '' and row[0] != 'N/A' and row[0] != 'INCORRECT LICENSE' and row[0] != '':
-		blocks[row[1]][row[0]] = 1
+		if row[0] == 'EQUIPMENT':
+			blocks[row[1]]['EQUIPMENT WORK'] = 1
+		elif row[0] == 'FOOD SERVICE ESTAB' or row[0] == 'FOOD SERVICE ESTABL.' or row[0] == 'FOOD SERVICE ESTAB.':
+			blocks[row[1]]['FOOD SERVICE EST.'] = 1
+		else:
+			blocks[row[1]][row[0]] = 1
 
 output = open('INTEGRATED-DATASET.csv', 'w')
 for block in blocks:

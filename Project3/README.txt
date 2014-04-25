@@ -15,9 +15,12 @@ c)	A detailed description explaining:
 	First we downloaded the data set in .csv format.
 	We then created a smaller .csv consisting of the only columns we cared about from the data set (Permit_Type_Description and Borough_Block_Lot).
 	We then used a python script that stored the information from the data set valuable to us in a dictionary.
-	The dictionary mapped block numbers to sub-dictionary that mapped different permit types to bits.
-	Then, for each main dictionary key (city block), we wrote its subdictionary keys to a line of INTEGRATED-DATASET.csv.
+	The dictionary mapped block numbers to sub-dictionaries that mapped different permit types to bits (1 if the block contained that permit type).
+	Then, for each main dictionary key (city block), we wrote its subdictionary keys (permit types) to a line of INTEGRATED-DATASET.csv.
 	We made the decision not to incorporate unknown block numbers (all 0s) and unknown permit types (N/A or INCORRECT LICENSE) in our INTEGRATED-DATASET.csv.
+	Sometimes, different data was entered to denote the same permit type
+	(ie, FOOD SERVICE EST. and FOOD SERVICE ESTAB. or EQUIPMENT and EQUIPMENT WORK)
+	We did our best to unify such instances under one permit type.
 
 
 	(c) what makes your choice of INTEGRATED-DATASET file interesting (in other words, justify your choice of NYC Open Data data set(s)).
