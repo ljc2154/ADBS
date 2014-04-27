@@ -19,7 +19,9 @@ rdr= csv.reader( source )
 blocks = defaultdict(dict)
 for row in rdr:
 	if row[1] != '0000000000' and row[1] != '' and row[0] != 'N/A' and row[0] != 'INCORRECT LICENSE' and row[0] != '':
-		if row[0] == 'FOOD SERVICE EST.' or row[0] == 'FOOD SERVICE ESTAB' or row[0] == 'FOOD SERVICE ESTABL.' or row[0] == 'FOOD SERVICE ESTAB.':
+		if row[0] == 'PLUMBING' or row[0] == 'EQUIPMENT WORK':
+			print 'Ignoring plumbing or equipment work'
+		elif row[0] == 'FOOD SERVICE EST.' or row[0] == 'FOOD SERVICE ESTAB' or row[0] == 'FOOD SERVICE ESTABL.' or row[0] == 'FOOD SERVICE ESTAB.':
 			blocks[row[1]]['FOOD SERVICE EST.'] = 1
 		elif row[0] == 'FULL TERM MFV PERMIT' or row[0] == 'FOOD VENDOR LICENSE':
 			blocks[row[1]]['FOOD VENDOR LICENSE'] = 1
@@ -27,16 +29,19 @@ for row in rdr:
 			blocks[row[1]][row[0]] = 1
 
 output = open('INTEGRATED-DATASET.csv', 'w')
-
+row = 1
 for block in blocks:
-	counter = 1
-	for permit in blocks[block]:
-		if counter == 1:
-			output.write(permit)
-			counter=counter+1
-		else:
-			output.write(','+permit)
-			counter=counter+1
-	# write new line
-	output.write('\n')
+	if row <= 10000:
+		counter = 1
+		for permit in blocks[block]:
+			if counter == 1:
+				output.write(permit)
+				counter=counter+1
+			else:
+				output.write(','+permit)
+				counter=counter+1
+		# write new line
+		if counter != 100000:
+			output.write('\n')
+	row += 1
 output.close()

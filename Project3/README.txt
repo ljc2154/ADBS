@@ -19,18 +19,23 @@ c)	A detailed description explaining:
 	We then created a smaller .csv consisting of the only columns we cared about from the data set (Permit_Type_Description and Borough_Block_Lot).
 	We then used a python script that stored the information from the data set valuable to us in a dictionary.
 	The dictionary mapped block numbers to sub-dictionaries that mapped different permit types to bits (1 if the block contained that permit type).
-	Then, for each main dictionary key (city block), we wrote its subdictionary keys (permit types) to a line of INTEGRATED-DATASET.csv.
+	Then, for each of the first 10,000 main dictionary keys (city blocks), we wrote its subdictionary keys (permit types) to a line of INTEGRATED-DATASET.csv.
 	We made the decision not to incorporate unknown block numbers (all 0s) and unknown permit types (N/A or INCORRECT LICENSE) in our INTEGRATED-DATASET.csv.
 	Sometimes, different data was entered to denote the same permit type
 	(ie, FOOD SERVICE EST. and FOOD SERVICE ESTAB. or FULL TERM MFV PERMIT and FOOD VENDOR LICENSE)
 	We did our best to unify such instances under one permit type.
+	Additionally, we chose to disclude permits for PLUMBING and EQUIPMENT WORK from our data set as nearly all blocks with buildings require plumbing work or equipment work (ie, tweaking the boiler).
+	This means that any block with a building-related permit will also have a plumbing related permit and most likely an equipment work permit.
+	This would then create a large amount of uninteresting association rules with PLUMBING or EQUIPMENT work on the RHS and some combination of building-related permits on the LHS.
+	We chose to only take the first 10,000 market baskets because we found them to be a fair representation of all market baskets and the run time was significantly longer of our program when we include all 300,000 market baskets.
 
 
 	(c) what makes your choice of INTEGRATED-DATASET file interesting (in other words, justify your choice of NYC Open Data data set(s)).
-	We think the choice of different permit types granted by block would be interesting and potentially useful to city officials and related businesses.
-	How likely is a block that required equipment work (ie, work on the boiler) to need plumbing done?
-	If it is, city officials might be inclined to offer a packaged equipment work/plumbing permit in an effort to sell/issue more permits and thus bring more money into the city.
-	Perhaps it would even be helpful for someone getting a food cart permit to know how succesfull food carts are on a block with a food establishment if association rules are any measure of success.
+	We think the choice of different permit types granted by block would be interesting and potentially useful to city officials and possibly related businesses.
+	How likely is a block that had a FULL DEMOLITION to also have a NEW BUILDING permit?
+	If it is highly likely, city officials might be inclined to offer a packaged FULL DEMOLITION/NEW BUILDING permit in an effort to sell/issue more permits and thus bring more money into the city.
+	Alternatively, if it is unlikely, it could spark discussions between analysts at city hall as to why knocked down buildings aren't being replaced by new ones.
+	Perhaps it would even be helpful for someone getting a food cart permit to know how succesfull food carts are on a block with a food establishment (if association rules are any measure of success).
 
 
 d)     A clear description of how to run your program (note that your project must compile/run under Linux in your CS account);
@@ -72,9 +77,27 @@ VARIATIONS ON APRIORI
 We used Apriori just as described in 2.1 of Fast Algorithms for Mining Association Rules without any variations.
 
 f)      The command line specification of an interesting sample run (i.e., a min_sup, min_conf combination that produces interesting results). Briefly explain why the results are interesting.
+python associationRuleMining.py INTEGRATED-DATASET.csv .042 .55
 
+Before divulging into the association rules we found interesting, I wanted to explain a common permit type, EQUIPMENT.
+In NYC, an EQUIPMENT permit is required to use Heating, Ventilation, Air Conditioning, or Refrigeration equipoment while on a construction job.
+Thus, the association rule "[FULL DEMOLITION] => [EQUIPMENT] (Conf: 93.8%, Supp: 9.0000%)" makes perfect sense:
+When tackling the full demolition of a building in NYC with its hot summers and cold winters, it would make sense for workers on a block to require some form of equipment use permit at some point of the demolition process.
+
+Interesting Association Rule 1: [SIGN] => [EQUIPMENT] (Conf: 74.5%, Supp: 4.3500%)
+If city hall officials learned of how likely a block requiring a sign is to require an equipment use permit, it may be profitable for the city to sell a SIGN + EQUIPMENT permit.
+
+Interesting Association Rule 2: [FOOD SERVICE EST., ALTERATION] => [EQUIPMENT] (Conf: 66.8%, Supp: 4.4400%)
+What interests me most about this association rule is that there is no ALTERATION => EQUIPMENT or FOOD SERVICE EST. => EQUIPMENT association rules above the minimum confidence level.
+Does this imply that restaurants are likely to bring in the necessary equipment to stay open while alterations are happening to its building? 
+
+Interesting Association Rule 3:[FULL DEMOLITION] => [NEW BUILDING] (Conf: 57.0%, Supp: 5.4700%)
+There are a few points of interest with this association rule.
+First, observe that NEW BUILDING => FULL DEMOLITION is not in example-run.txt and thus did not exceed our minimum confidence.
+This is because this association rule has a confidence lower than 40%.
+This would mean that the vast majority of new buildings going up aren't going up in place of torn down buildings.
+However, association rule 3 leads us to believe that most buildings being torn down ARE being replaced by a new building.
+I think the combination of these findings are interesting.
+Should we be alarmed by the possible increased amount of land being used for buildings?
 
 g)     Any additional information that you consider significant.
-Our INTEGRATED-DATASET.csv file consists of nearly 300,000 lines.
-You may wish to only run it with a subset of the lines.
-We've found almost identical results by creating a SMALL-INTEGRATED-DATASET.csv consisting of anywhere form 1,000 to 100,000 lines.
