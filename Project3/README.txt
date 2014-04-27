@@ -28,9 +28,9 @@ c)	A detailed description explaining:
 
 	(c) what makes your choice of INTEGRATED-DATASET file interesting (in other words, justify your choice of NYC Open Data data set(s)).
 	We think the choice of different permit types granted by block would be interesting and potentially useful to city officials and related businesses.
-	How likely is a block that required equipment work to need plumbing done?
-	How likely are cigarrette shops to be located on blocks with barber shops?
-	Perhaps it would even be helpful for someone opening up a laundry business to see how correlated they are with beauty parlors on the same block.
+	How likely is a block that required equipment work (ie, work on the boiler) to need plumbing done?
+	If it is, city officials might be inclined to offer a packaged equipment work/plumbing permit in an effort to sell/issue more permits and thus bring more money into the city.
+	Perhaps it would even be helpful for someone getting a food cart permit to know how succesfull food carts are on a block with a food establishment if association rules are any measure of success.
 
 
 d)     A clear description of how to run your program (note that your project must compile/run under Linux in your CS account);
