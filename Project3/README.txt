@@ -4,7 +4,10 @@ Kevin Mangan kmm2256
 
 b)	A list of all the files that you are submitting;
 README.txt: this file
-INTEGRATED-DATASET.csv: our single file consisting of market basket type rows of permit types requested for a given block
+INTEGRATED-DATASET.csv: our single csv file containing our INTEGRATED-DATASET file.  Each row corresponds to a "market basket" of permit types granted for a given block in New York City over a duration of time.
+Makefile: file containing steps to run our program
+example-run.txt: a file with an interesting sample run of our program
+associationRuleMining.py: python script containing program source code
 
 c)	A detailed description explaining:
 	(a) which NYC Open Data data set(s) you used to generate the INTEGRATED-DATASET file;

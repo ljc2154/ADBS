@@ -6,31 +6,31 @@ import os # for system
 import copy
 
 # Make sure script utilized correctly with command line arguments
-usageStr = "Usage error: Format must be python associationRuleMining.py <INTEGRATED-DATASET.csv> <Minimum Support> <Minimum Confidence>\n"
-usageStr += " or make ARGS=\" <INTEGRATED-DATASET.csv> <Minimum Support> <Minimum Confidence>\"\n"
-usageStr += " or python associationRuleMining.py <INTEGRATED-DATASET.csv> <Minimum Support> <Minimum Confidence>\n"
-usageStr += " or make ARGS=\" <INTEGRATED-DATASET.csv> <Minimum Support> <Minimum Confidence>\""
+usageStr = "Format must be:\n"
+usageStr += "\tpython associationRuleMining.py <INTEGRATED-DATASET.csv> <Minimum Support> <Minimum Confidence>\n"
+usageStr += "or\n"
+usageStr += "\tmake ARGS=\" <INTEGRATED-DATASET.csv> <Minimum Support> <Minimum Confidence>\""
 if len(sys.argv) != 4:
-	sys.exit(usageStr)
+	sys.exit('Usage error. ' + usageStr)
 
 # Check that INTEGRATED-DATASET exists
 integrated_dataset = sys.argv[1]
 if os.path.isfile(integrated_dataset) == False:
-	sys.exit(usageStr)
+	sys.exit('Invalid Argument: \n\t\'' + sys.argv[1] + '\' is not a valid file.\n' + usageStr)
 
 # Check minimum support and minimum confidence are valid
 try:
 	min_sup = float(sys.argv[2])
 except ValueError:
-	sys.exit(usageStr)
+	sys.exit('Invalid Argument: \n\t\'' + sys.argv[2] + '\' must be of type float.\n' + usageStr)
 if min_sup < 0 or min_sup > 1:
-	sys.exit(usageStr)
+	sys.exit('Invalid Argument: \n\t\'' + sys.argv[2] + '\' must be in range [0,1].\n' + usageStr)
 try:
 	min_conf = float(sys.argv[3])
 except ValueError:
-	sys.exit(usageStr)
+	sys.exit('Invalid Argument: \n\t\'' + sys.argv[3] + '\' must be of type float.\n' + usageStr)
 if min_conf < 0 or min_conf > 1:
-	sys.exit(usageStr)
+	sys.exit('Invalid Argument: \n\t\'' + sys.argv[3] + '\' must be in range [0,1].\n' + usageStr)
 
 
 # Compute Frequent Itemsets
@@ -61,7 +61,7 @@ while len(listofLs[-1]) > 0:
 	if listofLs[-1][0][0] == Set(['']):
 		print 'Generating Frequent Itemsets of Size 1'
 	else:
-		print 'Generating Frequent Itemsets of length ' + str(len(listofLs[-1][0][0])+1)
+		print 'Generating Frequent Itemsets of Size ' + str(len(listofLs[-1][0][0])+1)
 	lastL = listofLs[-1]
 
 	# generate C_k
