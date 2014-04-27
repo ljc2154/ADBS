@@ -53,15 +53,11 @@ listofLs = []
 # set L_0
 newL = []
 tempL = []
-tempL.append('')
 newL.append((Set(tempL), 0.0))
 listofLs.append(newL)
 
 while len(listofLs[-1]) > 0:
-	if listofLs[-1][0][0] == Set(['']):
-		print 'Generating Frequent Itemsets of Size 1'
-	else:
-		print 'Generating Frequent Itemsets of Size ' + str(len(listofLs[-1][0][0])+1)
+	print 'Generating Frequent Itemsets of Size ' + str(len(listofLs[-1][0][0])+1)
 	lastL = listofLs[-1]
 
 	# generate C_k
@@ -72,10 +68,8 @@ while len(listofLs[-1]) > 0:
 			newSet = copy.deepcopy(itemSet[0])
 			if item not in newSet:
 				# Check if we are generating L_1
-				if '' in newSet:
-					newSet = Set([])
 				newSet.add(item)
-				if newSet not in c:
+				if len(newSet) > 0 and newSet not in c:
 					c.append(newSet)
 					cCount.append(0)
 
@@ -90,7 +84,7 @@ while len(listofLs[-1]) > 0:
 	# Generate L_k
 	newL = []
 	for i in xrange(len(c)):
-		if float(cCount[i])/rows > min_sup:
+		if float(cCount[i])/rows >= min_sup:
 			newL.append((c[i], float(cCount[i])/rows))
 
 	# Append L_k
@@ -100,7 +94,7 @@ while len(listofLs[-1]) > 0:
 frequentItemSets = []
 for l_k in listofLs:
 	for itemSet in l_k:
-		if '' not in itemSet[0]:
+		if len(itemSet[0]) > 0:
 			frequentItemSets.append(itemSet)
 
 # Write itemsets to output file in order of decreasing support
@@ -122,7 +116,7 @@ for setA in frequentItemSets:
 		if setB[0] != setA[0] and setB[0].issubset(setA[0]):
 			# Check if confidence of LHS => RHS is sufficient
 			conf = setA[1]/setB[1]
-			if conf > min_conf:
+			if conf >= min_conf:
 				# Generate new association rule and add it to list
 				rhs = setA[0].difference(setB[0])
 				# We only want association rules with 1 item on RHS
