@@ -41,7 +41,7 @@ for block in blocks:
 				output.write(','+permit)
 				counter=counter+1
 		# write new line
-		if counter != 100000:
+		if counter != 10000:
 			output.write('\n')
 	row += 1
 output.close()

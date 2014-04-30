@@ -24,10 +24,11 @@ c)	A detailed description explaining:
 	Sometimes, different data was entered to denote the same permit type
 	(ie, FOOD SERVICE EST. and FOOD SERVICE ESTAB. or FULL TERM MFV PERMIT and FOOD VENDOR LICENSE)
 	We did our best to unify such instances under one permit type.
-	Additionally, we chose to disclude permits for PLUMBING and EQUIPMENT WORK from our data set as nearly all blocks with buildings require plumbing work or equipment work (ie, tweaking the boiler).
-	This means that any block with a building-related permit will also have a plumbing related permit and most likely an equipment work permit.
-	This would then create a large amount of uninteresting association rules with PLUMBING or EQUIPMENT work on the RHS and some combination of building-related permits on the LHS.
-	We chose to only take the first 10,000 market baskets because we found them to be a fair representation of all market baskets and the run time was significantly longer of our program when we include all 300,000 market baskets.
+	Additionally, we chose to disclude permits from our data set that would be required for nearly every block with a building over the past twenty years (the spanning of the Multi Agency Permits data set).
+	In other words, we discluded permits where the direct causation would obviously be because the block contains a building and the building requires that permit over the course of 20 years (and not because of another permit in the market basket).
+	Allowing such permits would wind up creating a large amount of uniteresting association rules with those permit types on the RHS and some combinatiion of building-related permit types on the LHS.
+	We determined the PLUMBING and EQUIPMENT WORK (ie, fixing the boiler) permit types to fall into this category and did not include them in our INTEGRATED-DATASET.
+	We chose to only take the first 10,000 market baskets because we found them to be a fair representation of all market baskets and the run time was significantly longer (HOURS) of our program when we include all 300,000 market baskets.
 
 
 	(c) what makes your choice of INTEGRATED-DATASET file interesting (in other words, justify your choice of NYC Open Data data set(s)).
@@ -43,8 +44,7 @@ d)     A clear description of how to run your program (note that your project mu
 2. Run the python script in one of the 2 following ways:
 	a) python associationRuleMining.py <INTEGRATED-DATASET.csv> <Minimum Support> <Minimum Confidence>
 	b) make ARGS=" <INTEGRATED-DATASET.csv> <Minimum Support> <Minimum Confidence>"
-	note: order of args important. minimum support and confidence must
-		be between 0 and 1.
+	note: order of args important. minimum support and confidence must be between 0 and 1.
 
 
 e)      A clear description of the internal design of your project; in particular, if you decided to implement variation(s) of the original a-priori algorithm (see above), you must explain precisely what variation(s) you have implemented and why.
@@ -58,7 +58,7 @@ We maintain all possible items in a master list of strings.
 We represented various item sets with the Set data type.
 We then combined an itemset with its support as determined in the Apriori algorithm in a (Set, float) tuple.
 In the Apriori algorithm, we maintain c, the list of candidate itemsets at a certain length, as a list of Sets.
-We then maintain the related cCount array such that the count at index i of the cCount array corresponds to the count of the itemset at index i of c.
+We then maintain the related cCount list such that the count at index i of the cCount list corresponds to the count of the itemset at index i of c.
 Also in the Apriori algorithm, we maintain each L_k, the list of frequent item sets of size k, as a list of (Set, float) tuples of storing each itemset and its support.
 We then maintain all the L_ks in a listofLs list of lists such that listofLs[k] stores L_k.
 We then go on to store association rules in a list of (Set, Set, float float) tuples corresponding to (LHS, RHS, confidence, support).
