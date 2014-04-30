@@ -101,3 +101,8 @@ I think the combination of these findings are interesting.
 Should we be alarmed by the possible increased amount of land being used for buildings?
 
 g)     Any additional information that you consider significant.
+The EQUIPMENT and EQUIPMENT WORK permits are different.
+As stated in f, an EQUIPMENT permit is required to use Heating, Ventilation, Air Conditioning, or Refrigeration equipoment while on a construction job in NYC.
+Meanwhile, an EQUIPMENT WORK permit is required to do work on a boiler (or some other heating device) in a building in NYC.
+It took some research to figure out this difference.
+
